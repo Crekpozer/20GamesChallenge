@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://co2o2knnwowbj"]
+[gd_scene load_steps=48 format=3 uid="uid://co2o2knnwowbj"]
 
 [ext_resource type="Texture2D" uid="uid://rjxgx5tc5li5" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/background_brown.png" id="1_2gd4f"]
 [ext_resource type="Script" uid="uid://dreyvrya7s4l5" path="res://Scripts/main.gd" id="1_4f205"]
@@ -12,10 +12,60 @@
 [ext_resource type="Texture2D" uid="uid://dgjaq2bf82pd5" path="res://Addons/kenney_input-prompts/keyboard_s_outline.png" id="8_hvw3n"]
 [ext_resource type="Texture2D" uid="uid://ch7xnf78a3wd4" path="res://Addons/kenney_input-prompts/keyboard_w_outline.png" id="9_3pegn"]
 [ext_resource type="Texture2D" uid="uid://fc8leo5a6wax" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/ball_blue_large.png" id="12_l0ud6"]
-[ext_resource type="Script" uid="uid://cdpcjf6tjyaw1" path="res://Scenes/pre_game_screen.gd" id="13_q3i8e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bugre"]
 size = Vector2(68.5714, 251.429)
+
+[sub_resource type="Animation" id="Animation_q3i8e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArrowUp:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArrowDown:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KeyboardSOutline:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KeyboardWOutline:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_l0ud6"]
 resource_name = "TIPSANIMATION"
@@ -67,57 +117,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_q3i8e"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ArrowUp:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ArrowDown:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("KeyboardSOutline:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("KeyboardWOutline:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hvw3n"]
@@ -176,7 +175,10 @@ size = Vector2(30, 648)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jhdhk"]
 font = SubResource("SystemFont_dpcf1")
-font_size = 64
+font_size = 70
+outline_color = Color(0.0457637, 0.0457637, 0.0457637, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.882353)
 
 [sub_resource type="LabelSettings" id="LabelSettings_bugre"]
 font_size = 150
@@ -335,6 +337,181 @@ font_color = Color(0.924615, 0.105105, 0.191184, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rw01f"]
 font_size = 30
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.74902)
+
+[sub_resource type="SystemFont" id="SystemFont_l0ud6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h7bwd"]
+font = SubResource("SystemFont_l0ud6")
+font_size = 250
+font_color = Color(0.996078, 0.866667, 0.121569, 1)
+outline_size = 20
+outline_color = Color(0, 1, 0.168627, 1)
+
+[sub_resource type="Animation" id="Animation_h7bwd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/PressToPlay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CountDown/N3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CountDown/N2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CountDown/N1:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CountDown/N3:scale:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CountDown/N3:scale:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CountDown/N2:scale:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CountDown/N2:scale:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CountDown/N1:scale:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CountDown/N1:scale:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("%ScoreCPU:self_modulate:a")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("%ScorePlayer:self_modulate:a")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../HUD:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_xon8w"]
 resource_name = "STARTGAME"
@@ -355,25 +532,173 @@ tracks/0/keys = {
 "values": [true, false, true]
 }
 
-[sub_resource type="Animation" id="Animation_h7bwd"]
-length = 0.001
-tracks/0/type = "value"
+[sub_resource type="Animation" id="Animation_3u63p"]
+resource_name = "TransitionToGame"
+length = 4.1
+tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/PressToPlay:visible")
+tracks/0/path = NodePath("Panel:modulate:a")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.833333, -0.00279438, -0.000798378, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.833333)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CountDown/N3:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [true]
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CountDown/N2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.93333, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CountDown/N1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.93333, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CountDown/N3:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.833333, 1.2, 1.5)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CountDown/N3:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.833333, 1.2, 1.5)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CountDown/N2:scale:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.83333, 2.2, 2.5)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CountDown/N2:scale:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.83333, 2.2, 2.5)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CountDown/N1:scale:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.93333, 3.3, 3.6)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CountDown/N1:scale:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.93333, 3.3, 3.6)
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("..")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("%ScoreCPU:self_modulate:a")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 4)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("%ScorePlayer:self_modulate:a")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 4)
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../HUD:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3u63p"]
 _data = {
 &"RESET": SubResource("Animation_h7bwd"),
 &"STARTGAME": SubResource("Animation_xon8w"),
+&"TransitionToGame": SubResource("Animation_3u63p"),
 &"WAINTINGTOSTART": SubResource("Animation_rw01f")
 }
 
@@ -492,13 +817,13 @@ shape = SubResource("RectangleShape2D_4f205")
 [node name="BallTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
-autostart = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 visible = false
 
 [node name="ScorePlayer" type="Label" parent="HUD"]
 unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -517,6 +842,7 @@ vertical_alignment = 1
 
 [node name="ScoreCPU" type="Label" parent="HUD"]
 unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 640.0
 offset_top = 16.0
 offset_right = 680.0
@@ -584,8 +910,6 @@ libraries = {
 }
 
 [node name="PreGameScreen" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("13_q3i8e")
 
 [node name="Panel" type="Panel" parent="PreGameScreen"]
 anchors_preset = 15
@@ -736,7 +1060,7 @@ layout_mode = 0
 offset_top = 65.0
 offset_right = 389.0
 offset_bottom = 88.0
-text = "- Your weak points is also your enemy weak points too"
+text = "- Your weak points is also your enemy's weak points"
 
 [node name="PressToPlay" type="Label" parent="PreGameScreen/Panel"]
 layout_mode = 1
@@ -755,6 +1079,73 @@ text = "Press anything to play"
 label_settings = SubResource("LabelSettings_rw01f")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CountDown" type="Control" parent="PreGameScreen"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -90.0
+offset_right = 81.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="N3" type="Label" parent="PreGameScreen/CountDown"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -171.0
+offset_right = 71.5
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+label_settings = SubResource("LabelSettings_h7bwd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="N2" type="Label" parent="PreGameScreen/CountDown"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -171.0
+offset_right = 71.5
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+label_settings = SubResource("LabelSettings_h7bwd")
+
+[node name="N1" type="Label" parent="PreGameScreen/CountDown"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -171.0
+offset_right = 71.5
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_h7bwd")
 
 [node name="PreGameAnimationPlayer" type="AnimationPlayer" parent="PreGameScreen"]
 unique_name_in_owner = true
