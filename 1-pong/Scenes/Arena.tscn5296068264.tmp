@@ -1,0 +1,134 @@
+[gd_scene load_steps=13 format=3 uid="uid://co2o2knnwowbj"]
+
+[ext_resource type="Texture2D" uid="uid://rjxgx5tc5li5" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/background_brown.png" id="1_2gd4f"]
+[ext_resource type="Script" uid="uid://dreyvrya7s4l5" path="res://Scripts/main.gd" id="1_4f205"]
+[ext_resource type="Texture2D" uid="uid://c5psl0gbceoqq" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/laser.png" id="2_pyk7t"]
+[ext_resource type="Texture2D" uid="uid://bddcd6etbkgwy" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/block_narrow.png" id="3_x00a1"]
+[ext_resource type="Script" uid="uid://ceo7gpwv6kh0d" path="res://Scripts/player.gd" id="4_dpcf1"]
+[ext_resource type="Texture2D" uid="uid://ca4fj0ceu0ox6" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/ball_blue_small_alt.png" id="4_x00a1"]
+[ext_resource type="Script" uid="uid://c6boeqccg5mwq" path="res://Scripts/cpu.gd" id="6_bugre"]
+[ext_resource type="Script" uid="uid://cdafoxw0usmqc" path="res://Scripts/ball.gd" id="6_jhdhk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x00a1"]
+size = Vector2(1162, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4f205"]
+size = Vector2(30, 648)
+
+[sub_resource type="SystemFont" id="SystemFont_dpcf1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhdhk"]
+font = SubResource("SystemFont_dpcf1")
+font_size = 64
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_4f205")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(574, 327)
+scale = Vector2(9.08594, 5.14063)
+texture = ExtResource("1_2gd4f")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+scale = Vector2(0.1, 0.7)
+texture = ExtResource("2_pyk7t")
+region_rect = Rect2(0, 16, 40, 224)
+
+[node name="Player" type="StaticBody2D" parent="."]
+position = Vector2(50, 324)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("4_dpcf1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+unique_name_in_owner = true
+texture = ExtResource("3_x00a1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
+polygon = PackedVector2Array(26, -128, -26, -128, -32, -123.5, -32, 123.6, -27, 127.9, 27.6, 128, 31.9, 123, 32, -123.5)
+
+[node name="CPU" type="StaticBody2D" parent="."]
+position = Vector2(1082, 324)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("6_bugre")
+
+[node name="Sprite2D" type="Sprite2D" parent="CPU"]
+texture = ExtResource("3_x00a1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CPU"]
+polygon = PackedVector2Array(26, -128, -26, -128, -32, -123.5, -32, 123.6, -27, 127.9, 27.6, 128, 31.9, 123, 32, -123.5)
+
+[node name="Ball" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(574, 324)
+collision_mask = 3
+script = ExtResource("6_jhdhk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_x00a1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ball"]
+scale = Vector2(0.5, 0.5)
+build_mode = 1
+polygon = PackedVector2Array(8.3, -32, -8.3, -32, -8.3, -31.1, -11.3, -30.3, -14.5, -30.3, -17.5, -27.3, -19.6, -27.3, -24.6, -21.3, -25.8, -21.3, -29.8, -12.3, -30.9, -12.3, -32, -9.1, -32, 8.8, -27.3, 17.2, -27.3, 19.6, -20.3, 25.5, -20.3, 26.8, -9, 32, 8.8, 32, 17.2, 27.3, 19.6, 27.3, 25.6, 20.3, 26.9, 20.3, 30.9, 9.3, 32, 9.3, 32, -8.9, 26.3, -18.4, 26.3, -20.6, 20.3, -25.6, 20.3, -26.9, 15.3, -28.9, 15.3, -30.1, 8.3, -31.2)
+
+[node name="Border" type="StaticBody2D" parent="."]
+position = Vector2(3, -11)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
+position = Vector2(571, 0)
+shape = SubResource("RectangleShape2D_x00a1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
+position = Vector2(571, 670)
+shape = SubResource("RectangleShape2D_x00a1")
+
+[node name="ScoreLeft" type="Area2D" parent="."]
+position = Vector2(-48, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreLeft"]
+position = Vector2(26, 0)
+shape = SubResource("RectangleShape2D_4f205")
+
+[node name="ScoreRight" type="Area2D" parent="."]
+position = Vector2(1144, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreRight"]
+position = Vector2(26, 0)
+shape = SubResource("RectangleShape2D_4f205")
+
+[node name="BallTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ScorePlayer" type="Label" parent="HUD"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -308.0
+offset_right = -64.0
+offset_bottom = -220.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_jhdhk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreCPU" type="Label" parent="HUD"]
+offset_left = 640.0
+offset_top = 16.0
+offset_right = 680.0
+offset_bottom = 104.0
+text = "0"
+label_settings = SubResource("LabelSettings_jhdhk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="BallTimer" to="." method="_on_ball_timer_timeout"]

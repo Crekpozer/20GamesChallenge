@@ -1,0 +1,768 @@
+[gd_scene load_steps=46 format=3 uid="uid://co2o2knnwowbj"]
+
+[ext_resource type="Texture2D" uid="uid://rjxgx5tc5li5" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/background_brown.png" id="1_2gd4f"]
+[ext_resource type="Script" uid="uid://dreyvrya7s4l5" path="res://Scripts/main.gd" id="1_4f205"]
+[ext_resource type="Texture2D" uid="uid://c5psl0gbceoqq" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/laser.png" id="2_pyk7t"]
+[ext_resource type="Texture2D" uid="uid://bddcd6etbkgwy" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/block_narrow.png" id="3_x00a1"]
+[ext_resource type="Script" uid="uid://ceo7gpwv6kh0d" path="res://Scripts/player.gd" id="4_dpcf1"]
+[ext_resource type="Script" uid="uid://c6boeqccg5mwq" path="res://Scripts/cpu.gd" id="6_bugre"]
+[ext_resource type="Script" uid="uid://cdafoxw0usmqc" path="res://Scripts/ball.gd" id="6_jhdhk"]
+[ext_resource type="Texture2D" uid="uid://bq78n2kel2oyn" path="res://Addons/kenney_input-prompts/keyboard_arrow_up_outline.png" id="6_l0ud6"]
+[ext_resource type="Texture2D" uid="uid://di1lt2od5c6s8" path="res://Addons/kenney_input-prompts/keyboard_arrow_down_outline.png" id="7_q3i8e"]
+[ext_resource type="Texture2D" uid="uid://dgjaq2bf82pd5" path="res://Addons/kenney_input-prompts/keyboard_s_outline.png" id="8_hvw3n"]
+[ext_resource type="Texture2D" uid="uid://ch7xnf78a3wd4" path="res://Addons/kenney_input-prompts/keyboard_w_outline.png" id="9_3pegn"]
+[ext_resource type="Texture2D" uid="uid://fc8leo5a6wax" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/ball_blue_large.png" id="12_l0ud6"]
+[ext_resource type="Script" uid="uid://cdpcjf6tjyaw1" path="res://Scenes/pre_game_screen.gd" id="13_q3i8e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bugre"]
+size = Vector2(68.5714, 251.429)
+
+[sub_resource type="Animation" id="Animation_l0ud6"]
+resource_name = "TIPSANIMATION"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArrowUp:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArrowDown:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KeyboardSOutline:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KeyboardWOutline:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q3i8e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArrowUp:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArrowDown:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KeyboardSOutline:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KeyboardWOutline:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hvw3n"]
+_data = {
+&"RESET": SubResource("Animation_q3i8e"),
+&"TIPSANIMATION": SubResource("Animation_l0ud6")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tw1v"]
+size = Vector2(68.5713, 254.286)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bugre"]
+radius = 34.0
+
+[sub_resource type="Animation" id="Animation_hvw3n"]
+resource_name = "Bounce"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.2, -0.25, 0, 0.25, 0, 0.25, -0.665093, -0.00231725, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_3pegn"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.25, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3sm8e"]
+_data = {
+&"Bounce": SubResource("Animation_hvw3n"),
+&"RESET": SubResource("Animation_3pegn")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x00a1"]
+size = Vector2(1162, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4f205"]
+size = Vector2(30, 648)
+
+[sub_resource type="SystemFont" id="SystemFont_dpcf1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhdhk"]
+font = SubResource("SystemFont_dpcf1")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_bugre"]
+font_size = 150
+font_color = Color(0.830227, 0.101619, 0.211961, 1)
+outline_size = 10
+outline_color = Color(0.0945987, 0.0469951, 0.00792336, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2tw1v"]
+font_size = 150
+font_color = Color(0.180392, 0.8, 0.443137, 1)
+outline_size = 10
+outline_color = Color(0.580004, 0.380349, 0.157433, 1)
+
+[sub_resource type="Animation" id="Animation_2tw1v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YouLose/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("YouLose/Label:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(214.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("YouWin/Label:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(703, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_bugre"]
+resource_name = "YOULOSE"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YouLose/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("YouLose/Label:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-300.5, -0.25, 0, 0.25, 0, 214.5, -0.6, 6.069, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("YouLose/Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10501),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3sm8e"]
+resource_name = "YOUWIN"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YouLose/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("YouWin/Label:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(703, -0.25, 0, 0.25, 0, 221.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ds76"]
+_data = {
+&"RESET": SubResource("Animation_2tw1v"),
+&"YOULOSE": SubResource("Animation_bugre"),
+&"YOUWIN": SubResource("Animation_3sm8e")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l0ud6"]
+bg_color = Color(0.00392157, 0.00392157, 0.00392157, 0.862745)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q3i8e"]
+font_size = 25
+outline_size = 15
+outline_color = Color(0.0278245, 0.0278245, 0.0278245, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_hvw3n"]
+font_names = PackedStringArray("Sans-Serif")
+font_weight = 600
+
+[sub_resource type="LabelSettings" id="LabelSettings_3pegn"]
+font = SubResource("SystemFont_hvw3n")
+font_size = 25
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3sm8e"]
+font_size = 60
+outline_size = 15
+outline_color = Color(0.0237659, 0.0237659, 0.0237659, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l0ud6"]
+font_size = 30
+font_color = Color(1, 0.172549, 0.196078, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hvw3n"]
+font_color = Color(0.113725, 0.827451, 0.145098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xon8w"]
+font_color = Color(0.924615, 0.105105, 0.191184, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rw01f"]
+font_size = 30
+
+[sub_resource type="Animation" id="Animation_xon8w"]
+resource_name = "STARTGAME"
+
+[sub_resource type="Animation" id="Animation_rw01f"]
+resource_name = "WAINTINGTOSTART"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/PressToPlay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_h7bwd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/PressToPlay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3u63p"]
+_data = {
+&"RESET": SubResource("Animation_h7bwd"),
+&"STARTGAME": SubResource("Animation_xon8w"),
+&"WAINTINGTOSTART": SubResource("Animation_rw01f")
+}
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_4f205")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(574, 327)
+scale = Vector2(9.08594, 5.14063)
+texture = ExtResource("1_2gd4f")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+scale = Vector2(0.1, 0.7)
+texture = ExtResource("2_pyk7t")
+region_rect = Rect2(0, 16, 40, 224)
+
+[node name="Player" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(50, 324)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("4_dpcf1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+unique_name_in_owner = true
+texture = ExtResource("3_x00a1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_bugre")
+
+[node name="ArrowUp" type="Sprite2D" parent="Player"]
+position = Vector2(-0.114288, -81.5429)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_l0ud6")
+
+[node name="ArrowDown" type="Sprite2D" parent="Player"]
+position = Vector2(-0.114288, 81.3143)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_q3i8e")
+
+[node name="KeyboardSOutline" type="Sprite2D" parent="Player"]
+position = Vector2(-0.114288, 41.3143)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_hvw3n")
+
+[node name="KeyboardWOutline" type="Sprite2D" parent="Player"]
+position = Vector2(-0.114289, -41.5429)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_3pegn")
+
+[node name="TipsAnimationPlayer" type="AnimationPlayer" parent="Player"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_hvw3n")
+}
+
+[node name="CPU" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1082, 324)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("6_bugre")
+
+[node name="Sprite2D" type="Sprite2D" parent="CPU"]
+texture = ExtResource("3_x00a1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CPU"]
+visible = false
+shape = SubResource("RectangleShape2D_2tw1v")
+
+[node name="Ball" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+physics_interpolation_mode = 1
+position = Vector2(574, 324)
+collision_mask = 3
+script = ExtResource("6_jhdhk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_l0ud6")
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Ball"]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_bugre")
+
+[node name="BallAnimationPlayer" type="AnimationPlayer" parent="Ball"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_3sm8e")
+}
+
+[node name="Border" type="StaticBody2D" parent="."]
+position = Vector2(3, -11)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
+position = Vector2(571, 0)
+shape = SubResource("RectangleShape2D_x00a1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
+position = Vector2(571, 670)
+shape = SubResource("RectangleShape2D_x00a1")
+
+[node name="ScoreLeft" type="Area2D" parent="."]
+position = Vector2(-48, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreLeft"]
+position = Vector2(26, 0)
+shape = SubResource("RectangleShape2D_4f205")
+
+[node name="ScoreRight" type="Area2D" parent="."]
+position = Vector2(1144, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreRight"]
+position = Vector2(26, 0)
+shape = SubResource("RectangleShape2D_4f205")
+
+[node name="BallTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+autostart = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ScorePlayer" type="Label" parent="HUD"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -308.0
+offset_right = -64.0
+offset_bottom = -220.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_jhdhk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreCPU" type="Label" parent="HUD"]
+unique_name_in_owner = true
+offset_left = 640.0
+offset_top = 16.0
+offset_right = 680.0
+offset_bottom = 104.0
+text = "0"
+label_settings = SubResource("LabelSettings_jhdhk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YouLose" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="YouLose"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = -55.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="YouLose"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -361.5
+offset_top = -109.5
+offset_right = 361.5
+offset_bottom = 95.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU LOSE"
+label_settings = SubResource("LabelSettings_bugre")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="YouWin" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="YouWin"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -331.0
+offset_top = 379.0
+offset_right = 331.0
+offset_bottom = 584.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU WIN"
+label_settings = SubResource("LabelSettings_2tw1v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_0ds76")
+}
+
+[node name="PreGameScreen" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("13_q3i8e")
+
+[node name="Panel" type="Panel" parent="PreGameScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l0ud6")
+
+[node name="Title" type="Label" parent="PreGameScreen/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -361.0
+offset_top = -108.0
+offset_right = -165.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Welcome to"
+label_settings = SubResource("LabelSettings_q3i8e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="20GC" type="Label" parent="PreGameScreen/Panel/Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = 11.0
+offset_right = 208.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "The 20 Games Challenge's first game"
+label_settings = SubResource("LabelSettings_3pegn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pong" type="Label" parent="PreGameScreen/Panel/Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = 51.0
+offset_right = 88.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PONG VS AI"
+label_settings = SubResource("LabelSettings_3sm8e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rules" type="Label" parent="PreGameScreen/Panel"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 201.0
+offset_right = 727.0
+offset_bottom = 243.0
+text = "Rules:"
+label_settings = SubResource("LabelSettings_l0ud6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ToWin" type="Label" parent="PreGameScreen/Panel/Rules"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 39.0
+offset_right = 224.0
+offset_bottom = 62.0
+text = "- If you score 1 point you"
+
+[node name="Win" type="Label" parent="PreGameScreen/Panel/Rules/ToWin"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "win"
+label_settings = SubResource("LabelSettings_hvw3n")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ToLose" type="Label" parent="PreGameScreen/Panel/Rules"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 64.0
+offset_right = 305.0
+offset_bottom = 87.0
+text = "- If the opponent score 3 point you"
+
+[node name="Lose" type="Label" parent="PreGameScreen/Panel/Rules/ToLose"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -11.5
+offset_right = -3.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "lose"
+label_settings = SubResource("LabelSettings_xon8w")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Tips" type="Label" parent="PreGameScreen/Panel"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 334.0
+offset_right = 707.0
+offset_bottom = 376.0
+text = "Tips:"
+label_settings = SubResource("LabelSettings_l0ud6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BePatient" type="Label" parent="PreGameScreen/Panel/Tips"]
+layout_mode = 0
+offset_top = 42.0
+offset_right = 326.0
+offset_bottom = 65.0
+text = "- Be patience, wait for the ball to speed up"
+
+[node name="WeakPoints" type="Label" parent="PreGameScreen/Panel/Tips"]
+layout_mode = 0
+offset_top = 65.0
+offset_right = 389.0
+offset_bottom = 88.0
+text = "- Your weak points is also your enemy weak points too"
+
+[node name="PressToPlay" type="Label" parent="PreGameScreen/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -70.0
+offset_right = 91.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press anything to play"
+label_settings = SubResource("LabelSettings_rw01f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PreGameAnimationPlayer" type="AnimationPlayer" parent="PreGameScreen"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_3u63p")
+}
+autoplay = "WAINTINGTOSTART"
+
+[connection signal="body_entered" from="ScoreLeft" to="." method="_on_score_left_body_entered"]
+[connection signal="body_entered" from="ScoreRight" to="." method="_on_score_right_body_entered"]
+[connection signal="timeout" from="BallTimer" to="." method="_on_ball_timer_timeout"]
