@@ -7,6 +7,9 @@ var accel : int = 50 # O quanto a bola acelera
 var speed : int # A velocidade atual da bola
 var direction : Vector2 # A direção da bola
 
+@export var inLoading : bool = false
+@export var isMuliplayer : bool = false
+
 func _ready():
 	windowSize = get_viewport_rect().size
 
@@ -30,12 +33,25 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		%BallAnimationPlayer.play("Bounce")
 		collider = collision.get_collider()
-		if collider == %Player or collider == %CPU:
-			speed += accel
-			direction = NewDirection(collider)
+		if not inLoading:
+			if isMuliplayer:
+				if collider == %Player or collider == %Player2:
+					speed += accel
+					direction = NewDirection(collider)
+					AudioManager.PlaySFX("ballHitSFX")
+				else:
+					direction = direction.bounce(collision.get_normal())
+					AudioManager.PlaySFX("ballHitSFX")
+			else:
+				if collider == %Player or collider == %CPU:
+					speed += accel
+					direction = NewDirection(collider)
+					AudioManager.PlaySFX("ballHitSFX")
+				else:
+					direction = direction.bounce(collision.get_normal())
+					AudioManager.PlaySFX("ballHitSFX")
 		else:
-			direction = direction.bounce(collision.get_normal())
-
+				direction = direction.bounce(collision.get_normal())
 
 func NewDirection(collider):
 	var ballY = position.y

@@ -1,11 +1,12 @@
 extends Node2D
 
-var score : Array = [0,0] #0:Player 1:CPU
+var score : Array = [0,0] #0:Player 1, #1:Player 2
 const paddleSpeed : int = 500
 var gameIsOver : bool = false
 
 # Player Refrence
-@onready var playerRef : StaticBody2D = %Player
+@onready var player1Ref : StaticBody2D = %Player
+@onready var player2Ref : StaticBody2D = %Player2
 
 # Variaveis para a maquina de estados
 enum GameState{PREGAME,GAME,INTERVAL,AFTERGAME}
@@ -48,15 +49,14 @@ func _input(event: InputEvent) -> void:
 
 func _process(_delta: float) -> void:
 	# Monitora o placar da partida para saber qual tela mostrar
-	if score[0] == 1:
+	if score[0] == 3:
 		# Chama a função que tras as comemorações da vitória
-		YouWin()
+		Player1Wins()
 		AudioManager.PlayBGMusic("Victory")
 	elif score[1] == 3:
 		# Chama a função que lementa a derrota
-		YouLose()
-		AudioManager.PlayBGMusic("Defeated")
-		AudioManager.PlaySFX("youLoseSFX")
+		Player2Wins()
+		AudioManager.PlayBGMusic("Victory")
 
 func StartGame() -> void:
 	# Toca a transição da tela de pré-jogo
@@ -69,7 +69,8 @@ func StartGame() -> void:
 	# Muda o estado atual do jogo de pré-jogo para jogo
 	currentGameState = GameState.GAME
 	# Indica ao jogador que a partida começou
-	playerRef.gameHasStarted = true
+	player1Ref.gameHasStarted = true
+	player2Ref.gameHasStarted = true
 	# Dispara uma bola nova
 	%Ball.NewBall()
 
@@ -103,7 +104,7 @@ func _on_score_right_body_entered(_body: Node2D) -> void:
 		%BallTimer.start()
 
 # Função disparada caso o jogador ganha a partida
-func YouWin() -> void:
+func Player1Wins() -> void:
 	# Desativa a função _process
 	set_process(false)
 	# Toca a comemoração de vitória
@@ -113,10 +114,11 @@ func YouWin() -> void:
 	# Altera o estado do jogo para pós-jogo
 	currentGameState = GameState.AFTERGAME
 	# Avisa ao jogador que o jogo acabou
-	playerRef.gameHasStarted = false
+	player1Ref.gameHasStarted = false
+	player2Ref.gameHasStarted = false
 
 # Função disparada quando o jogador perde a partida
-func YouLose() -> void:
+func Player2Wins() -> void:
 	# Desativa a função _process
 	set_process(false)
 	# Toca a lamentação de derrota
@@ -126,10 +128,12 @@ func YouLose() -> void:
 	# Altera o estado atual do jogo para pós-jogo
 	currentGameState = GameState.AFTERGAME
 	# Avisa ai jogador que o jogo acabou
-	playerRef.gameHasStarted = false
+	player1Ref.gameHasStarted = false
+	player2Ref.gameHasStarted = false
 
 func _on_play_again_pressed() -> void:
-	LoadManager.LoadScene("res://Scenes/ArenaSP.tscn")
+	LoadManager.LoadScene("res://Scenes/ArenaMP.tscn")
+
 
 func _on_back_to_main_menu_pressed() -> void:
 	LoadManager.LoadScene("res://Scenes/Menus/MainMenu.tscn")

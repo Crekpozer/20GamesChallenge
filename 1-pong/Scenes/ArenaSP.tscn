@@ -1,17 +1,22 @@
-[gd_scene load_steps=48 format=3 uid="uid://co2o2knnwowbj"]
+[gd_scene load_steps=48 format=3 uid="uid://bs0mm8mtdwbdd"]
 
-[ext_resource type="Texture2D" uid="uid://rjxgx5tc5li5" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/background_brown.png" id="1_2gd4f"]
-[ext_resource type="Script" uid="uid://dreyvrya7s4l5" path="res://Scripts/main.gd" id="1_4f205"]
-[ext_resource type="Texture2D" uid="uid://c5psl0gbceoqq" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/laser.png" id="2_pyk7t"]
-[ext_resource type="Texture2D" uid="uid://bddcd6etbkgwy" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/block_narrow.png" id="3_x00a1"]
-[ext_resource type="Script" uid="uid://ceo7gpwv6kh0d" path="res://Scripts/player.gd" id="4_dpcf1"]
-[ext_resource type="Script" uid="uid://c6boeqccg5mwq" path="res://Scripts/cpu.gd" id="6_bugre"]
-[ext_resource type="Script" uid="uid://cdafoxw0usmqc" path="res://Scripts/ball.gd" id="6_jhdhk"]
-[ext_resource type="Texture2D" uid="uid://bq78n2kel2oyn" path="res://Addons/kenney_input-prompts/keyboard_arrow_up_outline.png" id="6_l0ud6"]
-[ext_resource type="Texture2D" uid="uid://di1lt2od5c6s8" path="res://Addons/kenney_input-prompts/keyboard_arrow_down_outline.png" id="7_q3i8e"]
-[ext_resource type="Texture2D" uid="uid://dgjaq2bf82pd5" path="res://Addons/kenney_input-prompts/keyboard_s_outline.png" id="8_hvw3n"]
-[ext_resource type="Texture2D" uid="uid://ch7xnf78a3wd4" path="res://Addons/kenney_input-prompts/keyboard_w_outline.png" id="9_3pegn"]
-[ext_resource type="Texture2D" uid="uid://fc8leo5a6wax" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/ball_blue_large.png" id="12_l0ud6"]
+[ext_resource type="Script" uid="uid://dreyvrya7s4l5" path="res://Scripts/main.gd" id="1_5cip8"]
+[ext_resource type="Texture2D" uid="uid://cxpsmlyy731ud" path="res://Addons/kenney_rolling-ball-assets/Vector/rollingBall_vector.svg" id="2_03epd"]
+[ext_resource type="Texture2D" uid="uid://c5psl0gbceoqq" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/laser.png" id="3_gisgg"]
+[ext_resource type="Script" uid="uid://ceo7gpwv6kh0d" path="res://Scripts/player.gd" id="4_eava0"]
+[ext_resource type="Texture2D" uid="uid://bddcd6etbkgwy" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/block_narrow.png" id="5_2uvom"]
+[ext_resource type="Texture2D" uid="uid://bq78n2kel2oyn" path="res://Addons/kenney_input-prompts/keyboard_arrow_up_outline.png" id="6_owaig"]
+[ext_resource type="Texture2D" uid="uid://di1lt2od5c6s8" path="res://Addons/kenney_input-prompts/keyboard_arrow_down_outline.png" id="7_eoyu2"]
+[ext_resource type="Texture2D" uid="uid://dgjaq2bf82pd5" path="res://Addons/kenney_input-prompts/keyboard_s_outline.png" id="8_4n57f"]
+[ext_resource type="Texture2D" uid="uid://ch7xnf78a3wd4" path="res://Addons/kenney_input-prompts/keyboard_w_outline.png" id="9_ijl5e"]
+[ext_resource type="Script" uid="uid://c6boeqccg5mwq" path="res://Scripts/cpu.gd" id="10_iapyk"]
+[ext_resource type="PackedScene" uid="uid://dupqonwt86x83" path="res://Scenes/Misc/ball.tscn" id="11_cfb2y"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0ud6"]
+texture = ExtResource("2_03epd")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(594, 2, 60, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bugre"]
 size = Vector2(68.5714, 251.429)
@@ -69,7 +74,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_l0ud6"]
 resource_name = "TIPSANIMATION"
-length = 3.0
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -77,7 +82,7 @@ tracks/0/path = NodePath("ArrowUp:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -89,7 +94,7 @@ tracks/1/path = NodePath("ArrowDown:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -101,7 +106,7 @@ tracks/2/path = NodePath("KeyboardSOutline:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -113,7 +118,7 @@ tracks/3/path = NodePath("KeyboardWOutline:self_modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -127,43 +132,6 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2tw1v"]
 size = Vector2(68.5713, 254.286)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_bugre"]
-radius = 34.0
-
-[sub_resource type="Animation" id="Animation_hvw3n"]
-resource_name = "Bounce"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.2, -0.25, 0, 0.25, 0, 0.25, -0.665093, -0.00231725, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-
-[sub_resource type="Animation" id="Animation_3pegn"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.25, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3sm8e"]
-_data = {
-&"Bounce": SubResource("Animation_hvw3n"),
-&"RESET": SubResource("Animation_3pegn")
-}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x00a1"]
 size = Vector2(1162, 22)
@@ -185,6 +153,24 @@ font_size = 150
 font_color = Color(0.830227, 0.101619, 0.211961, 1)
 outline_size = 10
 outline_color = Color(0.0945987, 0.0469951, 0.00792336, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cip8"]
+atlas = ExtResource("2_03epd")
+region = Rect2(0, 336, 128, 53)
+
+[sub_resource type="LabelSettings" id="LabelSettings_03epd"]
+font_size = 20
+outline_size = 5
+outline_color = Color(0.0163189, 0.0163189, 0.0163189, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gisgg"]
+atlas = ExtResource("2_03epd")
+region = Rect2(0, 336, 128, 53)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eava0"]
+font_size = 12
+outline_size = 5
+outline_color = Color(0.0163189, 0.0163189, 0.0163189, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2tw1v"]
 font_size = 150
@@ -308,12 +294,12 @@ font_size = 25
 outline_size = 15
 outline_color = Color(0.0278245, 0.0278245, 0.0278245, 1)
 
-[sub_resource type="SystemFont" id="SystemFont_hvw3n"]
+[sub_resource type="SystemFont" id="SystemFont_q3i8e"]
 font_names = PackedStringArray("Sans-Serif")
 font_weight = 600
 
 [sub_resource type="LabelSettings" id="LabelSettings_3pegn"]
-font = SubResource("SystemFont_hvw3n")
+font = SubResource("SystemFont_q3i8e")
 font_size = 25
 outline_size = 15
 outline_color = Color(0, 0, 0, 1)
@@ -516,22 +502,6 @@ tracks/13/keys = {
 [sub_resource type="Animation" id="Animation_xon8w"]
 resource_name = "STARTGAME"
 
-[sub_resource type="Animation" id="Animation_rw01f"]
-resource_name = "WAINTINGTOSTART"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/PressToPlay:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-
 [sub_resource type="Animation" id="Animation_3u63p"]
 resource_name = "TransitionToGame"
 length = 4.1
@@ -694,6 +664,22 @@ tracks/13/keys = {
 "values": [false, true]
 }
 
+[sub_resource type="Animation" id="Animation_rw01f"]
+resource_name = "WAINTINGTOSTART"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/PressToPlay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3u63p"]
 _data = {
 &"RESET": SubResource("Animation_h7bwd"),
@@ -703,27 +689,38 @@ _data = {
 }
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_4f205")
+script = ExtResource("1_5cip8")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(574, 327)
-scale = Vector2(9.08594, 5.14063)
-texture = ExtResource("1_2gd4f")
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="Panel" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -11.0
+offset_right = 18.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_l0ud6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Background"]
-scale = Vector2(0.1, 0.7)
-texture = ExtResource("2_pyk7t")
+position = Vector2(574, 327)
+scale = Vector2(0.908594, 3.59844)
+texture = ExtResource("3_gisgg")
 region_rect = Rect2(0, 16, 40, 224)
 
 [node name="Player" type="StaticBody2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(50, 324)
 scale = Vector2(0.7, 0.7)
-script = ExtResource("4_dpcf1")
+script = ExtResource("4_eava0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 unique_name_in_owner = true
-texture = ExtResource("3_x00a1")
+texture = ExtResource("5_2uvom")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_bugre")
@@ -731,22 +728,22 @@ shape = SubResource("RectangleShape2D_bugre")
 [node name="ArrowUp" type="Sprite2D" parent="Player"]
 position = Vector2(-0.114288, -81.5429)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("6_l0ud6")
+texture = ExtResource("6_owaig")
 
 [node name="ArrowDown" type="Sprite2D" parent="Player"]
 position = Vector2(-0.114288, 81.3143)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("7_q3i8e")
+texture = ExtResource("7_eoyu2")
 
 [node name="KeyboardSOutline" type="Sprite2D" parent="Player"]
 position = Vector2(-0.114288, 41.3143)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("8_hvw3n")
+texture = ExtResource("8_4n57f")
 
 [node name="KeyboardWOutline" type="Sprite2D" parent="Player"]
 position = Vector2(-0.114289, -41.5429)
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("9_3pegn")
+texture = ExtResource("9_ijl5e")
 
 [node name="TipsAnimationPlayer" type="AnimationPlayer" parent="Player"]
 unique_name_in_owner = true
@@ -758,35 +755,18 @@ libraries = {
 unique_name_in_owner = true
 position = Vector2(1082, 324)
 scale = Vector2(0.7, 0.7)
-script = ExtResource("6_bugre")
+script = ExtResource("10_iapyk")
 
 [node name="Sprite2D" type="Sprite2D" parent="CPU"]
-texture = ExtResource("3_x00a1")
+texture = ExtResource("5_2uvom")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CPU"]
 visible = false
 shape = SubResource("RectangleShape2D_2tw1v")
 
-[node name="Ball" type="CharacterBody2D" parent="."]
+[node name="Ball" parent="." instance=ExtResource("11_cfb2y")]
 unique_name_in_owner = true
-physics_interpolation_mode = 1
 position = Vector2(574, 324)
-collision_mask = 3
-script = ExtResource("6_jhdhk")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ball"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("12_l0ud6")
-
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="Ball"]
-scale = Vector2(0.5, 0.5)
-shape = SubResource("CircleShape2D_bugre")
-
-[node name="BallAnimationPlayer" type="AnimationPlayer" parent="Ball"]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_3sm8e")
-}
 
 [node name="Border" type="StaticBody2D" parent="."]
 position = Vector2(3, -11)
@@ -801,14 +781,18 @@ position = Vector2(571, 670)
 shape = SubResource("RectangleShape2D_x00a1")
 
 [node name="ScoreLeft" type="Area2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(-48, 324)
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreLeft"]
 position = Vector2(26, 0)
 shape = SubResource("RectangleShape2D_4f205")
 
 [node name="ScoreRight" type="Area2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(1144, 324)
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreRight"]
 position = Vector2(26, 0)
@@ -884,6 +868,71 @@ label_settings = SubResource("LabelSettings_bugre")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="HBoxContainer" type="HBoxContainer" parent="YouLose/Label"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -504.0
+offset_top = 151.5
+offset_right = -4.0
+offset_bottom = 204.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Play again" type="TextureButton" parent="YouLose/Label/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5cip8")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="YouLose/Label/HBoxContainer/Play again"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play again"
+label_settings = SubResource("LabelSettings_03epd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back to main menu" type="TextureButton" parent="YouLose/Label/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_gisgg")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="YouLose/Label/HBoxContainer/Back to main menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -21.0
+offset_right = 62.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back to main menu"
+label_settings = SubResource("LabelSettings_eava0")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="YouWin" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="YouWin"]
@@ -902,6 +951,71 @@ text = "YOU WIN"
 label_settings = SubResource("LabelSettings_2tw1v")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="YouWin/Label"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -504.0
+offset_top = 144.5
+offset_right = -4.0
+offset_bottom = 197.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Play again" type="TextureButton" parent="YouWin/Label/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5cip8")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="YouWin/Label/HBoxContainer/Play again"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play again"
+label_settings = SubResource("LabelSettings_03epd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back to main menu" type="TextureButton" parent="YouWin/Label/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_gisgg")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="YouWin/Label/HBoxContainer/Back to main menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -21.0
+offset_right = 62.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back to main menu"
+label_settings = SubResource("LabelSettings_eava0")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -968,7 +1082,7 @@ offset_right = 88.0
 offset_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "PONG VS AI"
+text = "PONG vs ai"
 label_settings = SubResource("LabelSettings_3sm8e")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1157,3 +1271,7 @@ autoplay = "WAINTINGTOSTART"
 [connection signal="body_entered" from="ScoreLeft" to="." method="_on_score_left_body_entered"]
 [connection signal="body_entered" from="ScoreRight" to="." method="_on_score_right_body_entered"]
 [connection signal="timeout" from="BallTimer" to="." method="_on_ball_timer_timeout"]
+[connection signal="pressed" from="YouLose/Label/HBoxContainer/Play again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="YouLose/Label/HBoxContainer/Back to main menu" to="." method="_on_back_to_main_menu_pressed"]
+[connection signal="pressed" from="YouWin/Label/HBoxContainer/Play again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="YouWin/Label/HBoxContainer/Back to main menu" to="." method="_on_back_to_main_menu_pressed"]
