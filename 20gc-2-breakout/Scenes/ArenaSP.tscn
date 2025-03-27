@@ -1,0 +1,1420 @@
+[gd_scene load_steps=52 format=3 uid="uid://bs0mm8mtdwbdd"]
+
+[ext_resource type="Script" uid="uid://dreyvrya7s4l5" path="res://Scripts/main.gd" id="1_5cip8"]
+[ext_resource type="Texture2D" uid="uid://cxpsmlyy731ud" path="res://Addons/kenney_rolling-ball-assets/Vector/rollingBall_vector.svg" id="2_03epd"]
+[ext_resource type="Texture2D" uid="uid://c5psl0gbceoqq" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/laser.png" id="3_gisgg"]
+[ext_resource type="Script" uid="uid://ceo7gpwv6kh0d" path="res://Scripts/player.gd" id="4_eava0"]
+[ext_resource type="Texture2D" uid="uid://bddcd6etbkgwy" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/block_narrow.png" id="5_2uvom"]
+[ext_resource type="Texture2D" uid="uid://bq78n2kel2oyn" path="res://Addons/kenney_input-prompts/keyboard_arrow_up_outline.png" id="6_owaig"]
+[ext_resource type="Texture2D" uid="uid://di1lt2od5c6s8" path="res://Addons/kenney_input-prompts/keyboard_arrow_down_outline.png" id="7_eoyu2"]
+[ext_resource type="Texture2D" uid="uid://dgjaq2bf82pd5" path="res://Addons/kenney_input-prompts/keyboard_s_outline.png" id="8_4n57f"]
+[ext_resource type="Texture2D" uid="uid://ch7xnf78a3wd4" path="res://Addons/kenney_input-prompts/keyboard_w_outline.png" id="9_ijl5e"]
+[ext_resource type="Script" uid="uid://c6boeqccg5mwq" path="res://Scripts/cpu.gd" id="10_iapyk"]
+[ext_resource type="PackedScene" uid="uid://dupqonwt86x83" path="res://Scenes/Misc/ball.tscn" id="11_cfb2y"]
+[ext_resource type="Texture2D" uid="uid://drm31433vet46" path="res://Addons/kenney_input-prompts/keyboard_arrow_down.png" id="12_gisgg"]
+[ext_resource type="Texture2D" uid="uid://xxsb6g6vjh1g" path="res://Addons/kenney_input-prompts/keyboard_arrow_up.png" id="13_eava0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0ud6"]
+texture = ExtResource("2_03epd")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(594, 2, 60, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bugre"]
+size = Vector2(68.5714, 251.429)
+
+[sub_resource type="Animation" id="Animation_q3i8e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArrowUp:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArrowDown:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KeyboardSOutline:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KeyboardWOutline:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%Player/../PlayerControls/DOWNTouchScreenButton/DownSprite:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%Player/../PlayerControls/UPTouchScreenButton/UpSprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l0ud6"]
+resource_name = "TIPSANIMATION"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArrowUp:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArrowDown:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("KeyboardSOutline:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KeyboardWOutline:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%Player/../PlayerControls/DOWNTouchScreenButton/DownSprite:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%Player/../PlayerControls/UPTouchScreenButton/UpSprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hvw3n"]
+_data = {
+&"RESET": SubResource("Animation_q3i8e"),
+&"TIPSANIMATION": SubResource("Animation_l0ud6")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tw1v"]
+size = Vector2(68.5713, 254.286)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x00a1"]
+size = Vector2(1162, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4f205"]
+size = Vector2(30, 648)
+
+[sub_resource type="SystemFont" id="SystemFont_dpcf1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jhdhk"]
+font = SubResource("SystemFont_dpcf1")
+font_size = 70
+outline_color = Color(0.0457637, 0.0457637, 0.0457637, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.882353)
+
+[sub_resource type="Animation" id="Animation_2tw1v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YouLose/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("YouLose/Label:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(214.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("YouWin/Label:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(703, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_bugre"]
+resource_name = "YOULOSE"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YouLose/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("YouLose/Label:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-300.5, -0.25, 0, 0.25, 0, 214.5, -0.6, 6.069, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("YouLose/Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10501),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3sm8e"]
+resource_name = "YOUWIN"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YouLose/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("YouWin/Label:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(703, -0.25, 0, 0.25, 0, 221.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ds76"]
+_data = {
+&"RESET": SubResource("Animation_2tw1v"),
+&"YOULOSE": SubResource("Animation_bugre"),
+&"YOUWIN": SubResource("Animation_3sm8e")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l0ud6"]
+bg_color = Color(0.00392157, 0.00392157, 0.00392157, 0.862745)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q3i8e"]
+font_size = 25
+outline_size = 15
+outline_color = Color(0.0278245, 0.0278245, 0.0278245, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_q3i8e"]
+font_names = PackedStringArray("Sans-Serif")
+font_weight = 600
+
+[sub_resource type="LabelSettings" id="LabelSettings_3pegn"]
+font = SubResource("SystemFont_q3i8e")
+font_size = 25
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3sm8e"]
+font_size = 60
+outline_size = 15
+outline_color = Color(0.0237659, 0.0237659, 0.0237659, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l0ud6"]
+font_size = 30
+font_color = Color(1, 0.172549, 0.196078, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hvw3n"]
+font_color = Color(0.113725, 0.827451, 0.145098, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xon8w"]
+font_color = Color(0.924615, 0.105105, 0.191184, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gisgg"]
+font_color = Color(0.113725, 0.8, 0.141176, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rw01f"]
+font_size = 30
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.74902)
+
+[sub_resource type="SystemFont" id="SystemFont_l0ud6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h7bwd"]
+font = SubResource("SystemFont_l0ud6")
+font_size = 250
+font_color = Color(0.996078, 0.866667, 0.121569, 1)
+outline_size = 20
+outline_color = Color(0, 1, 0.168627, 1)
+
+[sub_resource type="Animation" id="Animation_h7bwd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/PressToPlay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CountDown/N3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CountDown/N2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CountDown/N1:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CountDown/N3:scale:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CountDown/N3:scale:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CountDown/N2:scale:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CountDown/N2:scale:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CountDown/N1:scale:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CountDown/N1:scale:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("%ScoreCPU:self_modulate:a")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("%ScorePlayer:self_modulate:a")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../HUD:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xon8w"]
+resource_name = "STARTGAME"
+
+[sub_resource type="Animation" id="Animation_3u63p"]
+resource_name = "TransitionToGame"
+length = 4.1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.833333, -0.00279438, -0.000798378, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.833333)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CountDown/N3:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CountDown/N2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.93333, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CountDown/N1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.93333, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CountDown/N3:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.833333, 1.2, 1.5)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CountDown/N3:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.833333, 1.2, 1.5)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CountDown/N2:scale:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.83333, 2.2, 2.5)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CountDown/N2:scale:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.83333, 2.2, 2.5)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CountDown/N1:scale:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.93333, 3.3, 3.6)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CountDown/N1:scale:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1.2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.93333, 3.3, 3.6)
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("..")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("%ScoreCPU:self_modulate:a")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 4)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("%ScorePlayer:self_modulate:a")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 4)
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../HUD:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_rw01f"]
+resource_name = "WAINTINGTOSTART"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/PressToPlay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3u63p"]
+_data = {
+&"RESET": SubResource("Animation_h7bwd"),
+&"STARTGAME": SubResource("Animation_xon8w"),
+&"TransitionToGame": SubResource("Animation_3u63p"),
+&"WAINTINGTOSTART": SubResource("Animation_rw01f")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_bugre"]
+font_size = 150
+font_color = Color(0.830227, 0.101619, 0.211961, 1)
+outline_size = 10
+outline_color = Color(0.0945987, 0.0469951, 0.00792336, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cip8"]
+atlas = ExtResource("2_03epd")
+region = Rect2(0, 336, 128, 53)
+
+[sub_resource type="LabelSettings" id="LabelSettings_03epd"]
+font_size = 20
+outline_size = 5
+outline_color = Color(0.0163189, 0.0163189, 0.0163189, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gisgg"]
+atlas = ExtResource("2_03epd")
+region = Rect2(0, 336, 128, 53)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eava0"]
+font_size = 20
+outline_size = 5
+outline_color = Color(0.0163189, 0.0163189, 0.0163189, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2tw1v"]
+font_size = 150
+font_color = Color(0.180392, 0.8, 0.443137, 1)
+outline_size = 10
+outline_color = Color(0.580004, 0.380349, 0.157433, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cip8"]
+size = Vector2(240, 240)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_5cip8")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="Panel" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -22.0
+offset_top = -11.0
+offset_right = 18.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_l0ud6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+position = Vector2(574, 327)
+scale = Vector2(0.908594, 3.59844)
+texture = ExtResource("3_gisgg")
+region_rect = Rect2(0, 16, 40, 224)
+
+[node name="Player" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(50, 324)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("4_eava0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+unique_name_in_owner = true
+texture = ExtResource("5_2uvom")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_bugre")
+
+[node name="ArrowUp" type="Sprite2D" parent="Player"]
+position = Vector2(-0.114288, -81.5429)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_owaig")
+
+[node name="ArrowDown" type="Sprite2D" parent="Player"]
+position = Vector2(-0.114288, 81.3143)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("7_eoyu2")
+
+[node name="KeyboardSOutline" type="Sprite2D" parent="Player"]
+position = Vector2(-0.114288, 41.3143)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("8_4n57f")
+
+[node name="KeyboardWOutline" type="Sprite2D" parent="Player"]
+position = Vector2(-0.114289, -41.5429)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_ijl5e")
+
+[node name="TipsAnimationPlayer" type="AnimationPlayer" parent="Player"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_hvw3n")
+}
+
+[node name="CPU" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1082, 324)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("10_iapyk")
+
+[node name="Sprite2D" type="Sprite2D" parent="CPU"]
+texture = ExtResource("5_2uvom")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CPU"]
+visible = false
+shape = SubResource("RectangleShape2D_2tw1v")
+
+[node name="Ball" parent="." instance=ExtResource("11_cfb2y")]
+unique_name_in_owner = true
+position = Vector2(574, 324)
+
+[node name="Border" type="StaticBody2D" parent="."]
+position = Vector2(3, -11)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
+position = Vector2(571, 0)
+shape = SubResource("RectangleShape2D_x00a1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
+position = Vector2(571, 670)
+shape = SubResource("RectangleShape2D_x00a1")
+
+[node name="ScoreLeft" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-48, 324)
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreLeft"]
+position = Vector2(26, 0)
+shape = SubResource("RectangleShape2D_4f205")
+
+[node name="ScoreRight" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1144, 324)
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreRight"]
+position = Vector2(26, 0)
+shape = SubResource("RectangleShape2D_4f205")
+
+[node name="BallTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ScorePlayer" type="Label" parent="HUD"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -308.0
+offset_right = -64.0
+offset_bottom = -220.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_jhdhk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreCPU" type="Label" parent="HUD"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 640.0
+offset_top = 16.0
+offset_right = 680.0
+offset_bottom = 104.0
+text = "0"
+label_settings = SubResource("LabelSettings_jhdhk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_0ds76")
+}
+
+[node name="PreGameScreen" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="PreGameScreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l0ud6")
+
+[node name="Title" type="Label" parent="PreGameScreen/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -361.0
+offset_top = -108.0
+offset_right = -165.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Welcome to"
+label_settings = SubResource("LabelSettings_q3i8e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="20GC" type="Label" parent="PreGameScreen/Panel/Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = 11.0
+offset_right = 208.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "The 20 Games Challenge's first game"
+label_settings = SubResource("LabelSettings_3pegn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pong" type="Label" parent="PreGameScreen/Panel/Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = 51.0
+offset_right = 88.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "PONG vs ai"
+label_settings = SubResource("LabelSettings_3sm8e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rules" type="Label" parent="PreGameScreen/Panel"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 277.0
+offset_right = 727.0
+offset_bottom = 319.0
+text = "Rules:"
+label_settings = SubResource("LabelSettings_l0ud6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ToWin" type="Label" parent="PreGameScreen/Panel/Rules"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 39.0
+offset_right = 224.0
+offset_bottom = 62.0
+text = "- If you score 1 point you"
+
+[node name="Win" type="Label" parent="PreGameScreen/Panel/Rules/ToWin"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "win"
+label_settings = SubResource("LabelSettings_hvw3n")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ToLose" type="Label" parent="PreGameScreen/Panel/Rules"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 64.0
+offset_right = 305.0
+offset_bottom = 87.0
+text = "- If the opponent score 3 point you"
+
+[node name="Lose" type="Label" parent="PreGameScreen/Panel/Rules/ToLose"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -11.5
+offset_right = -3.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "lose"
+label_settings = SubResource("LabelSettings_xon8w")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Controls" type="Label" parent="PreGameScreen/Panel"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 112.0
+offset_right = 771.0
+offset_bottom = 154.0
+text = "Controls:"
+label_settings = SubResource("LabelSettings_l0ud6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OnPC" type="Label" parent="PreGameScreen/Panel/Controls"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 39.0
+offset_right = 224.0
+offset_bottom = 62.0
+text = "With Keyboard:"
+
+[node name="WandS" type="Label" parent="PreGameScreen/Panel/Controls/OnPC"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = 11.5
+offset_right = 49.0
+offset_bottom = 34.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Press W or S to move de paddle"
+label_settings = SubResource("LabelSettings_hvw3n")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="OnSmartphone" type="Label" parent="PreGameScreen/Panel/Controls"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 85.0
+offset_right = 305.0
+offset_bottom = 108.0
+text = "With touchscreen:"
+
+[node name="TiltYourPhone" type="Label" parent="PreGameScreen/Panel/Controls/OnSmartphone"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = 11.5
+offset_right = 119.0
+offset_bottom = 34.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Tilt your phone and press the arrows on the conner"
+label_settings = SubResource("LabelSettings_gisgg")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Tips" type="Label" parent="PreGameScreen/Panel"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 384.0
+offset_right = 707.0
+offset_bottom = 426.0
+text = "Tips:"
+label_settings = SubResource("LabelSettings_l0ud6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BePatient" type="Label" parent="PreGameScreen/Panel/Tips"]
+layout_mode = 0
+offset_top = 42.0
+offset_right = 326.0
+offset_bottom = 65.0
+text = "- Be patience, wait for the ball to speed up"
+
+[node name="WeakPoints" type="Label" parent="PreGameScreen/Panel/Tips"]
+layout_mode = 0
+offset_top = 65.0
+offset_right = 389.0
+offset_bottom = 88.0
+text = "- Your weak points is also your enemy's weak points"
+
+[node name="PressToPlay" type="Label" parent="PreGameScreen/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -70.0
+offset_right = 91.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press anything to play"
+label_settings = SubResource("LabelSettings_rw01f")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountDown" type="Control" parent="PreGameScreen"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = -90.0
+offset_right = 81.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="N3" type="Label" parent="PreGameScreen/CountDown"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -171.0
+offset_right = 71.5
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+label_settings = SubResource("LabelSettings_h7bwd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="N2" type="Label" parent="PreGameScreen/CountDown"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -171.0
+offset_right = 71.5
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2"
+label_settings = SubResource("LabelSettings_h7bwd")
+
+[node name="N1" type="Label" parent="PreGameScreen/CountDown"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -171.0
+offset_right = 71.5
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_h7bwd")
+
+[node name="PreGameAnimationPlayer" type="AnimationPlayer" parent="PreGameScreen"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_3u63p")
+}
+autoplay = "WAINTINGTOSTART"
+
+[node name="YouLose" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="YouLose"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = -55.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="YouLose"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -361.5
+offset_top = -109.5
+offset_right = 361.5
+offset_bottom = 95.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU LOSE"
+label_settings = SubResource("LabelSettings_bugre")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="YouLose/Label"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -504.0
+offset_top = 151.5
+offset_right = -4.0
+offset_bottom = 204.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Play again" type="TextureButton" parent="YouLose/Label/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5cip8")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="YouLose/Label/HBoxContainer/Play again"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play again"
+label_settings = SubResource("LabelSettings_03epd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back to main menu" type="TextureButton" parent="YouLose/Label/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_gisgg")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="YouLose/Label/HBoxContainer/Back to main menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -21.0
+offset_right = 62.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back to main menu"
+label_settings = SubResource("LabelSettings_eava0")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="YouWin" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="YouWin"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -331.0
+offset_top = 379.0
+offset_right = 331.0
+offset_bottom = 584.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU WIN"
+label_settings = SubResource("LabelSettings_2tw1v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="YouWin/Label"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -504.0
+offset_top = 144.5
+offset_right = -4.0
+offset_bottom = 197.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Play again" type="TextureButton" parent="YouWin/Label/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5cip8")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="YouWin/Label/HBoxContainer/Play again"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play again"
+label_settings = SubResource("LabelSettings_03epd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back to main menu" type="TextureButton" parent="YouWin/Label/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_gisgg")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="YouWin/Label/HBoxContainer/Back to main menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -21.0
+offset_right = 62.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main menu"
+label_settings = SubResource("LabelSettings_eava0")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PlayerControls" type="Node2D" parent="."]
+
+[node name="DOWNTouchScreenButton" type="TouchScreenButton" parent="PlayerControls"]
+position = Vector2(50, 575)
+scale = Vector2(0.7, 0.7)
+shape = SubResource("RectangleShape2D_5cip8")
+action = "down1"
+
+[node name="DownSprite" type="Sprite2D" parent="PlayerControls/DOWNTouchScreenButton"]
+texture = ExtResource("12_gisgg")
+
+[node name="UPTouchScreenButton" type="TouchScreenButton" parent="PlayerControls"]
+position = Vector2(50, 84.0001)
+scale = Vector2(0.7, 0.7)
+shape = SubResource("RectangleShape2D_5cip8")
+action = "up1"
+
+[node name="UpSprite" type="Sprite2D" parent="PlayerControls/UPTouchScreenButton"]
+texture = ExtResource("13_eava0")
+
+[connection signal="body_entered" from="ScoreLeft" to="." method="_on_score_left_body_entered"]
+[connection signal="body_entered" from="ScoreRight" to="." method="_on_score_right_body_entered"]
+[connection signal="timeout" from="BallTimer" to="." method="_on_ball_timer_timeout"]
+[connection signal="pressed" from="YouLose/Label/HBoxContainer/Play again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="YouLose/Label/HBoxContainer/Back to main menu" to="." method="_on_back_to_main_menu_pressed"]
+[connection signal="pressed" from="YouWin/Label/HBoxContainer/Play again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="YouWin/Label/HBoxContainer/Back to main menu" to="." method="_on_back_to_main_menu_pressed"]
+[connection signal="pressed" from="PlayerControls/DOWNTouchScreenButton" to="Player" method="_on_down_touch_screen_button_pressed"]
+[connection signal="pressed" from="PlayerControls/UPTouchScreenButton" to="Player" method="_on_up_touch_screen_button_pressed"]
