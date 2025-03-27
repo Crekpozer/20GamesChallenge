@@ -32,3 +32,10 @@ func _process(delta: float) -> void:
 
 func TurnOnControllers() -> void:
 	gameHasStarted = true
+
+
+func _on_up_touch_screen_button_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_down_touch_screen_button_pressed() -> void:
+	pass # Replace with function body.

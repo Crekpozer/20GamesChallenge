@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bs0mm8mtdwbdd"]
+[gd_scene load_steps=52 format=3 uid="uid://bs0mm8mtdwbdd"]
 
 [ext_resource type="Script" uid="uid://dreyvrya7s4l5" path="res://Scripts/main.gd" id="1_5cip8"]
 [ext_resource type="Texture2D" uid="uid://cxpsmlyy731ud" path="res://Addons/kenney_rolling-ball-assets/Vector/rollingBall_vector.svg" id="2_03epd"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://ch7xnf78a3wd4" path="res://Addons/kenney_input-prompts/keyboard_w_outline.png" id="9_ijl5e"]
 [ext_resource type="Script" uid="uid://c6boeqccg5mwq" path="res://Scripts/cpu.gd" id="10_iapyk"]
 [ext_resource type="PackedScene" uid="uid://dupqonwt86x83" path="res://Scenes/Misc/ball.tscn" id="11_cfb2y"]
+[ext_resource type="Texture2D" uid="uid://drm31433vet46" path="res://Addons/kenney_input-prompts/keyboard_arrow_down.png" id="12_gisgg"]
+[ext_resource type="Texture2D" uid="uid://xxsb6g6vjh1g" path="res://Addons/kenney_input-prompts/keyboard_arrow_up.png" id="13_eava0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0ud6"]
 texture = ExtResource("2_03epd")
@@ -71,6 +73,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%Player/../PlayerControls/DOWNTouchScreenButton/DownSprite:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%Player/../PlayerControls/UPTouchScreenButton/UpSprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_l0ud6"]
 resource_name = "TIPSANIMATION"
@@ -118,6 +144,30 @@ tracks/3/path = NodePath("KeyboardWOutline:self_modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("%Player/../PlayerControls/DOWNTouchScreenButton/DownSprite:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%Player/../PlayerControls/UPTouchScreenButton/UpSprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -290,6 +340,9 @@ font_color = Color(0.113725, 0.827451, 0.145098, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xon8w"]
 font_color = Color(0.924615, 0.105105, 0.191184, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gisgg"]
+font_color = Color(0.113725, 0.8, 0.141176, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rw01f"]
 font_size = 30
@@ -678,7 +731,7 @@ atlas = ExtResource("2_03epd")
 region = Rect2(0, 336, 128, 53)
 
 [sub_resource type="LabelSettings" id="LabelSettings_eava0"]
-font_size = 12
+font_size = 20
 outline_size = 5
 outline_color = Color(0.0163189, 0.0163189, 0.0163189, 1)
 
@@ -687,6 +740,9 @@ font_size = 150
 font_color = Color(0.180392, 0.8, 0.443137, 1)
 outline_size = 10
 outline_color = Color(0.580004, 0.380349, 0.157433, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cip8"]
+size = Vector2(240, 240)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5cip8")
@@ -909,9 +965,9 @@ vertical_alignment = 1
 [node name="Rules" type="Label" parent="PreGameScreen/Panel"]
 layout_mode = 0
 offset_left = 640.0
-offset_top = 201.0
+offset_top = 277.0
 offset_right = 727.0
-offset_bottom = 243.0
+offset_bottom = 319.0
 text = "Rules:"
 label_settings = SubResource("LabelSettings_l0ud6")
 horizontal_alignment = 1
@@ -970,12 +1026,77 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="Controls" type="Label" parent="PreGameScreen/Panel"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 112.0
+offset_right = 771.0
+offset_bottom = 154.0
+text = "Controls:"
+label_settings = SubResource("LabelSettings_l0ud6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OnPC" type="Label" parent="PreGameScreen/Panel/Controls"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 39.0
+offset_right = 224.0
+offset_bottom = 62.0
+text = "With Keyboard:"
+
+[node name="WandS" type="Label" parent="PreGameScreen/Panel/Controls/OnPC"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = 11.5
+offset_right = 49.0
+offset_bottom = 34.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Press W or S to move de paddle"
+label_settings = SubResource("LabelSettings_hvw3n")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="OnSmartphone" type="Label" parent="PreGameScreen/Panel/Controls"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 85.0
+offset_right = 305.0
+offset_bottom = 108.0
+text = "With touchscreen:"
+
+[node name="TiltYourPhone" type="Label" parent="PreGameScreen/Panel/Controls/OnSmartphone"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = 11.5
+offset_right = 119.0
+offset_bottom = 34.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Tilt your phone and press the arrows on the conner"
+label_settings = SubResource("LabelSettings_gisgg")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="Tips" type="Label" parent="PreGameScreen/Panel"]
 layout_mode = 0
 offset_left = 640.0
-offset_top = 334.0
+offset_top = 384.0
 offset_right = 707.0
-offset_bottom = 376.0
+offset_bottom = 426.0
 text = "Tips:"
 label_settings = SubResource("LabelSettings_l0ud6")
 horizontal_alignment = 1
@@ -1268,6 +1389,26 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="PlayerControls" type="Node2D" parent="."]
+
+[node name="DOWNTouchScreenButton" type="TouchScreenButton" parent="PlayerControls"]
+position = Vector2(50, 575)
+scale = Vector2(0.7, 0.7)
+shape = SubResource("RectangleShape2D_5cip8")
+action = "down1"
+
+[node name="DownSprite" type="Sprite2D" parent="PlayerControls/DOWNTouchScreenButton"]
+texture = ExtResource("12_gisgg")
+
+[node name="UPTouchScreenButton" type="TouchScreenButton" parent="PlayerControls"]
+position = Vector2(50, 84.0001)
+scale = Vector2(0.7, 0.7)
+shape = SubResource("RectangleShape2D_5cip8")
+action = "up1"
+
+[node name="UpSprite" type="Sprite2D" parent="PlayerControls/UPTouchScreenButton"]
+texture = ExtResource("13_eava0")
+
 [connection signal="body_entered" from="ScoreLeft" to="." method="_on_score_left_body_entered"]
 [connection signal="body_entered" from="ScoreRight" to="." method="_on_score_right_body_entered"]
 [connection signal="timeout" from="BallTimer" to="." method="_on_ball_timer_timeout"]
@@ -1275,3 +1416,5 @@ autowrap_mode = 2
 [connection signal="pressed" from="YouLose/Label/HBoxContainer/Back to main menu" to="." method="_on_back_to_main_menu_pressed"]
 [connection signal="pressed" from="YouWin/Label/HBoxContainer/Play again" to="." method="_on_play_again_pressed"]
 [connection signal="pressed" from="YouWin/Label/HBoxContainer/Back to main menu" to="." method="_on_back_to_main_menu_pressed"]
+[connection signal="pressed" from="PlayerControls/DOWNTouchScreenButton" to="Player" method="_on_down_touch_screen_button_pressed"]
+[connection signal="pressed" from="PlayerControls/UPTouchScreenButton" to="Player" method="_on_up_touch_screen_button_pressed"]
