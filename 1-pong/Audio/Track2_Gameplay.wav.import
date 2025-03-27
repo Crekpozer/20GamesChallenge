@@ -2,7 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://ufrn2wa6l0jg"
+uid="uid://bsb5gul6r6txh"
 path="res://.godot/imported/Track2_Gameplay.wav-b739e86b791114522338b44df9be5d63.sample"
 
 [deps]
@@ -20,5 +20,5 @@ edit/trim=false
 edit/normalize=false
 edit/loop_mode=2
 edit/loop_begin=0
-edit/loop_end=353000
-compress/mode=0
+edit/loop_end=-1
+compress/mode=2

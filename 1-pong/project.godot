@@ -12,6 +12,7 @@ config_version=5
 
 config/name="20GC-Pong"
 config/tags=PackedStringArray("20gameschallenge")
+run/main_scene="uid://npo52yiqb5m3"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -19,6 +20,10 @@ config/icon="res://icon.svg"
 
 LoadManager="*res://Scripts/LoadManager.gd"
 AudioManager="*res://Scripts/AudioManager.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [input]
 

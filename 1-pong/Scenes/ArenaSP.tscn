@@ -148,36 +148,6 @@ outline_color = Color(0.0457637, 0.0457637, 0.0457637, 1)
 shadow_size = 5
 shadow_color = Color(0, 0, 0, 0.882353)
 
-[sub_resource type="LabelSettings" id="LabelSettings_bugre"]
-font_size = 150
-font_color = Color(0.830227, 0.101619, 0.211961, 1)
-outline_size = 10
-outline_color = Color(0.0945987, 0.0469951, 0.00792336, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5cip8"]
-atlas = ExtResource("2_03epd")
-region = Rect2(0, 336, 128, 53)
-
-[sub_resource type="LabelSettings" id="LabelSettings_03epd"]
-font_size = 20
-outline_size = 5
-outline_color = Color(0.0163189, 0.0163189, 0.0163189, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gisgg"]
-atlas = ExtResource("2_03epd")
-region = Rect2(0, 336, 128, 53)
-
-[sub_resource type="LabelSettings" id="LabelSettings_eava0"]
-font_size = 12
-outline_size = 5
-outline_color = Color(0.0163189, 0.0163189, 0.0163189, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_2tw1v"]
-font_size = 150
-font_color = Color(0.180392, 0.8, 0.443137, 1)
-outline_size = 10
-outline_color = Color(0.580004, 0.380349, 0.157433, 1)
-
 [sub_resource type="Animation" id="Animation_2tw1v"]
 length = 0.001
 tracks/0/type = "value"
@@ -688,6 +658,36 @@ _data = {
 &"WAINTINGTOSTART": SubResource("Animation_rw01f")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_bugre"]
+font_size = 150
+font_color = Color(0.830227, 0.101619, 0.211961, 1)
+outline_size = 10
+outline_color = Color(0.0945987, 0.0469951, 0.00792336, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cip8"]
+atlas = ExtResource("2_03epd")
+region = Rect2(0, 336, 128, 53)
+
+[sub_resource type="LabelSettings" id="LabelSettings_03epd"]
+font_size = 20
+outline_size = 5
+outline_color = Color(0.0163189, 0.0163189, 0.0163189, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gisgg"]
+atlas = ExtResource("2_03epd")
+region = Rect2(0, 336, 128, 53)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eava0"]
+font_size = 12
+outline_size = 5
+outline_color = Color(0.0163189, 0.0163189, 0.0163189, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2tw1v"]
+font_size = 150
+font_color = Color(0.180392, 0.8, 0.443137, 1)
+outline_size = 10
+outline_color = Color(0.580004, 0.380349, 0.157433, 1)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5cip8")
 
@@ -835,187 +835,6 @@ text = "0"
 label_settings = SubResource("LabelSettings_jhdhk")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="YouLose" type="CanvasLayer" parent="."]
-
-[node name="Panel" type="Panel" parent="YouLose"]
-modulate = Color(1, 1, 1, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -69.0
-offset_top = -55.0
-offset_right = 55.0
-offset_bottom = 55.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="YouLose"]
-modulate = Color(1, 1, 1, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -361.5
-offset_top = -109.5
-offset_right = 361.5
-offset_bottom = 95.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "YOU LOSE"
-label_settings = SubResource("LabelSettings_bugre")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="YouLose/Label"]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -504.0
-offset_top = 151.5
-offset_right = -4.0
-offset_bottom = 204.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-theme_override_constants/separation = 150
-alignment = 1
-
-[node name="Play again" type="TextureButton" parent="YouLose/Label/HBoxContainer"]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_5cip8")
-stretch_mode = 3
-
-[node name="Label" type="Label" parent="YouLose/Label/HBoxContainer/Play again"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -16.5
-offset_right = 50.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Play again"
-label_settings = SubResource("LabelSettings_03epd")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Back to main menu" type="TextureButton" parent="YouLose/Label/HBoxContainer"]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_gisgg")
-stretch_mode = 3
-
-[node name="Label" type="Label" parent="YouLose/Label/HBoxContainer/Back to main menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -61.5
-offset_top = -21.0
-offset_right = 62.5
-offset_bottom = 17.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Back to main menu"
-label_settings = SubResource("LabelSettings_eava0")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="YouWin" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="YouWin"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -331.0
-offset_top = 379.0
-offset_right = 331.0
-offset_bottom = 584.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "YOU WIN"
-label_settings = SubResource("LabelSettings_2tw1v")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="YouWin/Label"]
-custom_minimum_size = Vector2(500, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -504.0
-offset_top = 144.5
-offset_right = -4.0
-offset_bottom = 197.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-theme_override_constants/separation = 150
-alignment = 1
-
-[node name="Play again" type="TextureButton" parent="YouWin/Label/HBoxContainer"]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_5cip8")
-stretch_mode = 3
-
-[node name="Label" type="Label" parent="YouWin/Label/HBoxContainer/Play again"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -16.5
-offset_right = 50.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Play again"
-label_settings = SubResource("LabelSettings_03epd")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Back to main menu" type="TextureButton" parent="YouWin/Label/HBoxContainer"]
-layout_mode = 2
-texture_normal = SubResource("AtlasTexture_gisgg")
-stretch_mode = 3
-
-[node name="Label" type="Label" parent="YouWin/Label/HBoxContainer/Back to main menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -61.5
-offset_top = -21.0
-offset_right = 62.5
-offset_bottom = 17.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Back to main menu"
-label_settings = SubResource("LabelSettings_eava0")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -1267,6 +1086,187 @@ libraries = {
 &"": SubResource("AnimationLibrary_3u63p")
 }
 autoplay = "WAINTINGTOSTART"
+
+[node name="YouLose" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="YouLose"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -69.0
+offset_top = -55.0
+offset_right = 55.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="YouLose"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -361.5
+offset_top = -109.5
+offset_right = 361.5
+offset_bottom = 95.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU LOSE"
+label_settings = SubResource("LabelSettings_bugre")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="YouLose/Label"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -504.0
+offset_top = 151.5
+offset_right = -4.0
+offset_bottom = 204.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Play again" type="TextureButton" parent="YouLose/Label/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5cip8")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="YouLose/Label/HBoxContainer/Play again"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play again"
+label_settings = SubResource("LabelSettings_03epd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back to main menu" type="TextureButton" parent="YouLose/Label/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_gisgg")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="YouLose/Label/HBoxContainer/Back to main menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -21.0
+offset_right = 62.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back to main menu"
+label_settings = SubResource("LabelSettings_eava0")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="YouWin" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="YouWin"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -331.0
+offset_top = 379.0
+offset_right = 331.0
+offset_bottom = 584.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU WIN"
+label_settings = SubResource("LabelSettings_2tw1v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="YouWin/Label"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -504.0
+offset_top = 144.5
+offset_right = -4.0
+offset_bottom = 197.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Play again" type="TextureButton" parent="YouWin/Label/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_5cip8")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="YouWin/Label/HBoxContainer/Play again"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play again"
+label_settings = SubResource("LabelSettings_03epd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back to main menu" type="TextureButton" parent="YouWin/Label/HBoxContainer"]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_gisgg")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="YouWin/Label/HBoxContainer/Back to main menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -21.0
+offset_right = 62.5
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main menu"
+label_settings = SubResource("LabelSettings_eava0")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="body_entered" from="ScoreLeft" to="." method="_on_score_left_body_entered"]
 [connection signal="body_entered" from="ScoreRight" to="." method="_on_score_right_body_entered"]
