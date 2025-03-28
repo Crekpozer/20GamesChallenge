@@ -13,6 +13,7 @@ texture = ExtResource("2_03epd")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(594, 2, 60, 60)
+modulate_color = Color(0.196502, 0.196502, 0.196502, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bugre"]
 size = Vector2(68.5714, 382.381)
@@ -45,13 +46,14 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_l0ud6")
 
 [node name="Player" type="StaticBody2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(254, 817)
+position = Vector2(253, 677)
 rotation = -1.57079
 scale = Vector2(0.3, 0.3)
 script = ExtResource("4_eava0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 unique_name_in_owner = true
+self_modulate = Color(0, 0, 1, 1)
 position = Vector2(1.33286, -1.35947)
 scale = Vector2(1, 1.4998)
 texture = ExtResource("5_2uvom")
@@ -414,3 +416,305 @@ offset_right = 36.0
 offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Brick16" type="StaticBody2D" parent="."]
+position = Vector2(87, 176)
+script = ExtResource("6_2uamx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick16"]
+shape = SubResource("RectangleShape2D_jnvm8")
+
+[node name="ColorRect" type="ColorRect" parent="Brick16"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -13.0
+offset_right = 36.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Brick17" type="StaticBody2D" parent="."]
+position = Vector2(168, 176)
+script = ExtResource("6_2uamx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick17"]
+shape = SubResource("RectangleShape2D_jnvm8")
+
+[node name="ColorRect" type="ColorRect" parent="Brick17"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -13.0
+offset_right = 36.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Brick18" type="StaticBody2D" parent="."]
+position = Vector2(253, 176)
+script = ExtResource("6_2uamx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick18"]
+shape = SubResource("RectangleShape2D_jnvm8")
+
+[node name="ColorRect" type="ColorRect" parent="Brick18"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -13.0
+offset_right = 36.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Brick19" type="StaticBody2D" parent="."]
+position = Vector2(334, 176)
+script = ExtResource("6_2uamx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick19"]
+shape = SubResource("RectangleShape2D_jnvm8")
+
+[node name="ColorRect" type="ColorRect" parent="Brick19"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -13.0
+offset_right = 36.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Brick20" type="StaticBody2D" parent="."]
+position = Vector2(413, 176)
+script = ExtResource("6_2uamx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick20"]
+shape = SubResource("RectangleShape2D_jnvm8")
+
+[node name="ColorRect" type="ColorRect" parent="Brick20"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -13.0
+offset_right = 36.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Brick21" type="StaticBody2D" parent="."]
+position = Vector2(87, 210)
+script = ExtResource("6_2uamx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick21"]
+shape = SubResource("RectangleShape2D_jnvm8")
+
+[node name="ColorRect" type="ColorRect" parent="Brick21"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -13.0
+offset_right = 36.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Brick22" type="StaticBody2D" parent="."]
+position = Vector2(168, 210)
+script = ExtResource("6_2uamx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick22"]
+shape = SubResource("RectangleShape2D_jnvm8")
+
+[node name="ColorRect" type="ColorRect" parent="Brick22"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -13.0
+offset_right = 36.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Brick23" type="StaticBody2D" parent="."]
+position = Vector2(253, 210)
+script = ExtResource("6_2uamx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick23"]
+shape = SubResource("RectangleShape2D_jnvm8")
+
+[node name="ColorRect" type="ColorRect" parent="Brick23"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -13.0
+offset_right = 36.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Brick24" type="StaticBody2D" parent="."]
+position = Vector2(334, 210)
+script = ExtResource("6_2uamx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick24"]
+shape = SubResource("RectangleShape2D_jnvm8")
+
+[node name="ColorRect" type="ColorRect" parent="Brick24"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -13.0
+offset_right = 36.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Brick25" type="StaticBody2D" parent="."]
+position = Vector2(413, 210)
+script = ExtResource("6_2uamx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick25"]
+shape = SubResource("RectangleShape2D_jnvm8")
+
+[node name="ColorRect" type="ColorRect" parent="Brick25"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -13.0
+offset_right = 36.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Brick26" type="StaticBody2D" parent="."]
+position = Vector2(87, 245)
+script = ExtResource("6_2uamx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick26"]
+shape = SubResource("RectangleShape2D_jnvm8")
+
+[node name="ColorRect" type="ColorRect" parent="Brick26"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -13.0
+offset_right = 36.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Brick27" type="StaticBody2D" parent="."]
+position = Vector2(168, 245)
+script = ExtResource("6_2uamx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick27"]
+shape = SubResource("RectangleShape2D_jnvm8")
+
+[node name="ColorRect" type="ColorRect" parent="Brick27"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -13.0
+offset_right = 36.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Brick28" type="StaticBody2D" parent="."]
+position = Vector2(253, 245)
+script = ExtResource("6_2uamx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick28"]
+shape = SubResource("RectangleShape2D_jnvm8")
+
+[node name="ColorRect" type="ColorRect" parent="Brick28"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -13.0
+offset_right = 36.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Brick29" type="StaticBody2D" parent="."]
+position = Vector2(334, 245)
+script = ExtResource("6_2uamx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick29"]
+shape = SubResource("RectangleShape2D_jnvm8")
+
+[node name="ColorRect" type="ColorRect" parent="Brick29"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -13.0
+offset_right = 36.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Brick30" type="StaticBody2D" parent="."]
+position = Vector2(413, 245)
+script = ExtResource("6_2uamx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick30"]
+shape = SubResource("RectangleShape2D_jnvm8")
+
+[node name="ColorRect" type="ColorRect" parent="Brick30"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -13.0
+offset_right = 36.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="body_entered" from="BallPassThrough" to="Player" method="_on_ball_pass_through_body_entered"]

@@ -45,10 +45,10 @@ func _physics_process(delta: float) -> void:
 		collider = collision.get_collider()
 		if not inLoading:
 			if collider == %Player:
-				speed += accel
 				direction = NewDirection(collider)
 				AudioManager.PlaySFX("ballHitSFX")
 			elif collider is Brick:
+				speed += accel
 				direction = direction.bounce(collision.get_normal())
 				AudioManager.PlaySFX("ballHitSFX")
 				collider.queue_free()

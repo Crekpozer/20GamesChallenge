@@ -5,10 +5,11 @@ var paddleWidth : float # Altura da barra
 
 var ballRef : CharacterBody2D
 var ballLaunched : bool = false
+
 # var hasPressedAction : bool = false
 # var isTipsOn : bool = true
 
-var gameHasStarted : bool = true
+var isGameOver : bool = false
 
 var paddleSpeed : int = 500
 
@@ -38,10 +39,19 @@ func _input(event: InputEvent) -> void:
 				%BallSprite2D.visible = false
 				ballRef.NewBall(%BallSprite2D.global_position)
 				ballRef.visible = true
-		
 
 # func _on_up_touch_screen_button_pressed() -> void:
 # 	pass # Replace with function body.
 
 # func _on_down_touch_screen_button_pressed() -> void:
 # 	pass # Replace with function body.
+
+func _on_ball_pass_through_body_entered(body: Node2D) -> void:
+	# Verificar se o jogador tem vidas restantes
+	# Se tiver:
+	# - Diminuiu uma vida do jogador
+	# - Mostrar a bola da barra
+	# - Marcar a bola como não lançada
+	# Se não tiver:
+	# - Mostrar tela de game over
+	pass # Replace with function body.
