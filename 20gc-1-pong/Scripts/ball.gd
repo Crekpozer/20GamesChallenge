@@ -32,7 +32,7 @@ func NewBall():
 func RandomDirection():
 	var newDirection : Vector2
 	newDirection.x = [1, -1].pick_random()
-	newDirection.y = randf_range(-1, 1)
+	newDirection.y = -1
 	return newDirection.normalized()
 
 # Função que trabalha com a fisica

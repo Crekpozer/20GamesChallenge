@@ -1,41 +1,47 @@
 extends StaticBody2D
 
-var windowHeight : float # Altura da janela
-var paddleHeight : float # Altura da barra
+var windowWidth : float # Altura da janela
+var paddleWidth : float # Altura da barra
 
-var hasPressedAction : bool = false
-var isTipsOn : bool = true
+var ballRef : CharacterBody2D
+var ballLaunched : bool = false
+# var hasPressedAction : bool = false
+# var isTipsOn : bool = true
 
-var gameHasStarted : bool = false
+var gameHasStarted : bool = true
+
+var paddleSpeed : int = 500
 
 func _ready():
-	windowHeight = get_viewport_rect().size.y
-	paddleHeight = %Sprite2D.global_position.y
+	windowWidth = get_viewport_rect().size.x
+	paddleWidth = %ColorRect.size.x
+	ballRef = %Ball
 
 func _process(delta: float) -> void:
 	
-	if gameHasStarted:
-		if Input.is_action_pressed("up1"): # Apertar para cima
-			hasPressedAction = true
-			position.y -= get_parent().paddleSpeed * delta
-		elif Input.is_action_pressed("down1"): # Apertar para baixo
-			hasPressedAction = true
-			position.y += get_parent().paddleSpeed * delta
+	if Input.is_action_pressed("left1"): # Apertar para cima
+		# hasPressedAction = true
+		position.x -= paddleSpeed * delta
+	elif Input.is_action_pressed("right1"): # Apertar para baixo
+		# hasPressedAction = true
+		position.x += paddleSpeed * delta
+	
+	# Limitar a barra na janela
+	position.x = clamp(position.x, paddleWidth / 2 + 10, windowWidth - paddleWidth / 2 - 10)
+
+func _input(event: InputEvent) -> void:
+	var input = event.as_text()
+	match input:
+		"Space":
+			if not ballLaunched:
+				ballLaunched = true
+				%BallSprite2D.visible = false
+				ballRef.NewBall(%BallSprite2D.global_position)
+				ballRef.visible = true
 		
-		# Limitar a barra na janela
-		position.y = clamp(position.y, paddleHeight / 2 - 75, windowHeight - paddleHeight / 2 + 75)
-		
-		if hasPressedAction && isTipsOn:
-			print("desligando dicas")
-			isTipsOn = false
-			%TipsAnimationPlayer.play("TIPSANIMATION")
 
-func TurnOnControllers() -> void:
-	gameHasStarted = true
+# func _on_up_touch_screen_button_pressed() -> void:
+# 	pass # Replace with function body.
 
-
-func _on_up_touch_screen_button_pressed() -> void:
-	pass # Replace with function body.
-
-func _on_down_touch_screen_button_pressed() -> void:
-	pass # Replace with function body.
+# func _on_down_touch_screen_button_pressed() -> void:
+# 	pass # Replace with function body.
