@@ -1,23 +1,24 @@
-# PONG
+O primeiro jogo de sucesso da ATARI ([[Pong]]) ter um sucesso massivo, muitas companhia fizeram clones do jogo, o que erodiu os lucros da ATARI. A resposta deles foi fazer mais jogos inovadores para ficar na frente da competição. Breakout foi um descendente direto de pong, mas foi desenvolvido para um jogador só em vez de dois. Ele lançou em 1976.
 
-Pong foi o primeiro jogo de arcade a fazer um grande sucesso. Foi lançado em 1972, e começou a primeira explosão dos jogos arcades. O jogo pode parecer simples hoje em dia, mas ele foi desenvolvido direto no hardware (O que você chuta). Essencialmente, Pong era um computador especial desenhado para bater a bolinha entre duas pás e contar a pontuação.
-
-Você não precisa fazer as peças desse computador, é claro. Com um motor grafico moderno, isso irá um inicio simples justo.
+Fun fact: Steve Jobs e Steve Wozniak (sim, os caras da apple) trabalharam junto para desenvolver o hardware necessário para rodar o Breakout. Assim como o Pong, o jogo era feito de transistors. Novamente, o jogo seria muito mais facil de fazer se você usar uma engine nova em vez de ter que começar de uma pilha de fios.
 
 | Dificuldade  |     |
 | ------------ | --- |
-| Complexidade | 0.5 |
-| Escopo       | 0.5 |
+| Complexidade | 0,5 |
+| Escopo       | 1   |
+**Objetivo:**
 
-**Objetivos:**
+- Criar um espaço de jogo com paredes e tetos
+- Adicionar uma barra que pode ser movida para a esquerda e a direita por meio dos comandos do jogador
+- Adicionar uma bola que irá bater na barra, paredes e teto.
+- Adicionar no jogo objetos quadrados (tijolos) na parte de cima do espaço de jogo. (O jogo original tinha oito linhas com 16 tijolos em cada, entretanto você pode mudar o numero de tijolos dependendo do tamanho da sua area de jogo)
+- Permita que a bola quique nos tijolos. Quando a bola quica, o tijolo deve desaparecer
+  1. Quebrar tijolos deve aumentar a pontuação
+  2. A velocidade da bola deve aumentar quando o tijolo é quebrado
+- A pontuação deve ser mostrada, assim como um contador de vidas. O jogador começa com três vidas. Se o jogador perder a bola, uma vida deve ser subtraída. Quando todas vidas forem usadas, o jogo acaba.
 
-- Criar uma arena com duas paredes e uma divisória.
-- Adicionar as pás no final da arena. Use as entradas do jogador para mover as pás para cima e para baixo.
-- Adicionar uma bola que se move pela arena. Conte pontuações dos jogadores que fizerem pontos.
-- Registre e mostre a pontuação de cada jogador.
+**Metas estendidas:**
 
-**Metas desafiadoras:**
-
-- Escreva uma inteligência artificial que siga a bola para que o jogador possa jogar sozinho. Dica: Fazer a pá seguir a bola é facil, mas isso torna impossível de vencer o jogo. Talvez você queira não fazer uma inteligência não tão inteligente assim.
-- Adicione um menu e permita ao jogador resetar o jogo.
-- Adicione alguns sons básicos. Toque o som toda vez que a bola colida com algo e toda vez que o jogador faz um ponto.
+- Guarde a pontuação entre sessões e mostre do lado da pontuação do jogador.
+- Adicione cores diferentes para os tijolos por linha (O jogo original era preto e branco, mas havia um filme colorido na tela para simular cores para os tijolos).
+- A barra deve ficar menor quando a bola bater no teto.
