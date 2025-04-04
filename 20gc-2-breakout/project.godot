@@ -12,7 +12,7 @@ config_version=5
 
 config/name="20GC - Breakout"
 config/tags=PackedStringArray("20gameschallenge")
-run/main_scene="uid://npo52yiqb5m3"
+run/main_scene="uid://bs0mm8mtdwbdd"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

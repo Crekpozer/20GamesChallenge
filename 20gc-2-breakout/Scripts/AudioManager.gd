@@ -67,6 +67,7 @@ func _ready() -> void:
 	SetBus(defeatedPlayer, "Defeated")
 	SetBus(SFXPlayer, "SFX")
 	SetBus(victoryPlayer, "Defeated")
+	
 
 # Function to play the intro
 func PlayBGMusic(songName: String):
@@ -81,9 +82,10 @@ func PlayBGMusic(songName: String):
 		"Victory":
 			victoryPlayer.play()
 
-func PlaySFX(sfxName: String) -> void:
+func PlaySFX(sfxName: String, mod: int) -> void:
 	match sfxName:
 		"ballHitSFX":
+			SFXPlayer.pitch_scale = mod * 0.80
 			SFXPlayer.stream = ballHitSFX
 			SFXPlayer.volume_db = -6.0
 			SFXPlayer.play()

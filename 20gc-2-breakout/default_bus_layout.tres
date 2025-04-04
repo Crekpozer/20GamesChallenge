@@ -1,4 +1,9 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://dh73d3sudp773"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://dh73d3sudp773"]
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_j3pel"]
+resource_name = "PitchShift"
+pitch_scale = 5.0
+oversampling = 6
 
 [resource]
 bus/1/name = &"BGMusic"
@@ -19,3 +24,5 @@ bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = -5.32994
 bus/3/send = &"Master"
+bus/3/effect/0/effect = SubResource("AudioEffectPitchShift_j3pel")
+bus/3/effect/0/enabled = true

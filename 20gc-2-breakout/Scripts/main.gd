@@ -1,50 +1,76 @@
 extends Node2D
 
-var score : int = 0
-var gameIsOver : bool = false
-var lifes : int = 5
+@export_category("Game Rules")
+@export var lifes : int = 3 # Quantidade de vidas do jogador 
+@export var totalBricks : int = 30 # O total de tijolos na tela
 
-# Player Refrence
-@onready var playerRef : StaticBody2D = %Player
+var score : int = 0 # Pontuação do jogador
+var gameIsOver : bool = false # Marca se o jogo acabou ou não
+var highScore : int # Pontuação recorde do jogador
 
-# Variaveis para a maquina de estados
+@onready var playerRef : StaticBody2D = %Player # Referencia ao jogador
+@onready var ballRef : CharacterBody2D = %Ball # Referencia da bola
 
-# PREGAME
-# 	Mostra a tela de préjogo com as instruções
-# 	Permite ao jogador movimentar a barra junto com a bolinha
-# 	Espera a entrada do jogador para disparar a bolinha
-# 	- Chama a função StartGame
-
-# GAME
-# Detecta a pontuação
-# - Chama a função YOUWIN caso o jogador destrua todos os tijolos
-# - Chama a função YOULOSE caso o jogador fique sem vidas
-
-# AFTERGAME
-# Mostra a tela de derrota
-# - Botão para tentar de novo
-# - Botão para o menu principal
-# Mostra a tela de vitória
-# - Botão para jogar de novo
-# - Mostra botão para o menu principal
-
+# Função tocada quando o jogo começa
 func _ready() -> void:
 	# Inicializa a partida
-	AudioManager.PlayBGMusic("Gameplay")
+	LoadHighScore() # Carrega e exibe a pontuação maxima
+	# AudioManager.PlayBGMusic("Gameplay") # Toca a musica de fundo
+	%LifesText.text = str(lifes) # Imprime as vidas na tela
+	%ScoreText.text = str(score) # Imprime a pontuação na tela
 
+# Função que a atualiza a todo frame 
 func _process(_delta: float) -> void:
-	# Monitora a quantidade de tijolos para saber quantos blocos o jogador quebrou
-	pass
+	
+	# Se o jogo não estriver acabado
+	if not gameIsOver:
+		# Se as vidas for 0
+		if lifes == 0:
+			# Você perde a partida
+			YouLose() # Função que chama a tela de derrota
+		# ou se o total de tijolos restante
+		elif totalBricks == 0:
+			# Você ganha a partida
+			YouWin() # Função que chama a tela de vitória
+	
+	%ScoreComboText.text = str(ballRef.combo)
 
-func StartGame() -> void:
-	pass
-
-# Função que dispara quando o jogador perde a bola
-
-# Função disparada caso o jogador ganha a partida
+# Função disparada quando o jogador ganha a partida
 func YouWin() -> void:
-	pass
+	%EndGameAnimationPlayer.play("win") # Anima o texto de vitória
+	gameIsOver = true # Sinaliza que o jogo acabou
+	# AudioManager.PlayBGMusic("Victory")
+	
+	# Verifica se a pontuação atingida é maior que a pontuação maxima
+	if score > highScore: 
+		SetNewHighScore() # Salva a nova pontuação
 
 # Função disparada quando o jogador perde a partida
 func YouLose() -> void:
-	pass
+	gameIsOver = true # Marca que a partida já acabou
+	%EndGameAnimationPlayer.play("lose") # Toca a animação de derrota
+	# AudioManager.PlayBGMusic("Defeated") # Toca a musica de derrota
+
+# Função chamada quando o jogar bate o ultimo record
+func SetNewHighScore():
+	# Variavel que irá armazenar o novo recorde no arquivo
+	var file = FileAccess.open("user://breakout.txt", FileAccess.WRITE)
+	highScore = score # atualiza o valor da varivel que armazena o recorde
+	file.store_string(str(highScore)) # usa a varivel para escrever no arquivo
+	%HighScoreText.text = str(highScore) # Atauliza o valor na tela da pontuação recorde
+
+# Função que carrega o ultimo recorde do arquivo
+func LoadHighScore() -> void:
+	# Variavel que irá carregar o recorde do arquivo
+	var file = FileAccess.open("user://breakout.txt", FileAccess.READ)
+	highScore = file.get_as_text(true).to_int() # Atualiza o valor de recorde para o valor carregado do arquivo
+	%HighScoreText.text = str(highScore) # Atauliza o valor na tela da pontuação recorde
+
+# Função que dispara quando o jogador perde a bola
+func _on_ball_pass_through_body_entered(body: Node2D) -> void:
+	lifes -= 1 # Reduz uma vida do jogador
+	%LifesText.text = str(lifes) # Atualiza o valor da quantidade de vidas na tela
+	
+	# Se o jogo ainda não tiver acabado
+	if not gameIsOver:
+		playerRef.ResetBall() # Posiciona uma nova bola para o jogador

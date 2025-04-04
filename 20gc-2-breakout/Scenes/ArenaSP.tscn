@@ -1,37 +1,195 @@
-[gd_scene load_steps=14 format=3 uid="uid://bs0mm8mtdwbdd"]
+[gd_scene load_steps=51 format=3 uid="uid://bs0mm8mtdwbdd"]
 
 [ext_resource type="Script" uid="uid://dreyvrya7s4l5" path="res://Scripts/main.gd" id="1_5cip8"]
 [ext_resource type="Texture2D" uid="uid://cxpsmlyy731ud" path="res://Addons/kenney_rolling-ball-assets/Vector/rollingBall_vector.svg" id="2_03epd"]
 [ext_resource type="Script" uid="uid://ceo7gpwv6kh0d" path="res://Scripts/player.gd" id="4_eava0"]
 [ext_resource type="Texture2D" uid="uid://fc8leo5a6wax" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/ball_blue_large.png" id="4_jnvm8"]
-[ext_resource type="Texture2D" uid="uid://bddcd6etbkgwy" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/block_narrow.png" id="5_2uvom"]
-[ext_resource type="Script" uid="uid://cuthbyerg0qrv" path="res://Scripts/brick.gd" id="6_2uamx"]
+[ext_resource type="Texture2D" uid="uid://bm8vd75iwm8nq" path="res://Addons/kenney_puzzle/png/paddleBlu.png" id="6_03epd"]
+[ext_resource type="PackedScene" uid="uid://bqphlbde36t4j" path="res://Scenes/Misc/brick.tscn" id="7_4u60q"]
+[ext_resource type="Texture2D" uid="uid://dmxnfmfsyh73r" path="res://Addons/kenney_puzzle/png/element_purple_rectangle_glossy.png" id="8_4u60q"]
+[ext_resource type="Texture2D" uid="uid://gpc4qwnrwamf" path="res://Addons/kenney_puzzle/png/element_red_rectangle_glossy.png" id="8_5wke1"]
+[ext_resource type="Texture2D" uid="uid://cwlfe6p4aqqr2" path="res://Addons/kenney_puzzle/png/element_grey_rectangle_glossy.png" id="9_5cip8"]
+[ext_resource type="Texture2D" uid="uid://dx7iuxi1cn06" path="res://Addons/kenney_puzzle/png/element_grey_rectangle.png" id="10_03epd"]
 [ext_resource type="PackedScene" uid="uid://dupqonwt86x83" path="res://Scenes/Misc/ball.tscn" id="11_cfb2y"]
+[ext_resource type="Texture2D" uid="uid://bawa76x2s46in" path="res://Addons/kenney_puzzle/png/element_green_square.png" id="11_eava0"]
+[ext_resource type="Texture2D" uid="uid://dqd6bqmm5aeyc" path="res://Addons/kenney_puzzle/png/element_yellow_rectangle_glossy.png" id="11_gisgg"]
+[ext_resource type="Texture2D" uid="uid://dmo6w005pxmwx" path="res://Addons/kenney_puzzle/png/element_blue_rectangle_glossy.png" id="11_owaig"]
+[ext_resource type="Texture2D" uid="uid://do7qh6vtktak5" path="res://Addons/kenney_puzzle/png/element_green_rectangle_glossy.png" id="12_2uvom"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0ud6"]
 texture = ExtResource("2_03epd")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(594, 2, 60, 60)
-modulate_color = Color(0.196502, 0.196502, 0.196502, 1)
+modulate_color = Color(0.0545738, 0.0545738, 0.0545738, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bugre"]
 size = Vector2(68.5714, 382.381)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gisgg"]
+texture = ExtResource("6_03epd")
+texture_margin_left = 9.0
+texture_margin_right = 9.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x00a1"]
-size = Vector2(889, 22)
+size = Vector2(769.875, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vn73"]
 size = Vector2(17.0009, 495.5)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_owaig"]
+texture = ExtResource("8_5wke1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eoyu2"]
+texture = ExtResource("9_5cip8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4n57f"]
+texture = ExtResource("10_03epd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fm7p6"]
+texture = ExtResource("11_owaig")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ds8k2"]
+texture = ExtResource("8_4u60q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ltde4"]
+texture = ExtResource("8_4u60q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tiees"]
+texture = ExtResource("8_4u60q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mjrkk"]
+texture = ExtResource("8_4u60q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ya7ey"]
+texture = ExtResource("8_4u60q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ijl5e"]
+texture = ExtResource("11_eava0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iapyk"]
+texture = ExtResource("12_2uvom")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cfb2y"]
+texture = ExtResource("11_gisgg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_51p3g"]
+texture = ExtResource("11_gisgg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fg7o1"]
+texture = ExtResource("11_gisgg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w33vm"]
+texture = ExtResource("11_gisgg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dmiue"]
+texture = ExtResource("11_gisgg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8n2l2"]
+texture = ExtResource("8_5wke1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kt355"]
+texture = ExtResource("8_5wke1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ffjws"]
+texture = ExtResource("8_5wke1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y6w2p"]
+texture = ExtResource("8_5wke1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ogxd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ogxd"]
+font_size = 25
+font_color = Color(0.102243, 0.102243, 0.102243, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4u60q"]
+font_size = 15
+font_color = Color(0.102243, 0.102243, 0.102243, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4f205"]
 size = Vector2(30, 495)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnvm8"]
-size = Vector2(76, 26)
+[sub_resource type="LabelSettings" id="LabelSettings_5wke1"]
+font_size = 60
+font_color = Color(1, 0, 0, 1)
+outline_size = 5
+outline_color = Color(0.623967, 0.623967, 0.623967, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5vn73"]
+font_size = 60
+font_color = Color(0, 1, 0, 1)
+outline_size = 5
+outline_color = Color(0.131742, 0.131742, 0.131742, 1)
+
+[sub_resource type="Animation" id="Animation_5vn73"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YouLose/YouLoseLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(118, -115)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("YouWin/YouWinLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(129, -116)]
+}
+
+[sub_resource type="Animation" id="Animation_4u60q"]
+resource_name = "lose"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YouLose/YouLoseLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(118, -115), Vector2(118, 360)]
+}
+
+[sub_resource type="Animation" id="Animation_3ogxd"]
+resource_name = "win"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YouWin/YouWinLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(129, -116), Vector2(129, 342)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5wke1"]
+_data = {
+&"RESET": SubResource("Animation_5vn73"),
+&"lose": SubResource("Animation_4u60q"),
+&"win": SubResource("Animation_3ogxd")
+}
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5cip8")
+metadata/_edit_vertical_guides_ = [87.0, 248.0, 411.0]
+metadata/_edit_horizontal_guides_ = [74.0, 103.0, 131.0, 160.0, 188.0, 217.0]
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -46,17 +204,10 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_l0ud6")
 
 [node name="Player" type="StaticBody2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(253, 677)
+position = Vector2(248, 677)
 rotation = -1.57079
 scale = Vector2(0.3, 0.3)
 script = ExtResource("4_eava0")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-unique_name_in_owner = true
-self_modulate = Color(0, 0, 1, 1)
-position = Vector2(1.33286, -1.35947)
-scale = Vector2(1, 1.4998)
-texture = ExtResource("5_2uvom")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(1.33237, 0.142822)
@@ -76,13 +227,29 @@ offset_right = 32.0
 offset_bottom = 123.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.2, 1, 1)
+color = Color(1, 0.2, 1, 0)
 
 [node name="BallSprite2D" type="Sprite2D" parent="Player"]
 unique_name_in_owner = true
-position = Vector2(70, 4.28556)
+position = Vector2(69.9998, -0.000481129)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_jnvm8")
+
+[node name="Panel" type="Panel" parent="Player"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.667
+offset_top = -26.6656
+offset_right = 179.333
+offset_bottom = 25.3344
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(178, 26)
+theme_override_styles/panel = SubResource("StyleBoxTexture_gisgg")
 
 [node name="Border" type="StaticBody2D" parent="."]
 position = Vector2(657, 0)
@@ -90,26 +257,16 @@ rotation = 1.57079
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
-position = Vector2(435.999, 151.003)
+position = Vector2(370.999, 151.002)
 shape = SubResource("RectangleShape2D_x00a1")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
-position = Vector2(438.496, 668.004)
+position = Vector2(367.058, 669.002)
 shape = SubResource("RectangleShape2D_x00a1")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Border"]
 position = Vector2(-8.00261, 409.75)
 shape = SubResource("RectangleShape2D_5vn73")
-
-[node name="BallPassThrough" type="Area2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(312, 1152)
-monitoring = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BallPassThrough"]
-position = Vector2(-64.5, -272)
-rotation = 1.57079
-shape = SubResource("RectangleShape2D_4f205")
 
 [node name="Ball" parent="." instance=ExtResource("11_cfb2y")]
 unique_name_in_owner = true
@@ -117,604 +274,723 @@ visible = false
 position = Vector2(257, 768)
 scale = Vector2(0.5, 0.5)
 
-[node name="Brick" type="StaticBody2D" parent="."]
+[node name="Brick" parent="." instance=ExtResource("7_4u60q")]
 position = Vector2(87, 74)
-script = ExtResource("6_2uamx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick"]
+[node name="Panel2" type="Panel" parent="Brick"]
+show_behind_parent = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.0
+offset_left = -38.0
 offset_top = -13.0
-offset_right = 36.0
+offset_right = 38.0
 offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_owaig")
 
-[node name="Brick2" type="StaticBody2D" parent="."]
+[node name="Brick2" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(411, 217)
+
+[node name="Panel2" type="Panel" parent="Brick2"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_eoyu2")
+
+[node name="Brick3" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(330, 217)
+
+[node name="Panel2" type="Panel" parent="Brick3"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4n57f")
+
+[node name="Brick4" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(248, 217)
+
+[node name="Panel2" type="Panel" parent="Brick4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4n57f")
+
+[node name="Brick5" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(168, 217)
+
+[node name="Panel2" type="Panel" parent="Brick5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4n57f")
+
+[node name="Brick6" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(87, 217)
+
+[node name="Panel2" type="Panel" parent="Brick6"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4n57f")
+
+[node name="Brick7" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(411, 188)
+
+[node name="Panel2" type="Panel" parent="Brick7"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fm7p6")
+
+[node name="Brick8" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(330, 188)
+
+[node name="Panel2" type="Panel" parent="Brick8"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fm7p6")
+
+[node name="Brick9" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(248, 188)
+
+[node name="Panel2" type="Panel" parent="Brick9"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fm7p6")
+
+[node name="Brick10" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(168, 188)
+
+[node name="Panel2" type="Panel" parent="Brick10"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fm7p6")
+
+[node name="Brick11" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(87, 188)
+
+[node name="Panel2" type="Panel" parent="Brick11"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fm7p6")
+
+[node name="Brick12" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(411, 160)
+
+[node name="Panel2" type="Panel" parent="Brick12"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ds8k2")
+
+[node name="Brick13" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(330, 160)
+
+[node name="Panel2" type="Panel" parent="Brick13"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ltde4")
+
+[node name="Brick14" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(248, 160)
+
+[node name="Panel2" type="Panel" parent="Brick14"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tiees")
+
+[node name="Brick15" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(168, 160)
+
+[node name="Panel2" type="Panel" parent="Brick15"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mjrkk")
+
+[node name="Brick16" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(87, 160)
+
+[node name="Panel2" type="Panel" parent="Brick16"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ya7ey")
+
+[node name="Brick17" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(411, 131)
+
+[node name="Panel2" type="Panel" parent="Brick17"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ijl5e")
+
+[node name="Brick18" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(330, 131)
+
+[node name="Panel2" type="Panel" parent="Brick18"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ijl5e")
+
+[node name="Brick19" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(248, 131)
+
+[node name="Panel2" type="Panel" parent="Brick19"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ijl5e")
+
+[node name="Brick20" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(168, 131)
+
+[node name="Panel2" type="Panel" parent="Brick20"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ijl5e")
+
+[node name="Brick21" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(87, 131)
+
+[node name="Panel2" type="Panel" parent="Brick21"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_iapyk")
+
+[node name="Brick22" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(411, 103)
+
+[node name="Panel2" type="Panel" parent="Brick22"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_cfb2y")
+
+[node name="Brick23" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(330, 103)
+
+[node name="Panel2" type="Panel" parent="Brick23"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_51p3g")
+
+[node name="Brick24" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(248, 103)
+
+[node name="Panel2" type="Panel" parent="Brick24"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fg7o1")
+
+[node name="Brick25" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(168, 103)
+
+[node name="Panel2" type="Panel" parent="Brick25"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_w33vm")
+
+[node name="Brick26" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(87, 103)
+
+[node name="Panel2" type="Panel" parent="Brick26"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dmiue")
+
+[node name="Brick27" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(411, 74)
+
+[node name="Panel2" type="Panel" parent="Brick27"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8n2l2")
+
+[node name="Brick28" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(330, 74)
+
+[node name="Panel2" type="Panel" parent="Brick28"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_kt355")
+
+[node name="Brick29" parent="." instance=ExtResource("7_4u60q")]
 position = Vector2(168, 74)
-script = ExtResource("6_2uamx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick2"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick2"]
+[node name="Panel2" type="Panel" parent="Brick29"]
+show_behind_parent = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.0
+offset_left = -38.0
 offset_top = -13.0
-offset_right = 36.0
+offset_right = 38.0
 offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ffjws")
 
-[node name="Brick3" type="StaticBody2D" parent="."]
-position = Vector2(253, 74)
-script = ExtResource("6_2uamx")
+[node name="Brick30" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(248, 74)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick3"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick3"]
+[node name="Panel2" type="Panel" parent="Brick30"]
+show_behind_parent = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.0
+offset_left = -38.0
 offset_top = -13.0
-offset_right = 36.0
+offset_right = 38.0
 offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_y6w2p")
 
-[node name="Brick4" type="StaticBody2D" parent="."]
-position = Vector2(334, 74)
-script = ExtResource("6_2uamx")
+[node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick4"]
-shape = SubResource("RectangleShape2D_jnvm8")
+[node name="Panel" type="Panel" parent="HUD"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -247.5
+offset_top = -158.0
+offset_right = 247.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ogxd")
 
-[node name="ColorRect" type="ColorRect" parent="Brick4"]
+[node name="LifesLabel" type="Label" parent="HUD/Panel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
+offset_left = -32.5
+offset_top = -65.0
+offset_right = 50.5
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 2
+text = "Balls"
+label_settings = SubResource("LabelSettings_3ogxd")
 
-[node name="Brick5" type="StaticBody2D" parent="."]
-position = Vector2(413, 74)
-script = ExtResource("6_2uamx")
+[node name="LifeTextBackground" type="Panel" parent="HUD/Panel/LifesLabel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 29.0
+offset_right = 75.0
+offset_bottom = 48.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick5"]
-shape = SubResource("RectangleShape2D_jnvm8")
+[node name="LifesText" type="Label" parent="HUD/Panel/LifesLabel/LifeTextBackground"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = -3.5
+offset_right = 42.0
+offset_bottom = 19.5
+text = "$Ball"
 
-[node name="ColorRect" type="ColorRect" parent="Brick5"]
+[node name="ScoreLabel" type="Label" parent="HUD/Panel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
+offset_left = -59.5
+offset_top = -16.0
+offset_right = -18.5
+offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
+text = "Score"
+label_settings = SubResource("LabelSettings_4u60q")
 
-[node name="Brick6" type="StaticBody2D" parent="."]
-position = Vector2(87, 108)
-script = ExtResource("6_2uamx")
+[node name="ScoreTextBackground" type="Panel" parent="HUD/Panel/ScoreLabel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 20.0
+offset_right = 75.0
+offset_bottom = 39.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick6"]
-shape = SubResource("RectangleShape2D_jnvm8")
+[node name="ScoreText" type="Label" parent="HUD/Panel/ScoreLabel/ScoreTextBackground"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 54.0
+offset_bottom = 19.0
+text = "$Score"
 
-[node name="ColorRect" type="ColorRect" parent="Brick6"]
+[node name="ScoreComboLabel" type="Label" parent="HUD/Panel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
+offset_left = 19.5
+offset_top = -14.0
+offset_right = 71.5
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+text = "Combo"
+label_settings = SubResource("LabelSettings_4u60q")
 
-[node name="Brick7" type="StaticBody2D" parent="."]
-position = Vector2(168, 108)
-script = ExtResource("6_2uamx")
+[node name="ScoreComboTextBackground" type="Panel" parent="HUD/Panel/ScoreComboLabel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 18.0
+offset_right = 54.0
+offset_bottom = 37.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick7"]
-shape = SubResource("RectangleShape2D_jnvm8")
+[node name="ScoreComboText" type="Label" parent="HUD/Panel/ScoreComboLabel/ScoreComboTextBackground"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 54.0
+offset_bottom = 19.0
+text = "$Combo"
 
-[node name="ColorRect" type="ColorRect" parent="Brick7"]
+[node name="HighScoreLabel" type="Label" parent="HUD/Panel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
+offset_left = -57.5
+offset_top = 30.0
+offset_right = 20.5
+offset_bottom = 52.0
 grow_horizontal = 2
 grow_vertical = 2
+text = "High Score"
+label_settings = SubResource("LabelSettings_4u60q")
 
-[node name="Brick8" type="StaticBody2D" parent="."]
-position = Vector2(253, 108)
-script = ExtResource("6_2uamx")
+[node name="ScoreTextBackground" type="Panel" parent="HUD/Panel/HighScoreLabel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 20.0
+offset_right = 129.0
+offset_bottom = 39.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick8"]
-shape = SubResource("RectangleShape2D_jnvm8")
+[node name="HighScoreText" type="Label" parent="HUD/Panel/HighScoreLabel/ScoreTextBackground"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 54.0
+offset_bottom = 19.0
+text = "$HighScore"
 
-[node name="ColorRect" type="ColorRect" parent="Brick8"]
-anchors_preset = 8
+[node name="BallPassThrough" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(312, 1152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallPassThrough"]
+position = Vector2(-63, -416)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_4f205")
+
+[node name="YouLose" type="CanvasLayer" parent="."]
+
+[node name="YouLoseLabel" type="Label" parent="YouLose"]
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
+offset_left = -129.5
+offset_top = -115.0
+offset_right = 129.5
+offset_bottom = -32.0
 grow_horizontal = 2
-grow_vertical = 2
+text = "You Lose"
+label_settings = SubResource("LabelSettings_5wke1")
 
-[node name="Brick9" type="StaticBody2D" parent="."]
-position = Vector2(334, 108)
-script = ExtResource("6_2uamx")
+[node name="YouWin" type="CanvasLayer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick9"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick9"]
-anchors_preset = 8
+[node name="YouWinLabel" type="Label" parent="YouWin"]
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
+offset_left = -118.5
+offset_top = -116.0
+offset_right = 118.5
+offset_bottom = -33.0
 grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick10" type="StaticBody2D" parent="."]
-position = Vector2(413, 108)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick10"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick10"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick11" type="StaticBody2D" parent="."]
-position = Vector2(87, 143)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick11"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick11"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick12" type="StaticBody2D" parent="."]
-position = Vector2(168, 143)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick12"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick12"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick13" type="StaticBody2D" parent="."]
-position = Vector2(253, 143)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick13"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick13"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick14" type="StaticBody2D" parent="."]
-position = Vector2(334, 143)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick14"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick14"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick15" type="StaticBody2D" parent="."]
-position = Vector2(413, 143)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick15"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick15"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick16" type="StaticBody2D" parent="."]
-position = Vector2(87, 176)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick16"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick16"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick17" type="StaticBody2D" parent="."]
-position = Vector2(168, 176)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick17"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick17"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick18" type="StaticBody2D" parent="."]
-position = Vector2(253, 176)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick18"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick18"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick19" type="StaticBody2D" parent="."]
-position = Vector2(334, 176)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick19"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick19"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick20" type="StaticBody2D" parent="."]
-position = Vector2(413, 176)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick20"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick20"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick21" type="StaticBody2D" parent="."]
-position = Vector2(87, 210)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick21"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick21"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick22" type="StaticBody2D" parent="."]
-position = Vector2(168, 210)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick22"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick22"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick23" type="StaticBody2D" parent="."]
-position = Vector2(253, 210)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick23"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick23"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick24" type="StaticBody2D" parent="."]
-position = Vector2(334, 210)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick24"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick24"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick25" type="StaticBody2D" parent="."]
-position = Vector2(413, 210)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick25"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick25"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick26" type="StaticBody2D" parent="."]
-position = Vector2(87, 245)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick26"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick26"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick27" type="StaticBody2D" parent="."]
-position = Vector2(168, 245)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick27"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick27"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick28" type="StaticBody2D" parent="."]
-position = Vector2(253, 245)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick28"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick28"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick29" type="StaticBody2D" parent="."]
-position = Vector2(334, 245)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick29"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick29"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Brick30" type="StaticBody2D" parent="."]
-position = Vector2(413, 245)
-script = ExtResource("6_2uamx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick30"]
-shape = SubResource("RectangleShape2D_jnvm8")
-
-[node name="ColorRect" type="ColorRect" parent="Brick30"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -36.0
-offset_top = -13.0
-offset_right = 36.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[connection signal="body_entered" from="BallPassThrough" to="Player" method="_on_ball_pass_through_body_entered"]
+text = "You Win"
+label_settings = SubResource("LabelSettings_5vn73")
+
+[node name="EndGameAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_5wke1")
+}
+
+[connection signal="body_entered" from="BallPassThrough" to="." method="_on_ball_pass_through_body_entered"]
