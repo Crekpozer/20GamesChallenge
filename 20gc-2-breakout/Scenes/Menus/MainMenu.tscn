@@ -1,0 +1,148 @@
+[gd_scene load_steps=9 format=3 uid="uid://bn0ttnvqwjkv3"]
+
+[ext_resource type="Texture2D" uid="uid://cxpsmlyy731ud" path="res://Addons/kenney_rolling-ball-assets/Vector/rollingBall_vector.svg" id="2_b42ut"]
+
+[sub_resource type="GDScript" id="GDScript_v3fht"]
+script/source = "extends CanvasLayer
+
+func _ready() -> void:
+	AudioManager.PlayBGMusic(\"MainMenu\")
+
+func _on_single_player_pressed() -> void:
+	LoadManager.LoadScene(\"res://Scenes/ArenaSP.tscn\")
+
+func _on_multiplayer_pressed() -> void:
+	LoadManager.LoadScene(\"res://Scenes/ArenaMP.tscn\")
+"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b42ut"]
+texture = ExtResource("2_b42ut")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(594, 2, 60, 60)
+modulate_color = Color(0.0545738, 0.0545738, 0.0545738, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bc4mk"]
+font_size = 25
+outline_size = 15
+outline_color = Color(0.0278245, 0.0278245, 0.0278245, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_tfrft"]
+font_names = PackedStringArray("Sans-Serif")
+font_weight = 600
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_v3fht"]
+font = SubResource("SystemFont_tfrft")
+font_size = 25
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b42ut"]
+line_spacing = 0.0
+font_size = 80
+outline_size = 15
+outline_color = Color(0.0237659, 0.0237659, 0.0237659, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hqtmt"]
+font_size = 30
+font_color = Color(1, 0.172549, 0.196078, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="StartMenu" type="CanvasLayer"]
+script = SubResource("GDScript_v3fht")
+
+[node name="Background" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0.921569)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_b42ut")
+
+[node name="Control" type="Control" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -98.0
+offset_top = 59.0
+offset_right = 98.0
+offset_bottom = 101.0
+grow_horizontal = 2
+text = "Welcome to"
+label_settings = SubResource("LabelSettings_bc4mk")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="20GC" type="Label" parent="Background/Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = 11.0
+offset_right = 208.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "The 20 Games Challenge's first game"
+label_settings = SubResource("LabelSettings_v3fht")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Breakout" type="Label" parent="Background/Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.5
+offset_top = 68.0
+offset_right = 267.5
+offset_bottom = 178.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Breakout"
+label_settings = SubResource("LabelSettings_b42ut")
+horizontal_alignment = 1
+vertical_alignment = 3
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="Background"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -28.0
+offset_right = 125.0
+offset_bottom = -5.0
+grow_vertical = 0
+text = "Version:"
+
+[node name="PressToStart" type="Label" parent="Background"]
+layout_mode = 2
+offset_left = 80.0
+offset_top = 330.0
+offset_right = 433.0
+offset_bottom = 372.0
+text = "Touch anywhere to start"
+label_settings = SubResource("LabelSettings_hqtmt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartMenuAnimationPlayer" type="AnimationPlayer" parent="."]

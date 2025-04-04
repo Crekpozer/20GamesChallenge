@@ -85,7 +85,7 @@ func PlayBGMusic(songName: String):
 func PlaySFX(sfxName: String, mod: int) -> void:
 	match sfxName:
 		"ballHitSFX":
-			SFXPlayer.pitch_scale = mod * 0.80
+			SFXPlayer.pitch_scale = mod * 0.60
 			SFXPlayer.stream = ballHitSFX
 			SFXPlayer.volume_db = -6.0
 			SFXPlayer.play()
