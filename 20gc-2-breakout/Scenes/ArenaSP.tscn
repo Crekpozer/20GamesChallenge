@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bs0mm8mtdwbdd"]
+[gd_scene load_steps=63 format=3 uid="uid://bs0mm8mtdwbdd"]
 
 [ext_resource type="Script" uid="uid://dreyvrya7s4l5" path="res://Scripts/main.gd" id="1_5cip8"]
 [ext_resource type="Texture2D" uid="uid://cxpsmlyy731ud" path="res://Addons/kenney_rolling-ball-assets/Vector/rollingBall_vector.svg" id="2_03epd"]
@@ -15,13 +15,23 @@
 [ext_resource type="Texture2D" uid="uid://dqd6bqmm5aeyc" path="res://Addons/kenney_puzzle/png/element_yellow_rectangle_glossy.png" id="11_gisgg"]
 [ext_resource type="Texture2D" uid="uid://dmo6w005pxmwx" path="res://Addons/kenney_puzzle/png/element_blue_rectangle_glossy.png" id="11_owaig"]
 [ext_resource type="Texture2D" uid="uid://do7qh6vtktak5" path="res://Addons/kenney_puzzle/png/element_green_rectangle_glossy.png" id="12_2uvom"]
+[ext_resource type="Texture2D" uid="uid://bq78n2kel2oyn" path="res://Addons/kenney_input-prompts/keyboard_arrow_up_outline.png" id="16_owaig"]
+[ext_resource type="Script" uid="uid://on2k74rnrko0" path="res://Scripts/play_touch_screen_button.gd" id="17_eoyu2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0ud6"]
 texture = ExtResource("2_03epd")
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(594, 2, 60, 60)
-modulate_color = Color(0.0545738, 0.0545738, 0.0545738, 1)
+modulate_color = Color(0.294395, 0.294395, 0.294395, 1)
+
+[sub_resource type="Animation" id="Animation_ijl5e"]
+resource_name = "BackAnimation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iapyk"]
+_data = {
+&"BackAnimation": SubResource("Animation_ijl5e")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bugre"]
 size = Vector2(68.5714, 382.381)
@@ -107,6 +117,12 @@ font_color = Color(0.102243, 0.102243, 0.102243, 1)
 font_size = 15
 font_color = Color(0.102243, 0.102243, 0.102243, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uvom"]
+size = Vector2(150, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owaig"]
+size = Vector2(150, 150)
+
 [sub_resource type="LabelSettings" id="LabelSettings_2uvom"]
 font_size = 15
 font_color = Color(0.0411992, 0.0411992, 0.0411992, 1)
@@ -190,10 +206,53 @@ _data = {
 &"win": SubResource("Animation_3ogxd")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eoyu2"]
+size = Vector2(500, 500)
+
+[sub_resource type="LabelSettings" id="LabelSettings_owaig"]
+font_size = 20
+outline_size = 3
+outline_color = Color(0.0431373, 0.627451, 0.807843, 1)
+
+[sub_resource type="Animation" id="Animation_4n57f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_eoyu2"]
+resource_name = "blink"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ijl5e"]
+_data = {
+&"RESET": SubResource("Animation_4n57f"),
+&"blink": SubResource("Animation_eoyu2")
+}
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5cip8")
-metadata/_edit_vertical_guides_ = [87.0, 248.0, 411.0]
-metadata/_edit_horizontal_guides_ = [74.0, 103.0, 131.0, 160.0, 188.0, 217.0]
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -205,6 +264,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_l0ud6")
+
+[node name="BackgroundAnimationPlayer" type="AnimationPlayer" parent="Background"]
+libraries = {
+&"": SubResource("AnimationLibrary_iapyk")
+}
 
 [node name="Player" type="StaticBody2D" parent="."]
 unique_name_in_owner = true
@@ -274,7 +338,6 @@ shape = SubResource("RectangleShape2D_5vn73")
 
 [node name="Ball" parent="." instance=ExtResource("11_cfb2y")]
 unique_name_in_owner = true
-visible = false
 position = Vector2(257, 768)
 scale = Vector2(0.5, 0.5)
 
@@ -300,7 +363,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_owaig")
 position = Vector2(411, 217)
 
 [node name="Panel2" type="Panel" parent="Brick2"]
-show_behind_parent = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -318,7 +380,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_eoyu2")
 position = Vector2(330, 217)
 
 [node name="Panel2" type="Panel" parent="Brick3"]
-show_behind_parent = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -856,7 +917,7 @@ offset_left = 2.0
 offset_top = -3.5
 offset_right = 42.0
 offset_bottom = 19.5
-text = "$Ball"
+text = "0"
 
 [node name="ScoreLabel" type="Label" parent="HUD/Panel"]
 layout_mode = 1
@@ -888,7 +949,7 @@ offset_left = 2.0
 offset_top = -4.0
 offset_right = 54.0
 offset_bottom = 19.0
-text = "$Score"
+text = "0"
 
 [node name="ScoreComboLabel" type="Label" parent="HUD/Panel"]
 layout_mode = 1
@@ -920,7 +981,7 @@ offset_left = 2.0
 offset_top = -4.0
 offset_right = 54.0
 offset_bottom = 19.0
-text = "$Combo"
+text = "0"
 
 [node name="HighScoreLabel" type="Label" parent="HUD/Panel"]
 layout_mode = 1
@@ -954,12 +1015,44 @@ offset_right = 54.0
 offset_bottom = 19.0
 text = "0"
 
-[node name="Label" type="Label" parent="HUD"]
+[node name="LeftTouchScreenButton" type="TouchScreenButton" parent="HUD/Panel"]
+position = Vector2(88, 79)
+shape = SubResource("RectangleShape2D_2uvom")
+action = "left1"
+
+[node name="KeyboardArrowUpOutline2" type="Sprite2D" parent="HUD/Panel/LeftTouchScreenButton"]
+self_modulate = Color(0.0630383, 0.0630383, 0.0630383, 1)
+position = Vector2(0, 2)
+rotation = -1.5708
+texture = ExtResource("16_owaig")
+
+[node name="KeyboardArrowUpOutline" type="Sprite2D" parent="HUD/Panel/LeftTouchScreenButton"]
+rotation = -1.5708
+texture = ExtResource("16_owaig")
+
+[node name="RightTouchScreenButton" type="TouchScreenButton" parent="HUD/Panel"]
+position = Vector2(411, 78)
+shape = SubResource("RectangleShape2D_owaig")
+action = "right1"
+
+[node name="KeyboardArrowUp" type="Sprite2D" parent="HUD/Panel/RightTouchScreenButton"]
+self_modulate = Color(0.00475307, 0.00475307, 0.00475307, 1)
+position = Vector2(0, 2)
+rotation = 1.5708
+texture = ExtResource("16_owaig")
+
+[node name="KeyboardArrowUpOutline" type="Sprite2D" parent="HUD/Panel/RightTouchScreenButton"]
+rotation = 1.5708
+texture = ExtResource("16_owaig")
+
+[node name="HUDAnimationPlayer" type="AnimationPlayer" parent="HUD/Panel"]
+
+[node name="VersionLabel" type="Label" parent="HUD"]
 offset_left = 4.0
 offset_top = 857.0
 offset_right = 88.0
 offset_bottom = 879.0
-text = "Version: 0.2"
+text = "Version: 0.5"
 label_settings = SubResource("LabelSettings_2uvom")
 
 [node name="BallPassThrough" type="Area2D" parent="."]
@@ -1005,4 +1098,39 @@ libraries = {
 &"": SubResource("AnimationLibrary_5wke1")
 }
 
+[node name="PlayTouchScreenButton" type="TouchScreenButton" parent="."]
+unique_name_in_owner = true
+z_index = 2
+z_as_relative = false
+position = Vector2(249, 491)
+shape = SubResource("RectangleShape2D_eoyu2")
+action = "playball"
+script = ExtResource("17_eoyu2")
+
+[node name="Label" type="Label" parent="PlayTouchScreenButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -111.0
+offset_right = 150.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Touch anywhere or press spacebar to launch the ball"
+label_settings = SubResource("LabelSettings_owaig")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PlayTouchAnimationPlayer" type="AnimationPlayer" parent="PlayTouchScreenButton"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_ijl5e")
+}
+autoplay = "blink"
+
 [connection signal="body_entered" from="BallPassThrough" to="." method="_on_ball_pass_through_body_entered"]
+[connection signal="pressed" from="PlayTouchScreenButton" to="PlayTouchScreenButton" method="_on_pressed"]

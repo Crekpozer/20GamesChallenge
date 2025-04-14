@@ -37,16 +37,23 @@ func _process(delta: float) -> void:
 # Função responsavel por detectar as entradas do jogador
 func _input(event: InputEvent) -> void:
 	var input = event.as_text() # Armazena o evento da entrada como um texto
-	
 	# Acessa o nodo pai para verificar se o jogo não acabou 
 	if not get_parent().gameIsOver:
 		# Deverifica se a entreda do jogador batem com algumas das funções
 		match input:
 			"Space": # Se a entrada for ESPAÇO, ele lançara a bola
 				if not ballLaunched: # Se o bola ainda não tiver sido lançada
+					%PlayTouchScreenButton.visible = false
 					ballLaunched = true # Marca que a bola foi lançada
 					%BallSprite2D.visible = false # Mostra a bola
 					ballRef.NewBall(%BallSprite2D.global_position) # Posiciona a bola no mesmo lugar que o sprite na barra
+					ballRef.visible = true # Torna o sprite da bola na barra invisivel
+			"Space (Physical)":
+				if not ballLaunched: # Se o bola ainda não tiver sido lançada
+					%PlayTouchScreenButton.visible = false
+					ballLaunched = true # Marca que a bola foi lançada
+					%BallSprite2D.visible = false # Mostra a bola
+					ballRef.NewBall(%BallSprite2D.global_position) # Posiciona a bola no mesmo lugar que o spr%PlayTouchScreenButtonite na barra
 					ballRef.visible = true # Torna o sprite da bola na barra invisivel
 
 # Função que reseta a posição da bola após perder ela

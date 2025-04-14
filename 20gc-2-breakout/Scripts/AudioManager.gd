@@ -32,12 +32,8 @@ extends Node
 # Há uma função para parar todos os sons, a função StopAll.
 
 # 1 - Carregar os arquivos
-var mainMenuAudio = preload("res://Audio/Track1_MainMenu.wav")
 var gameplayLoopAudio = preload("res://Audio/Track2_Gameplay.wav")
-var victoryAudio = preload("res://Audio/Track4_Victory.wav")
-var defeatedAudio = preload("res://Audio/Track3_Defeated.wav")
 var ballHitSFX = preload("res://Audio/SFX1_BallHit.wav")
-var youLoseSFX = preload("res://Audio/SFX2_YouLose.wav")
 
 # 2 - Criar um AudioStreamPlayer para reproduzir o som
 @onready var mainMenuPlayer: AudioStreamPlayer = AudioStreamPlayer.new()
@@ -56,11 +52,8 @@ func _ready() -> void:
 	add_child(victoryPlayer)
 	
 	# 4 - Atribuir o arquivo de audio ao AudioStreamPlayer
-	mainMenuPlayer.stream = mainMenuAudio
 	gameplayLoopPlayer.stream = gameplayLoopAudio
-	defeatedPlayer.stream = defeatedAudio
-	victoryPlayer.stream = victoryAudio
-
+	
 	# 5 - Configurar em que bus vai qual audio
 	SetBus(mainMenuPlayer, "BGMusic")
 	SetBus(gameplayLoopPlayer, "BGMusic")
@@ -77,6 +70,7 @@ func PlayBGMusic(songName: String):
 			mainMenuPlayer.play()
 		"Gameplay":
 			gameplayLoopPlayer.play()
+			gameplayLoopPlayer.volume_db = -5.1
 		"Defeated":
 			defeatedPlayer.play()
 		"Victory":
@@ -85,14 +79,11 @@ func PlayBGMusic(songName: String):
 func PlaySFX(sfxName: String, mod: int) -> void:
 	match sfxName:
 		"ballHitSFX":
-			SFXPlayer.pitch_scale = mod * 0.60
+			SFXPlayer.pitch_scale = mod
 			SFXPlayer.stream = ballHitSFX
-			SFXPlayer.volume_db = -6.0
+			SFXPlayer.volume_db = 16.0
 			SFXPlayer.play()
-		"youLoseSFX":
-			SFXPlayer.stream = youLoseSFX
-			SFXPlayer.volume_db = 0.0
-			SFXPlayer.play()
+
 
 # Function to stop all audio
 func StopAll():

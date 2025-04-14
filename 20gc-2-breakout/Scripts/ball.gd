@@ -18,10 +18,14 @@ var combo : int # Multiplicador de pontuação
 @export var inLoading : bool = false
 @export var isMuliplayer : bool = false
 
+var particles : CPUParticles2D
+
 # Função tocada quando o jogo começa
 func _ready():
 	# Detecta a largura da tela
 	windowSize = get_viewport_rect().size
+	# Referencia do missor da particulas da bola
+	particles = %CPUParticles
 
 # Função que gerencia a fisica da bola
 func _physics_process(delta: float) -> void:
@@ -46,6 +50,8 @@ func _physics_process(delta: float) -> void:
 			elif collider is Brick:
 				speed += accel # Acelera a bola
 				combo += 1 # Aumenta o combo em 1
+				particles.direction = direction
+				particles.emitting = true
 				get_parent().score += 10 * combo # Aumenta a pontuação em 10 multiplicado pelo combo
 				get_parent().totalBricks -= 1 # Diminui a quantidade total de tijolos
 				%ScoreText.text = str(get_parent().score) # Atualiza o valor da pontuação

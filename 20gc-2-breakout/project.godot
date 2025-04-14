@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-LoadManager="*res://Scripts/LoadManager.gd"
 AudioManager="*res://Scripts/AudioManager.gd"
 
 [display]

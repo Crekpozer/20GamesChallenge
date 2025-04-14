@@ -2,7 +2,7 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://byc5r4jr8tx0o"
+uid="uid://oh73hoq7xmus"
 path="res://.godot/imported/SFX1_BallHit.wav-14135bcaf5d4362cff15bc47223f87de.sample"
 
 [deps]
@@ -16,9 +16,9 @@ force/8_bit=false
 force/mono=false
 force/max_rate=false
 force/max_rate_hz=44100
-edit/trim=true
+edit/trim=false
 edit/normalize=false
-edit/loop_mode=1
+edit/loop_mode=0
 edit/loop_begin=0
 edit/loop_end=-1
-compress/mode=0
+compress/mode=2

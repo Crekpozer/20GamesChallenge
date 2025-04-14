@@ -15,7 +15,7 @@ var highScore : int # Pontuação recorde do jogador
 func _ready() -> void:
 	# Inicializa a partida
 	LoadHighScore() # Carrega e exibe a pontuação maxima
-	# AudioManager.PlayBGMusic("Gameplay") # Toca a musica de fundo
+	AudioManager.PlayBGMusic("Gameplay") # Toca a musica de fundo
 	%LifesText.text = str(lifes) # Imprime as vidas na tela
 	%ScoreText.text = str(score) # Imprime a pontuação na tela
 
@@ -28,10 +28,12 @@ func _process(_delta: float) -> void:
 		if lifes == 0:
 			# Você perde a partida
 			YouLose() # Função que chama a tela de derrota
+			%PlayTouchScreenButton.visible = false
 		# ou se o total de tijolos restante
 		elif totalBricks == 0:
 			# Você ganha a partida
 			YouWin() # Função que chama a tela de vitória
+			%PlayTouchScreenButton.visible = false
 	
 	%ScoreComboText.text = str(ballRef.combo)
 
@@ -39,6 +41,7 @@ func _process(_delta: float) -> void:
 func YouWin() -> void:
 	%EndGameAnimationPlayer.play("win") # Anima o texto de vitória
 	gameIsOver = true # Sinaliza que o jogo acabou
+	%PlayTouchScreenButton.visible = false
 	# AudioManager.PlayBGMusic("Victory")
 	
 	# Verifica se a pontuação atingida é maior que a pontuação maxima
@@ -50,6 +53,7 @@ func YouLose() -> void:
 	gameIsOver = true # Marca que a partida já acabou
 	%EndGameAnimationPlayer.play("lose") # Toca a animação de derrota
 	# AudioManager.PlayBGMusic("Defeated") # Toca a musica de derrota
+	%PlayTouchScreenButton.visible = false
 
 # Função chamada quando o jogar bate o ultimo record
 func SetNewHighScore():
@@ -73,4 +77,5 @@ func _on_ball_pass_through_body_entered(body: Node2D) -> void:
 	
 	# Se o jogo ainda não tiver acabado
 	if not gameIsOver:
+		%PlayTouchScreenButton.visible = true
 		playerRef.ResetBall() # Posiciona uma nova bola para o jogador
