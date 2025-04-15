@@ -1,0 +1,1139 @@
+[gd_scene load_steps=64 format=3 uid="uid://bs0mm8mtdwbdd"]
+
+[ext_resource type="Script" uid="uid://dreyvrya7s4l5" path="res://Scripts/main.gd" id="1_5cip8"]
+[ext_resource type="Texture2D" uid="uid://cxpsmlyy731ud" path="res://Addons/kenney_rolling-ball-assets/Vector/rollingBall_vector.svg" id="2_03epd"]
+[ext_resource type="Script" uid="uid://btl6tt7qgaymd" path="res://Scripts/background.gd" id="2_4n57f"]
+[ext_resource type="Script" uid="uid://ceo7gpwv6kh0d" path="res://Scripts/player.gd" id="4_eava0"]
+[ext_resource type="Texture2D" uid="uid://fc8leo5a6wax" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/ball_blue_large.png" id="4_jnvm8"]
+[ext_resource type="Texture2D" uid="uid://bm8vd75iwm8nq" path="res://Addons/kenney_puzzle/png/paddleBlu.png" id="6_03epd"]
+[ext_resource type="PackedScene" uid="uid://bqphlbde36t4j" path="res://Scenes/Misc/brick.tscn" id="7_4u60q"]
+[ext_resource type="Texture2D" uid="uid://dmxnfmfsyh73r" path="res://Addons/kenney_puzzle/png/element_purple_rectangle_glossy.png" id="8_4u60q"]
+[ext_resource type="Texture2D" uid="uid://gpc4qwnrwamf" path="res://Addons/kenney_puzzle/png/element_red_rectangle_glossy.png" id="8_5wke1"]
+[ext_resource type="Texture2D" uid="uid://cwlfe6p4aqqr2" path="res://Addons/kenney_puzzle/png/element_grey_rectangle_glossy.png" id="9_5cip8"]
+[ext_resource type="Texture2D" uid="uid://dx7iuxi1cn06" path="res://Addons/kenney_puzzle/png/element_grey_rectangle.png" id="10_03epd"]
+[ext_resource type="PackedScene" uid="uid://dupqonwt86x83" path="res://Scenes/Misc/ball.tscn" id="11_cfb2y"]
+[ext_resource type="Texture2D" uid="uid://bawa76x2s46in" path="res://Addons/kenney_puzzle/png/element_green_square.png" id="11_eava0"]
+[ext_resource type="Texture2D" uid="uid://dqd6bqmm5aeyc" path="res://Addons/kenney_puzzle/png/element_yellow_rectangle_glossy.png" id="11_gisgg"]
+[ext_resource type="Texture2D" uid="uid://dmo6w005pxmwx" path="res://Addons/kenney_puzzle/png/element_blue_rectangle_glossy.png" id="11_owaig"]
+[ext_resource type="Texture2D" uid="uid://do7qh6vtktak5" path="res://Addons/kenney_puzzle/png/element_green_rectangle_glossy.png" id="12_2uvom"]
+[ext_resource type="Texture2D" uid="uid://bq78n2kel2oyn" path="res://Addons/kenney_input-prompts/keyboard_arrow_up_outline.png" id="16_owaig"]
+[ext_resource type="Script" uid="uid://on2k74rnrko0" path="res://Scripts/play_touch_screen_button.gd" id="17_eoyu2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0ud6"]
+texture = ExtResource("2_03epd")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(594, 2, 60, 60)
+modulate_color = Color(0.294395, 0.294395, 0.294395, 1)
+
+[sub_resource type="Animation" id="Animation_ijl5e"]
+resource_name = "BackAnimation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iapyk"]
+_data = {
+&"BackAnimation": SubResource("Animation_ijl5e")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bugre"]
+size = Vector2(68.5714, 382.381)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gisgg"]
+texture = ExtResource("6_03epd")
+texture_margin_left = 9.0
+texture_margin_right = 9.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x00a1"]
+size = Vector2(769.875, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vn73"]
+size = Vector2(17.0009, 495.5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_owaig"]
+texture = ExtResource("8_5wke1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eoyu2"]
+texture = ExtResource("9_5cip8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4n57f"]
+texture = ExtResource("10_03epd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fm7p6"]
+texture = ExtResource("11_owaig")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ds8k2"]
+texture = ExtResource("8_4u60q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ltde4"]
+texture = ExtResource("8_4u60q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tiees"]
+texture = ExtResource("8_4u60q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mjrkk"]
+texture = ExtResource("8_4u60q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ya7ey"]
+texture = ExtResource("8_4u60q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ijl5e"]
+texture = ExtResource("11_eava0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iapyk"]
+texture = ExtResource("12_2uvom")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cfb2y"]
+texture = ExtResource("11_gisgg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_51p3g"]
+texture = ExtResource("11_gisgg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fg7o1"]
+texture = ExtResource("11_gisgg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w33vm"]
+texture = ExtResource("11_gisgg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dmiue"]
+texture = ExtResource("11_gisgg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8n2l2"]
+texture = ExtResource("8_5wke1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kt355"]
+texture = ExtResource("8_5wke1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ffjws"]
+texture = ExtResource("8_5wke1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y6w2p"]
+texture = ExtResource("8_5wke1")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ogxd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ogxd"]
+font_size = 25
+font_color = Color(0.102243, 0.102243, 0.102243, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4u60q"]
+font_size = 15
+font_color = Color(0.102243, 0.102243, 0.102243, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uvom"]
+size = Vector2(150, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owaig"]
+size = Vector2(150, 150)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2uvom"]
+font_size = 15
+font_color = Color(0.0411992, 0.0411992, 0.0411992, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4f205"]
+size = Vector2(30, 495)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5wke1"]
+font_size = 60
+font_color = Color(1, 0, 0, 1)
+outline_size = 5
+outline_color = Color(0.623967, 0.623967, 0.623967, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5vn73"]
+font_size = 60
+font_color = Color(0, 1, 0, 1)
+outline_size = 5
+outline_color = Color(0.131742, 0.131742, 0.131742, 1)
+
+[sub_resource type="Animation" id="Animation_5vn73"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YouLose/YouLoseLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(118, -115)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("YouWin/YouWinLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(129, -116)]
+}
+
+[sub_resource type="Animation" id="Animation_4u60q"]
+resource_name = "lose"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YouLose/YouLoseLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(118, -115), Vector2(118, 360)]
+}
+
+[sub_resource type="Animation" id="Animation_3ogxd"]
+resource_name = "win"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YouWin/YouWinLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(129, -116), Vector2(129, 342)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5wke1"]
+_data = {
+&"RESET": SubResource("Animation_5vn73"),
+&"lose": SubResource("Animation_4u60q"),
+&"win": SubResource("Animation_3ogxd")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eoyu2"]
+size = Vector2(500, 500)
+
+[sub_resource type="LabelSettings" id="LabelSettings_owaig"]
+font_size = 20
+outline_size = 3
+outline_color = Color(0.0431373, 0.627451, 0.807843, 1)
+
+[sub_resource type="Animation" id="Animation_4n57f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_eoyu2"]
+resource_name = "blink"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ijl5e"]
+_data = {
+&"RESET": SubResource("Animation_4n57f"),
+&"blink": SubResource("Animation_eoyu2")
+}
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_5cip8")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+script = ExtResource("2_4n57f")
+
+[node name="BackgroundPanel" type="Panel" parent="Background"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_l0ud6")
+
+[node name="BackgroundAnimationPlayer" type="AnimationPlayer" parent="Background"]
+libraries = {
+&"": SubResource("AnimationLibrary_iapyk")
+}
+
+[node name="Player" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(248, 677)
+rotation = -1.57079
+scale = Vector2(0.3, 0.3)
+script = ExtResource("4_eava0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(1.33237, 0.142822)
+shape = SubResource("RectangleShape2D_bugre")
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -122.0
+offset_right = 32.0
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.2, 1, 0)
+
+[node name="BallSprite2D" type="Sprite2D" parent="Player"]
+unique_name_in_owner = true
+position = Vector2(69.9998, -0.000481129)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_jnvm8")
+
+[node name="Panel" type="Panel" parent="Player"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.667
+offset_top = -26.6656
+offset_right = 179.333
+offset_bottom = 25.3344
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(178, 26)
+theme_override_styles/panel = SubResource("StyleBoxTexture_gisgg")
+
+[node name="Border" type="StaticBody2D" parent="."]
+position = Vector2(657, 0)
+rotation = 1.57079
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border"]
+position = Vector2(370.999, 151.002)
+shape = SubResource("RectangleShape2D_x00a1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border"]
+position = Vector2(367.058, 669.002)
+shape = SubResource("RectangleShape2D_x00a1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border"]
+position = Vector2(-8.00261, 409.75)
+shape = SubResource("RectangleShape2D_5vn73")
+
+[node name="Ball" parent="." instance=ExtResource("11_cfb2y")]
+unique_name_in_owner = true
+position = Vector2(257, 768)
+scale = Vector2(0.5, 0.5)
+
+[node name="Brick" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(87, 74)
+
+[node name="Panel2" type="Panel" parent="Brick"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_owaig")
+
+[node name="Brick2" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(411, 217)
+
+[node name="Panel2" type="Panel" parent="Brick2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_eoyu2")
+
+[node name="Brick3" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(330, 217)
+
+[node name="Panel2" type="Panel" parent="Brick3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4n57f")
+
+[node name="Brick4" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(248, 217)
+
+[node name="Panel2" type="Panel" parent="Brick4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4n57f")
+
+[node name="Brick5" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(168, 217)
+
+[node name="Panel2" type="Panel" parent="Brick5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4n57f")
+
+[node name="Brick6" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(87, 217)
+
+[node name="Panel2" type="Panel" parent="Brick6"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4n57f")
+
+[node name="Brick7" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(411, 188)
+
+[node name="Panel2" type="Panel" parent="Brick7"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fm7p6")
+
+[node name="Brick8" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(330, 188)
+
+[node name="Panel2" type="Panel" parent="Brick8"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fm7p6")
+
+[node name="Brick9" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(248, 188)
+
+[node name="Panel2" type="Panel" parent="Brick9"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fm7p6")
+
+[node name="Brick10" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(168, 188)
+
+[node name="Panel2" type="Panel" parent="Brick10"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fm7p6")
+
+[node name="Brick11" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(87, 188)
+
+[node name="Panel2" type="Panel" parent="Brick11"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fm7p6")
+
+[node name="Brick12" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(411, 160)
+
+[node name="Panel2" type="Panel" parent="Brick12"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ds8k2")
+
+[node name="Brick13" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(330, 160)
+
+[node name="Panel2" type="Panel" parent="Brick13"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ltde4")
+
+[node name="Brick14" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(248, 160)
+
+[node name="Panel2" type="Panel" parent="Brick14"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tiees")
+
+[node name="Brick15" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(168, 160)
+
+[node name="Panel2" type="Panel" parent="Brick15"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mjrkk")
+
+[node name="Brick16" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(87, 160)
+
+[node name="Panel2" type="Panel" parent="Brick16"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ya7ey")
+
+[node name="Brick17" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(411, 131)
+
+[node name="Panel2" type="Panel" parent="Brick17"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ijl5e")
+
+[node name="Brick18" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(330, 131)
+
+[node name="Panel2" type="Panel" parent="Brick18"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ijl5e")
+
+[node name="Brick19" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(248, 131)
+
+[node name="Panel2" type="Panel" parent="Brick19"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ijl5e")
+
+[node name="Brick20" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(168, 131)
+
+[node name="Panel2" type="Panel" parent="Brick20"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ijl5e")
+
+[node name="Brick21" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(87, 131)
+
+[node name="Panel2" type="Panel" parent="Brick21"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_iapyk")
+
+[node name="Brick22" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(411, 103)
+
+[node name="Panel2" type="Panel" parent="Brick22"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_cfb2y")
+
+[node name="Brick23" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(330, 103)
+
+[node name="Panel2" type="Panel" parent="Brick23"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_51p3g")
+
+[node name="Brick24" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(248, 103)
+
+[node name="Panel2" type="Panel" parent="Brick24"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fg7o1")
+
+[node name="Brick25" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(168, 103)
+
+[node name="Panel2" type="Panel" parent="Brick25"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_w33vm")
+
+[node name="Brick26" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(87, 103)
+
+[node name="Panel2" type="Panel" parent="Brick26"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dmiue")
+
+[node name="Brick27" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(411, 74)
+
+[node name="Panel2" type="Panel" parent="Brick27"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8n2l2")
+
+[node name="Brick28" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(330, 74)
+
+[node name="Panel2" type="Panel" parent="Brick28"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_kt355")
+
+[node name="Brick29" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(168, 74)
+
+[node name="Panel2" type="Panel" parent="Brick29"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ffjws")
+
+[node name="Brick30" parent="." instance=ExtResource("7_4u60q")]
+position = Vector2(248, 74)
+
+[node name="Panel2" type="Panel" parent="Brick30"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -13.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_y6w2p")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="HUD"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -247.5
+offset_top = -158.0
+offset_right = 247.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ogxd")
+
+[node name="LifesLabel" type="Label" parent="HUD/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -65.0
+offset_right = 50.5
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Balls"
+label_settings = SubResource("LabelSettings_3ogxd")
+
+[node name="LifeTextBackground" type="Panel" parent="HUD/Panel/LifesLabel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 29.0
+offset_right = 75.0
+offset_bottom = 48.0
+
+[node name="LifesText" type="Label" parent="HUD/Panel/LifesLabel/LifeTextBackground"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = -3.5
+offset_right = 42.0
+offset_bottom = 19.5
+text = "0"
+
+[node name="ScoreLabel" type="Label" parent="HUD/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = -16.0
+offset_right = -18.5
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score"
+label_settings = SubResource("LabelSettings_4u60q")
+
+[node name="ScoreTextBackground" type="Panel" parent="HUD/Panel/ScoreLabel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 20.0
+offset_right = 75.0
+offset_bottom = 39.0
+
+[node name="ScoreText" type="Label" parent="HUD/Panel/ScoreLabel/ScoreTextBackground"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 54.0
+offset_bottom = 19.0
+text = "0"
+
+[node name="ScoreComboLabel" type="Label" parent="HUD/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 19.5
+offset_top = -14.0
+offset_right = 71.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Combo"
+label_settings = SubResource("LabelSettings_4u60q")
+
+[node name="ScoreComboTextBackground" type="Panel" parent="HUD/Panel/ScoreComboLabel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 18.0
+offset_right = 54.0
+offset_bottom = 37.0
+
+[node name="ScoreComboText" type="Label" parent="HUD/Panel/ScoreComboLabel/ScoreComboTextBackground"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 54.0
+offset_bottom = 19.0
+text = "0"
+
+[node name="HighScoreLabel" type="Label" parent="HUD/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.5
+offset_top = 30.0
+offset_right = 20.5
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "High Score"
+label_settings = SubResource("LabelSettings_4u60q")
+
+[node name="ScoreTextBackground" type="Panel" parent="HUD/Panel/HighScoreLabel"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 20.0
+offset_right = 129.0
+offset_bottom = 39.0
+
+[node name="HighScoreText" type="Label" parent="HUD/Panel/HighScoreLabel/ScoreTextBackground"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 54.0
+offset_bottom = 19.0
+text = "0"
+
+[node name="LeftTouchScreenButton" type="TouchScreenButton" parent="HUD/Panel"]
+position = Vector2(88, 79)
+shape = SubResource("RectangleShape2D_2uvom")
+action = "left1"
+
+[node name="KeyboardArrowUpOutline2" type="Sprite2D" parent="HUD/Panel/LeftTouchScreenButton"]
+self_modulate = Color(0.0630383, 0.0630383, 0.0630383, 1)
+position = Vector2(0, 2)
+rotation = -1.5708
+texture = ExtResource("16_owaig")
+
+[node name="KeyboardArrowUpOutline" type="Sprite2D" parent="HUD/Panel/LeftTouchScreenButton"]
+rotation = -1.5708
+texture = ExtResource("16_owaig")
+
+[node name="RightTouchScreenButton" type="TouchScreenButton" parent="HUD/Panel"]
+position = Vector2(411, 78)
+shape = SubResource("RectangleShape2D_owaig")
+action = "right1"
+
+[node name="KeyboardArrowUp" type="Sprite2D" parent="HUD/Panel/RightTouchScreenButton"]
+self_modulate = Color(0.00475307, 0.00475307, 0.00475307, 1)
+position = Vector2(0, 2)
+rotation = 1.5708
+texture = ExtResource("16_owaig")
+
+[node name="KeyboardArrowUpOutline" type="Sprite2D" parent="HUD/Panel/RightTouchScreenButton"]
+rotation = 1.5708
+texture = ExtResource("16_owaig")
+
+[node name="HUDAnimationPlayer" type="AnimationPlayer" parent="HUD/Panel"]
+
+[node name="VersionLabel" type="Label" parent="HUD"]
+offset_left = 4.0
+offset_top = 857.0
+offset_right = 88.0
+offset_bottom = 879.0
+text = "Version: 0.5"
+label_settings = SubResource("LabelSettings_2uvom")
+
+[node name="BallPassThrough" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(312, 1152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BallPassThrough"]
+position = Vector2(-63, -416)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_4f205")
+
+[node name="YouLose" type="CanvasLayer" parent="."]
+
+[node name="YouLoseLabel" type="Label" parent="YouLose"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -129.5
+offset_top = -115.0
+offset_right = 129.5
+offset_bottom = -32.0
+grow_horizontal = 2
+text = "You Lose"
+label_settings = SubResource("LabelSettings_5wke1")
+
+[node name="YouWin" type="CanvasLayer" parent="."]
+
+[node name="YouWinLabel" type="Label" parent="YouWin"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -118.5
+offset_top = -116.0
+offset_right = 118.5
+offset_bottom = -33.0
+grow_horizontal = 2
+text = "You Win"
+label_settings = SubResource("LabelSettings_5vn73")
+
+[node name="EndGameAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_5wke1")
+}
+
+[node name="PlayTouchScreenButton" type="TouchScreenButton" parent="."]
+unique_name_in_owner = true
+z_index = 2
+z_as_relative = false
+position = Vector2(249, 491)
+shape = SubResource("RectangleShape2D_eoyu2")
+action = "playball"
+script = ExtResource("17_eoyu2")
+
+[node name="Label" type="Label" parent="PlayTouchScreenButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -111.0
+offset_right = 150.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Touch anywhere or press spacebar to launch the ball"
+label_settings = SubResource("LabelSettings_owaig")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PlayTouchAnimationPlayer" type="AnimationPlayer" parent="PlayTouchScreenButton"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_ijl5e")
+}
+autoplay = "blink"
+
+[connection signal="body_entered" from="BallPassThrough" to="." method="_on_ball_pass_through_body_entered"]
+[connection signal="pressed" from="PlayTouchScreenButton" to="PlayTouchScreenButton" method="_on_pressed"]

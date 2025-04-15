@@ -1,7 +1,8 @@
-[gd_scene load_steps=63 format=3 uid="uid://bs0mm8mtdwbdd"]
+[gd_scene load_steps=64 format=3 uid="uid://bs0mm8mtdwbdd"]
 
 [ext_resource type="Script" uid="uid://dreyvrya7s4l5" path="res://Scripts/main.gd" id="1_5cip8"]
 [ext_resource type="Texture2D" uid="uid://cxpsmlyy731ud" path="res://Addons/kenney_rolling-ball-assets/Vector/rollingBall_vector.svg" id="2_03epd"]
+[ext_resource type="Script" uid="uid://btl6tt7qgaymd" path="res://Scripts/background.gd" id="2_4n57f"]
 [ext_resource type="Script" uid="uid://ceo7gpwv6kh0d" path="res://Scripts/player.gd" id="4_eava0"]
 [ext_resource type="Texture2D" uid="uid://fc8leo5a6wax" path="res://Addons/kenney_rolling-ball-assets/PNG/Retina/ball_blue_large.png" id="4_jnvm8"]
 [ext_resource type="Texture2D" uid="uid://bm8vd75iwm8nq" path="res://Addons/kenney_puzzle/png/paddleBlu.png" id="6_03epd"]
@@ -256,13 +257,20 @@ script = ExtResource("1_5cip8")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
+script = ExtResource("2_4n57f")
 
-[node name="Background" type="Panel" parent="Background"]
+[node name="BackgroundPanel" type="Panel" parent="Background"]
+unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -497.0
+offset_top = -375.0
+offset_right = 508.0
+offset_bottom = 245.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(750, 750)
 theme_override_styles/panel = SubResource("StyleBoxTexture_l0ud6")
 
 [node name="BackgroundAnimationPlayer" type="AnimationPlayer" parent="Background"]
@@ -1050,10 +1058,12 @@ texture = ExtResource("16_owaig")
 [node name="VersionLabel" type="Label" parent="HUD"]
 offset_left = 4.0
 offset_top = 857.0
-offset_right = 88.0
+offset_right = 92.0
 offset_bottom = 879.0
-text = "Version: 0.5"
+text = "Version: 0.6"
 label_settings = SubResource("LabelSettings_2uvom")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BallPassThrough" type="Area2D" parent="."]
 unique_name_in_owner = true
