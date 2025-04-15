@@ -1,3 +1,5 @@
+# Breakout
+
 O primeiro jogo de sucesso da ATARI ([[Pong]]) ter um sucesso massivo, muitas companhia fizeram clones do jogo, o que erodiu os lucros da ATARI. A resposta deles foi fazer mais jogos inovadores para ficar na frente da competição. Breakout foi um descendente direto de pong, mas foi desenvolvido para um jogador só em vez de dois. Ele lançou em 1976.
 
 Fun fact: Steve Jobs e Steve Wozniak (sim, os caras da apple) trabalharam junto para desenvolver o hardware necessário para rodar o Breakout. Assim como o Pong, o jogo era feito de transistors. Novamente, o jogo seria muito mais facil de fazer se você usar uma engine nova em vez de ter que começar de uma pilha de fios.
