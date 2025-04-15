@@ -8,6 +8,7 @@ Fun fact: Steve Jobs e Steve Wozniak (sim, os caras da apple) trabalharam junto 
 | ------------ | --- |
 | Complexidade | 0,5 |
 | Escopo       | 1   |
+
 **Objetivo:**
 
 - Criar um espaço de jogo com paredes e tetos
