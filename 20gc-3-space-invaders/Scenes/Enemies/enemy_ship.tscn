@@ -1,0 +1,277 @@
+[gd_scene load_steps=13 format=3 uid="uid://dksg7xvws4eiu"]
+
+[ext_resource type="Script" uid="uid://bn6ijxl4g35gc" path="res://Script/enemy_ship.gd" id="1_uu0uu"]
+[ext_resource type="Texture2D" uid="uid://cpjm2r7qc4x8e" path="res://Addons/kenney_pixel-shmup/Ships/ship_0012.png" id="2_24ne4"]
+[ext_resource type="Texture2D" uid="uid://bib6ejtkymlgs" path="res://Addons/kenney_pixel-shmup/Tiles/tile_0008.png" id="2_uu0uu"]
+[ext_resource type="Texture2D" uid="uid://hhijuiohs73h" path="res://Addons/kenney_pixel-shmup/Tiles/tile_0004.png" id="4_itjlf"]
+[ext_resource type="Texture2D" uid="uid://ct5pvy3lucpxh" path="res://Addons/kenney_pixel-shmup/Tiles/tile_0007.png" id="5_lo7gp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7u1b4"]
+size = Vector2(28, 28)
+
+[sub_resource type="Curve" id="Curve_24ne4"]
+_limits = [0.0, 1.5, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, -0.0957291, 0, 1, Vector2(1, 0.904271), -3.66793, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_lpmmr"]
+offsets = PackedFloat32Array(0.00765306, 0.104592, 0.269231, 0.813187, 0.966555)
+colors = PackedColorArray(0.894118, 0.478431, 0, 1, 0.786301, 0.151608, 0.0468674, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_lpmmr"]
+resource_name = "hit"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShipSprite:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.00999999, 0.25)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShipSprite:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.00999999, 0.25)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShipSprite:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.00999999, 0.25)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ShipSprite:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.00999999, 0.25)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ExplosionsParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.26),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ExplosionsParticles2D2:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SmokeParticles2D:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_itjlf"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShipSprite:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShipSprite:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShipSprite:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ShipSprite:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ExplosionsParticles2D:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ExplosionsParticles2D2:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SmokeParticles2D:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lo7gp"]
+_data = {
+&"RESET": SubResource("Animation_itjlf"),
+&"hit": SubResource("Animation_lpmmr")
+}
+
+[sub_resource type="Gradient" id="Gradient_bifem"]
+offsets = PackedFloat32Array(0.0336538, 0.490385, 0.908654, 0.971154)
+colors = PackedColorArray(0.531404, 0.461302, 7.70092e-07, 1, 0.905882, 0.258824, 0, 1, 0.933333, 0.0901961, 0.0666667, 1, 0.933333, 0.0901961, 0.0666667, 0.270588)
+
+[node name="EnemyShip" type="StaticBody2D"]
+script = ExtResource("1_uu0uu")
+
+[node name="ShipSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+rotation = -3.14159
+texture = ExtResource("2_24ne4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7u1b4")
+
+[node name="GunMarker" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[node name="ShotTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+autostart = true
+
+[node name="SmokeParticles2D" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+emitting = false
+amount = 16
+texture = ExtResource("2_uu0uu")
+lifetime = 0.8
+explosiveness = 0.05
+lifetime_randomness = 0.15
+emission_shape = 1
+emission_sphere_radius = 5.0
+gravity = Vector2(50, -150)
+angular_velocity_min = -64.86
+angular_velocity_max = 77.84
+damping_max = 65.741
+angle_min = -366.7
+angle_max = 73.3
+scale_amount_min = 0.4
+scale_amount_max = 0.8
+scale_amount_curve = SubResource("Curve_24ne4")
+color_ramp = SubResource("Gradient_lpmmr")
+
+[node name="EnemyShipAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_lo7gp")
+}
+
+[node name="ExplosionsParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 2
+texture = ExtResource("4_itjlf")
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.29
+lifetime_randomness = 0.1
+emission_shape = 1
+emission_sphere_radius = 9.26
+gravity = Vector2(0, 0)
+angle_min = -371.6
+angle_max = 197.4
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+color_ramp = SubResource("Gradient_bifem")
+
+[node name="ExplosionsParticles2D2" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 15
+texture = ExtResource("5_lo7gp")
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.29
+lifetime_randomness = 0.1
+emission_shape = 1
+emission_sphere_radius = 9.26
+gravity = Vector2(0, 0)
+angle_min = -371.6
+angle_max = 197.4
+scale_amount_min = 0.1
+scale_amount_max = 0.2
+color_ramp = SubResource("Gradient_bifem")
+
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqj25sis7hb8m"]
+
+[ext_resource type="Script" uid="uid://15y2cysh2bbn" path="res://Script/enemy_bullet.gd" id="1_25amj"]
+[ext_resource type="Texture2D" uid="uid://b54aes57vbd8n" path="res://Addons/kenney_pixel-shmup/Tiles/tile_0000.png" id="1_c6pe7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_25amj"]
+radius = 3.0
+
+[node name="EnemyBullet" type="Area2D"]
+script = ExtResource("1_25amj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 0.587253)
+shape = SubResource("CapsuleShape2D_25amj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+texture = ExtResource("1_c6pe7")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
