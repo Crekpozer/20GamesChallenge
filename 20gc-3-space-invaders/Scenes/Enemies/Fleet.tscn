@@ -536,6 +536,7 @@ position = Vector2(136, 0)
 
 [node name="totalLabel" type="Label" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_left = -35.0
 offset_top = -49.0
 offset_right = 5.0

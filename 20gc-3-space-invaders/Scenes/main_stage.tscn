@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://dkye2selbm8hu"]
+[gd_scene load_steps=42 format=4 uid="uid://dkye2selbm8hu"]
 
 [ext_resource type="Script" uid="uid://brsssrfpywkcd" path="res://Script/main_stage.gd" id="1_f1t2y"]
 [ext_resource type="Texture2D" uid="uid://onyukrian14p" path="res://Addons/kenney_pixel-shmup/Tilemap/tiles.png" id="1_g6ddx"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b54aes57vbd8n" path="res://Addons/kenney_pixel-shmup/Tiles/tile_0000.png" id="7_invvc"]
 [ext_resource type="Texture2D" uid="uid://qd0qxthxm66k" path="res://Addons/input-prompt/tile_0794.png" id="7_y6l1q"]
 [ext_resource type="Texture2D" uid="uid://bgeuhv0pbdnbo" path="res://Addons/input-prompt/tile_0792.png" id="8_8500h"]
+[ext_resource type="Texture2D" uid="uid://dkui1lojwotc4" path="res://Addons/pattern-pack/PNG/Default size/pattern_03.png" id="10_8500h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2m6o"]
 texture = ExtResource("1_g6ddx")
@@ -274,6 +275,12 @@ _data = {
 &"RoundIntroduction": SubResource("Animation_f1t2y"),
 &"Win": SubResource("Animation_qr8l7")
 }
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rha1p"]
+texture = ExtResource("10_8500h")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 2
+modulate_color = Color(0.623529, 0.54902, 0, 0.486275)
 
 [sub_resource type="SystemFont" id="SystemFont_f1t2y"]
 font_names = PackedStringArray("Verdana")
@@ -867,7 +874,7 @@ offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.0770427
-color = Color(0.555353, 0.555353, 0.555353, 1)
+color = Color(0.215686, 0.294118, 0.121569, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="MainAnimationPlayer/BackPanel"]
 layout_mode = 1
@@ -898,7 +905,22 @@ offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.000859139
-color = Color(0.823529, 0.556863, 0.337255, 1)
+color = Color(0.145098, 0.215686, 0.133333, 1)
+
+[node name="Panel" type="Panel" parent="MainAnimationPlayer/BackPanel/ColorRect3/FrontPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -556.0
+offset_top = -45.0
+offset_right = 555.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rha1p")
 
 [node name="RoundLabel" type="Label" parent="MainAnimationPlayer/BackPanel/ColorRect3/FrontPanel"]
 layout_mode = 1
