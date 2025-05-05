@@ -1,7 +1,9 @@
 class_name Bullet
 extends Area2D
 
-var bulletSpeed : float = 200
+signal bulletDestroyed
+
+var bulletSpeed : float = 400
 
 func _physics_process(delta: float) -> void:
 	
@@ -24,13 +26,12 @@ func _physics_process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	# Se o que bateu com a bala for um inimigo ou o tiro do inimigo
 	if body is Enemy:
-		print("Inimigo atingido ", body)
 		body.Death() # Chama a função
 		queue_free() # Se remove da cena
-
+		get_parent().enemiesKilled += 1 # Informa ao sistema de estatistica que o tiro acertou o inimigo
 
 func _on_area_entered(area: Area2D) -> void:
 	if area is EnemyBullet:
-		print("Tiro do inimigo atingido: ", area)
-		area.queue_free()
+		emit_signal("bulletDestroyed")
+		area.Destroy()
 		queue_free()

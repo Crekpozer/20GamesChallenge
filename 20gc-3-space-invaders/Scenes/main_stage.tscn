@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://dkye2selbm8hu"]
+[gd_scene load_steps=37 format=4 uid="uid://dkye2selbm8hu"]
 
+[ext_resource type="Script" uid="uid://brsssrfpywkcd" path="res://Script/main_stage.gd" id="1_f1t2y"]
 [ext_resource type="Texture2D" uid="uid://onyukrian14p" path="res://Addons/kenney_pixel-shmup/Tilemap/tiles.png" id="1_g6ddx"]
-[ext_resource type="Script" uid="uid://cy3r6rbgmplx5" path="res://Script/player.gd" id="3_b2m6o"]
-[ext_resource type="Texture2D" uid="uid://by2ivjofc3l5k" path="res://Addons/kenney_pixel-shmup/Ships/ship_0001.png" id="4_b2m6o"]
-[ext_resource type="PackedScene" uid="uid://dksg7xvws4eiu" path="res://Scenes/Enemies/enemy_ship.tscn" id="4_f1t2y"]
+[ext_resource type="PackedScene" uid="uid://yfxkxod1f2y3" path="res://Scenes/Player/player.tscn" id="4_b2m6o"]
+[ext_resource type="Texture2D" uid="uid://bgx7d2tpa6hwy" path="res://Addons/patter-pack2/PNG/Thick/Default (256px)/pattern_0011.png" id="5_7u1b4"]
+[ext_resource type="PackedScene" uid="uid://c5dtqgl3ohw27" path="res://Scenes/Enemies/Fleet.tscn" id="5_f1t2y"]
+[ext_resource type="Texture2D" uid="uid://do0uudpndji4p" path="res://Addons/pixel-parttern/Tiles (Color)/tile_0030.png" id="6_7u1b4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2m6o"]
 texture = ExtResource("1_g6ddx")
@@ -51,137 +53,1020 @@ separation = Vector2i(1, 1)
 [sub_resource type="TileSet" id="TileSet_f1t2y"]
 sources/0 = SubResource("TileSetAtlasSource_b2m6o")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b2m6o"]
+bg_color = Color(0.216601, 0.294714, 0.120699, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f1t2y"]
+texture = ExtResource("5_7u1b4")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 256, 256)
+modulate_color = Color(0.152941, 0.176471, 0.0509804, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_invvc"]
+texture = ExtResource("5_7u1b4")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 256, 256)
+modulate_color = Color(0.234832, 0.318697, 0.134252, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qr8l7"]
+bg_color = Color(0.228872, 0.228872, 0.228872, 1)
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7u1b4"]
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_7u1b4"]
+line_spacing = -5.0
+font_color = Color(0.415614, 0.468217, 0.19013, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1t2y"]
+bg_color = Color(0.135375, 0.135375, 0.135375, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_f1t2y"]
+font_size = 15
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.345098)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b2m6o"]
+font_size = 15
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.407843)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1t2y"]
-size = Vector2(30, 26)
+size = Vector2(60, 60)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qr8l7"]
+texture = ExtResource("6_7u1b4")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(0, 0, 16, 16)
+modulate_color = Color(0.566317, 0.726514, 0.375239, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7u1b4"]
+radius = 40.0
+
+[sub_resource type="Animation" id="Animation_7u1b4"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainAnimationPlayer/BackPanel:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-61, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainAnimationPlayer/BackPanel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(147, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainAnimationPlayer/BackPanel/ColorRect3/FrontPanel/RoundLabel:label_settings:shadow_offset:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainAnimationPlayer/BackPanel/ColorRect3/FrontPanel/RoundLabel:label_settings:shadow_offset:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MainAnimationPlayer/BackPanel/ColorRect3/FrontPanel/RoundTextLabel:label_settings:shadow_offset:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-15, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MainAnimationPlayer/BackPanel/ColorRect3/FrontPanel/RoundTextLabel:label_settings:shadow_offset:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_invvc"]
+resource_name = "RoundInterval"
+
+[sub_resource type="Animation" id="Animation_f1t2y"]
+resource_name = "RoundIntroduction"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainAnimationPlayer/BackPanel:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-1158.95, -0.25, 0, 0.25, 0, -61, -0.25, 0, 0.25, 0, 53, -0.25, 0, 0.25, 0, 3057.43, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1.5, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainAnimationPlayer/BackPanel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(213, -0.25, 0, 0.25, 0, 147, -0.25, 0, 0.25, 0, 138, -0.25, 0, 0.25, 0, -127.279, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1.5, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MainAnimationPlayer/BackPanel/ColorRect3/FrontPanel/RoundLabel:label_settings:shadow_offset:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-15, 0, 0, 0, 0, 15, 0, 0, 0, 0),
+"times": PackedFloat32Array(0.266667, 1.76667)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MainAnimationPlayer/BackPanel/ColorRect3/FrontPanel/RoundLabel:label_settings:shadow_offset:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(1, 0, 1),
+"points": PackedFloat32Array(0, 0, 0, 0, 0, 2.9057, -0.25, 0, 0.25, 0, 0, 0, 0, 0, 0),
+"times": PackedFloat32Array(0.5, 1, 1.5)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MainAnimationPlayer/BackPanel/ColorRect3/FrontPanel/RoundTextLabel:label_settings:shadow_offset:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-15, -0.25, 0, 0.233333, 4.74781, 15, 0, 0, 0, 0),
+"times": PackedFloat32Array(0.266667, 1.76667)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MainAnimationPlayer/BackPanel/ColorRect3/FrontPanel/RoundTextLabel:label_settings:shadow_offset:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.2, 2.02851, 2.9057, -0.25, 0, 0.25, 0, 0, 0, 0, 0, 0),
+"times": PackedFloat32Array(0.5, 1, 1.5)
+}
+
+[sub_resource type="Animation" id="Animation_qr8l7"]
+resource_name = "Win"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_invvc"]
+_data = {
+&"RESET": SubResource("Animation_7u1b4"),
+&"RoundInterval": SubResource("Animation_invvc"),
+&"RoundIntroduction": SubResource("Animation_f1t2y"),
+&"Win": SubResource("Animation_qr8l7")
+}
+
+[sub_resource type="SystemFont" id="SystemFont_f1t2y"]
+font_names = PackedStringArray("Verdana")
+font_weight = 800
+font_stretch = 200
+
+[sub_resource type="LabelSettings" id="LabelSettings_invvc"]
+font = SubResource("SystemFont_f1t2y")
+font_size = 52
+outline_size = 10
+outline_color = Color(0.0365563, 0.0365563, 0.0365563, 1)
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-15, 0)
+
+[sub_resource type="Animation" id="Animation_8500h"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YouWinAnimationPlayer/BlackBackgroundPanel:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("YouWinAnimationPlayer/BlackBackgroundPanel:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("YouWinAnimationPlayer/BlackBackgroundPanel:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("YouWinAnimationPlayer/BlackBackgroundPanel:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_y6l1q"]
+resource_name = "YouWin"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("YouWinAnimationPlayer/BlackBackgroundPanel:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("YouWinAnimationPlayer/BlackBackgroundPanel:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("YouWinAnimationPlayer/BlackBackgroundPanel:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("YouWinAnimationPlayer/BlackBackgroundPanel:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rha1p"]
+_data = {
+&"RESET": SubResource("Animation_8500h"),
+&"YouWin": SubResource("Animation_y6l1q")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rha1p"]
+bg_color = Color(0, 0, 0, 0.764706)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_invvc"]
+bg_color = Color(0.823529, 0.556863, 0.337255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6l1q"]
+bg_color = Color(0.0470588, 0.0784314, 0.0156863, 0.662745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8500h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4xuw0"]
+font_size = 30
+outline_size = 15
+outline_color = Color(0.0320906, 0.0320906, 0.0320906, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qr8l7"]
+font_size = 15
+font_color = Color(0.0129662, 0.0129662, 0.0129662, 1)
+outline_size = 6
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_f1t2y")
+fleetTemplate = ExtResource("5_f1t2y")
+totalRound = 2
+metadata/_edit_horizontal_guides_ = [331.0, 270.0]
+metadata/_edit_vertical_guides_ = [336.0]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 self_modulate = Color(0.460736, 0.460736, 0.460736, 1)
+z_index = -1
 tile_map_data = PackedByteArray("AAAAAAAAAAACAAQAAAAAAAEAAAACAAQAAAAAAAIAAAACAAQAAAAAAAMAAAACAAQAAAAAAAQAAAACAAQAAAAAAAUAAAACAAQAAAAAAAYAAAACAAQAAAAAAAcAAAACAAQAAAAAAAgAAAACAAQAAAAAAAkAAAACAAQAAAAAAAoAAAACAAQAAAAAAAsAAAACAAQAAAAAAAwAAAACAAQAAAAAAA0AAAACAAQAAAAAAA4AAAACAAQAAAAAAA8AAAACAAQAAAAAABAAAAACAAQAAAAAABEAAAACAAQAAAAAABIAAAACAAQAAAAAABMAAAACAAQAAAAAABQAAAACAAQAAAAAABUAAAACAAQAAAAAABYAAAACAAQAAAABAAAAAAACAAQAAAABAAEAAAACAAQAAAABAAIAAAACAAQAAAABAAMAAAACAAQAAAABAAQAAAACAAQAAAABAAUAAAACAAQAAAABAAYAAAACAAQAAAABAAcAAAACAAQAAAABAAgAAAACAAQAAAABAAkAAAACAAQAAAABAAoAAAACAAQAAAABAAsAAAACAAQAAAABAAwAAAACAAQAAAABAA0AAAACAAQAAAABAA4AAAACAAQAAAABAA8AAAACAAQAAAABABAAAAACAAQAAAABABEAAAACAAQAAAABABIAAAACAAQAAAABABMAAAACAAQAAAABABQAAAACAAQAAAABABUAAAACAAQAAAABABYAAAACAAQAAAACAAAAAAACAAQAAAACAAEAAAACAAQAAAACAAIAAAACAAQAAAACAAMAAAACAAQAAAACAAQAAAACAAQAAAACAAUAAAACAAQAAAACAAYAAAACAAQAAAACAAcAAAACAAQAAAACAAgAAAACAAQAAAACAAkAAAACAAQAAAACAAoAAAACAAQAAAACAAsAAAACAAQAAAACAAwAAAACAAQAAAACAA0AAAACAAQAAAACAA4AAAACAAQAAAACAA8AAAACAAQAAAACABAAAAACAAQAAAACABEAAAACAAQAAAACABIAAAACAAQAAAACABMAAAACAAQAAAACABQAAAACAAQAAAACABUAAAACAAQAAAACABYAAAACAAQAAAADAAAAAAACAAQAAAADAAEAAAACAAQAAAADAAIAAAACAAQAAAADAAMAAAACAAQAAAADAAQAAAACAAQAAAADAAUAAAACAAQAAAADAAYAAAACAAQAAAADAAcAAAACAAQAAAADAAgAAAACAAQAAAADAAkAAAACAAQAAAADAAoAAAACAAQAAAADAAsAAAACAAQAAAADAAwAAAACAAQAAAADAA0AAAACAAQAAAADAA4AAAACAAQAAAADAA8AAAACAAQAAAADABAAAAACAAQAAAADABEAAAACAAQAAAADABIAAAACAAQAAAADABMAAAACAAQAAAADABQAAAACAAQAAAADABUAAAACAAQAAAADABYAAAACAAQAAAAEAAAAAAACAAQAAAAEAAEAAAACAAQAAAAEAAIAAAACAAQAAAAEAAMAAAACAAQAAAAEAAQAAAACAAQAAAAEAAUAAAACAAQAAAAEAAYAAAACAAQAAAAEAAcAAAACAAQAAAAEAAgAAAACAAQAAAAEAAkAAAACAAQAAAAEAAoAAAACAAQAAAAEAAsAAAACAAQAAAAEAAwAAAACAAQAAAAEAA0AAAACAAQAAAAEAA4AAAACAAQAAAAEAA8AAAACAAQAAAAEABAAAAACAAQAAAAEABEAAAACAAQAAAAEABIAAAACAAQAAAAEABMAAAACAAQAAAAEABQAAAACAAQAAAAEABUAAAACAAQAAAAEABYAAAACAAQAAAAFAAAAAAACAAQAAAAFAAEAAAACAAQAAAAFAAIAAAACAAQAAAAFAAMAAAACAAQAAAAFAAQAAAACAAQAAAAFAAUAAAACAAQAAAAFAAYAAAACAAQAAAAFAAcAAAACAAQAAAAFAAgAAAACAAQAAAAFAAkAAAACAAQAAAAFAAoAAAACAAQAAAAFAAsAAAACAAQAAAAFAAwAAAACAAQAAAAFAA0AAAACAAQAAAAFAA4AAAACAAQAAAAFAA8AAAACAAQAAAAFABAAAAACAAQAAAAFABEAAAACAAQAAAAFABIAAAACAAQAAAAFABMAAAACAAQAAAAFABQAAAACAAQAAAAFABUAAAACAAQAAAAFABYAAAACAAQAAAAGAAAAAAACAAQAAAAGAAEAAAACAAQAAAAGAAIAAAACAAQAAAAGAAMAAAACAAQAAAAGAAQAAAACAAQAAAAGAAUAAAACAAQAAAAGAAYAAAACAAQAAAAGAAcAAAACAAQAAAAGAAgAAAACAAQAAAAGAAkAAAACAAQAAAAGAAoAAAACAAQAAAAGAAsAAAACAAQAAAAGAAwAAAACAAQAAAAGAA0AAAACAAQAAAAGAA4AAAACAAQAAAAGAA8AAAACAAQAAAAGABAAAAACAAQAAAAGABEAAAACAAQAAAAGABIAAAACAAQAAAAGABMAAAACAAQAAAAGABQAAAACAAQAAAAGABUAAAACAAQAAAAGABYAAAACAAQAAAAHAAAAAAACAAQAAAAHAAEAAAACAAQAAAAHAAIAAAACAAQAAAAHAAMAAAACAAQAAAAHAAQAAAACAAQAAAAHAAUAAAACAAQAAAAHAAYAAAACAAQAAAAHAAcAAAACAAQAAAAHAAgAAAACAAQAAAAHAAkAAAACAAQAAAAHAAoAAAACAAQAAAAHAAsAAAACAAQAAAAHAAwAAAACAAQAAAAHAA0AAAACAAQAAAAHAA4AAAACAAQAAAAHAA8AAAACAAQAAAAHABAAAAACAAQAAAAHABEAAAACAAQAAAAHABIAAAACAAQAAAAHABMAAAACAAQAAAAHABQAAAACAAQAAAAHABUAAAACAAQAAAAHABYAAAACAAQAAAAIAAAAAAACAAQAAAAIAAEAAAACAAQAAAAIAAIAAAACAAQAAAAIAAMAAAACAAQAAAAIAAQAAAACAAQAAAAIAAUAAAACAAQAAAAIAAYAAAACAAQAAAAIAAcAAAACAAQAAAAIAAgAAAACAAQAAAAIAAkAAAACAAQAAAAIAAoAAAACAAQAAAAIAAsAAAACAAQAAAAIAAwAAAACAAQAAAAIAA0AAAACAAQAAAAIAA4AAAACAAQAAAAIAA8AAAACAAQAAAAIABAAAAACAAQAAAAIABEAAAACAAQAAAAIABIAAAACAAQAAAAIABMAAAACAAQAAAAIABQAAAACAAQAAAAIABUAAAACAAQAAAAIABYAAAACAAQAAAAJAAAAAAACAAQAAAAJAAEAAAACAAQAAAAJAAIAAAACAAQAAAAJAAMAAAACAAQAAAAJAAQAAAACAAQAAAAJAAUAAAACAAQAAAAJAAYAAAACAAQAAAAJAAcAAAACAAQAAAAJAAgAAAACAAQAAAAJAAkAAAACAAQAAAAJAAoAAAACAAQAAAAJAAsAAAACAAQAAAAJAAwAAAACAAQAAAAJAA0AAAACAAQAAAAJAA4AAAACAAQAAAAJAA8AAAACAAQAAAAJABAAAAACAAQAAAAJABEAAAACAAQAAAAJABIAAAACAAQAAAAJABMAAAACAAQAAAAJABQAAAACAAQAAAAJABUAAAACAAQAAAAJABYAAAACAAQAAAAKAAAAAAACAAQAAAAKAAEAAAACAAQAAAAKAAIAAAACAAQAAAAKAAMAAAACAAQAAAAKAAQAAAACAAQAAAAKAAUAAAACAAQAAAAKAAYAAAACAAQAAAAKAAcAAAACAAQAAAAKAAgAAAACAAQAAAAKAAkAAAACAAQAAAAKAAoAAAACAAQAAAAKAAsAAAACAAQAAAAKAAwAAAACAAQAAAAKAA0AAAACAAQAAAAKAA4AAAACAAQAAAAKAA8AAAACAAQAAAAKABAAAAACAAQAAAAKABEAAAACAAQAAAAKABIAAAACAAQAAAAKABMAAAACAAQAAAAKABQAAAACAAQAAAAKABUAAAACAAQAAAAKABYAAAACAAQAAAALAAAAAAACAAQAAAALAAEAAAACAAQAAAALAAIAAAACAAQAAAALAAMAAAACAAQAAAALAAQAAAACAAQAAAALAAUAAAACAAQAAAALAAYAAAACAAQAAAALAAcAAAACAAQAAAALAAgAAAACAAQAAAALAAkAAAACAAQAAAALAAoAAAACAAQAAAALAAsAAAACAAQAAAALAAwAAAACAAQAAAALAA0AAAACAAQAAAALAA4AAAACAAQAAAALAA8AAAACAAQAAAALABAAAAACAAQAAAALABEAAAACAAQAAAALABIAAAACAAQAAAALABMAAAACAAQAAAALABQAAAACAAQAAAALABUAAAACAAQAAAALABYAAAACAAQAAAAMAAAAAAACAAQAAAAMAAEAAAACAAQAAAAMAAIAAAACAAQAAAAMAAMAAAACAAQAAAAMAAQAAAACAAQAAAAMAAUAAAACAAQAAAAMAAYAAAACAAQAAAAMAAcAAAACAAQAAAAMAAgAAAACAAQAAAAMAAkAAAACAAQAAAAMAAoAAAACAAQAAAAMAAsAAAACAAQAAAAMAAwAAAACAAQAAAAMAA0AAAACAAQAAAAMAA4AAAACAAQAAAAMAA8AAAACAAQAAAAMABAAAAACAAQAAAAMABEAAAACAAQAAAAMABIAAAACAAQAAAAMABMAAAACAAQAAAAMABQAAAACAAQAAAAMABUAAAACAAQAAAAMABYAAAACAAQAAAANAAAAAAACAAQAAAANAAEAAAACAAQAAAANAAIAAAACAAQAAAANAAMAAAACAAQAAAANAAQAAAACAAQAAAANAAUAAAACAAQAAAANAAYAAAACAAQAAAANAAcAAAACAAQAAAANAAgAAAACAAQAAAANAAkAAAACAAQAAAANAAoAAAACAAQAAAANAAsAAAACAAQAAAANAAwAAAACAAQAAAANAA0AAAACAAQAAAANAA4AAAACAAQAAAANAA8AAAACAAQAAAANABAAAAACAAQAAAANABEAAAACAAQAAAANABIAAAACAAQAAAANABMAAAACAAQAAAANABQAAAACAAQAAAANABUAAAACAAQAAAANABYAAAACAAQAAAAOAAAAAAACAAQAAAAOAAEAAAACAAQAAAAOAAIAAAACAAQAAAAOAAMAAAACAAQAAAAOAAQAAAACAAQAAAAOAAUAAAACAAQAAAAOAAYAAAACAAQAAAAOAAcAAAACAAQAAAAOAAgAAAACAAQAAAAOAAkAAAACAAQAAAAOAAoAAAACAAQAAAAOAAsAAAACAAQAAAAOAAwAAAACAAQAAAAOAA0AAAACAAQAAAAOAA4AAAACAAQAAAAOAA8AAAACAAQAAAAOABAAAAACAAQAAAAOABEAAAACAAQAAAAOABIAAAACAAQAAAAOABMAAAACAAQAAAAOABQAAAACAAQAAAAOABUAAAACAAQAAAAOABYAAAACAAQAAAAPAAAAAAACAAQAAAAPAAEAAAACAAQAAAAPAAIAAAACAAQAAAAPAAMAAAACAAQAAAAPAAQAAAACAAQAAAAPAAUAAAACAAQAAAAPAAYAAAACAAQAAAAPAAcAAAACAAQAAAAPAAgAAAACAAQAAAAPAAkAAAACAAQAAAAPAAoAAAACAAQAAAAPAAsAAAACAAQAAAAPAAwAAAACAAQAAAAPAA0AAAACAAQAAAAPAA4AAAACAAQAAAAPAA8AAAACAAQAAAAPABAAAAACAAQAAAAPABEAAAACAAQAAAAPABIAAAACAAQAAAAPABMAAAACAAQAAAAPABQAAAACAAQAAAAPABUAAAACAAQAAAAPABYAAAACAAQAAAAQAAAAAAACAAQAAAAQAAEAAAACAAQAAAAQAAIAAAACAAQAAAAQAAMAAAACAAQAAAAQAAQAAAACAAQAAAAQAAUAAAACAAQAAAAQAAYAAAACAAQAAAAQAAcAAAACAAQAAAAQAAgAAAACAAQAAAAQAAkAAAACAAQAAAAQAAoAAAACAAQAAAAQAAsAAAACAAQAAAAQAAwAAAACAAQAAAAQAA0AAAACAAQAAAAQAA4AAAACAAQAAAAQAA8AAAACAAQAAAAQABAAAAACAAQAAAAQABEAAAACAAQAAAAQABIAAAACAAQAAAAQABMAAAACAAQAAAAQABQAAAACAAQAAAAQABUAAAACAAQAAAAQABYAAAACAAQAAAARAAAAAAACAAQAAAARAAEAAAACAAQAAAARAAIAAAACAAQAAAARAAMAAAACAAQAAAARAAQAAAACAAQAAAARAAUAAAACAAQAAAARAAYAAAACAAQAAAARAAcAAAACAAQAAAARAAgAAAACAAQAAAARAAkAAAACAAQAAAARAAoAAAACAAQAAAARAAsAAAACAAQAAAARAAwAAAACAAQAAAARAA0AAAACAAQAAAARAA4AAAACAAQAAAARAA8AAAACAAQAAAARABAAAAACAAQAAAARABEAAAACAAQAAAARABIAAAACAAQAAAARABMAAAACAAQAAAARABQAAAACAAQAAAARABUAAAACAAQAAAARABYAAAACAAQAAAASAAAAAAACAAQAAAASAAEAAAACAAQAAAASAAIAAAACAAQAAAASAAMAAAACAAQAAAASAAQAAAACAAQAAAASAAUAAAACAAQAAAASAAYAAAACAAQAAAASAAcAAAACAAQAAAASAAgAAAACAAQAAAASAAkAAAACAAQAAAASAAoAAAACAAQAAAASAAsAAAACAAQAAAASAAwAAAACAAQAAAASAA0AAAACAAQAAAASAA4AAAACAAQAAAASAA8AAAACAAQAAAASABAAAAACAAQAAAASABEAAAACAAQAAAASABIAAAACAAQAAAASABMAAAACAAQAAAASABQAAAACAAQAAAASABUAAAACAAQAAAASABYAAAACAAQAAAATAAAAAAACAAQAAAATAAEAAAACAAQAAAATAAIAAAACAAQAAAATAAMAAAACAAQAAAATAAQAAAACAAQAAAATAAUAAAACAAQAAAATAAYAAAACAAQAAAATAAcAAAACAAQAAAATAAgAAAACAAQAAAATAAkAAAACAAQAAAATAAoAAAACAAQAAAATAAsAAAACAAQAAAATAAwAAAACAAQAAAATAA0AAAACAAQAAAATAA4AAAACAAQAAAATAA8AAAACAAQAAAATABAAAAACAAQAAAATABEAAAACAAQAAAATABIAAAACAAQAAAATABMAAAACAAQAAAATABQAAAACAAQAAAATABUAAAACAAQAAAATABYAAAACAAQAAAAUAAAAAAACAAQAAAAUAAEAAAACAAQAAAAUAAIAAAACAAQAAAAUAAMAAAACAAQAAAAUAAQAAAACAAQAAAAUAAUAAAACAAQAAAAUAAYAAAACAAQAAAAUAAcAAAACAAQAAAAUAAgAAAACAAQAAAAUAAkAAAACAAQAAAAUAAoAAAACAAQAAAAUAAsAAAACAAQAAAAUAAwAAAACAAQAAAAUAA0AAAACAAQAAAAUAA4AAAACAAQAAAAUAA8AAAACAAQAAAAUABAAAAACAAQAAAAUABEAAAACAAQAAAAUABIAAAACAAQAAAAUABMAAAACAAQAAAAUABQAAAACAAQAAAAUABUAAAACAAQAAAAUABYAAAACAAQAAAAVAAAAAAACAAQAAAAVAAEAAAACAAQAAAAVAAIAAAACAAQAAAAVAAMAAAACAAQAAAAVAAQAAAACAAQAAAAVAAUAAAACAAQAAAAVAAYAAAACAAQAAAAVAAcAAAACAAQAAAAVAAgAAAACAAQAAAAVAAkAAAACAAQAAAAVAAoAAAACAAQAAAAVAAsAAAACAAQAAAAVAAwAAAACAAQAAAAVAA0AAAACAAQAAAAVAA4AAAACAAQAAAAVAA8AAAACAAQAAAAVABAAAAACAAQAAAAVABEAAAACAAQAAAAVABIAAAACAAQAAAAVABMAAAACAAQAAAAVABQAAAACAAQAAAAVABUAAAACAAQAAAAVABYAAAACAAQAAAAWAAAAAAACAAQAAAAWAAEAAAACAAQAAAAWAAIAAAACAAQAAAAWAAMAAAACAAQAAAAWAAQAAAACAAQAAAAWAAUAAAACAAQAAAAWAAYAAAACAAQAAAAWAAcAAAACAAQAAAAWAAgAAAACAAQAAAAWAAkAAAACAAQAAAAWAAoAAAACAAQAAAAWAAsAAAACAAQAAAAWAAwAAAACAAQAAAAWAA0AAAACAAQAAAAWAA4AAAACAAQAAAAWAA8AAAACAAQAAAAWABAAAAACAAQAAAAWABEAAAACAAQAAAAWABIAAAACAAQAAAAWABMAAAACAAQAAAAWABQAAAACAAQAAAAWABUAAAACAAQAAAAWABYAAAACAAQAAAAXAAAAAAACAAQAAAAXAAEAAAACAAQAAAAXAAIAAAACAAQAAAAXAAMAAAACAAQAAAAXAAQAAAACAAQAAAAXAAUAAAACAAQAAAAXAAYAAAACAAQAAAAXAAcAAAACAAQAAAAXAAgAAAACAAQAAAAXAAkAAAACAAQAAAAXAAoAAAACAAQAAAAXAAsAAAACAAQAAAAXAAwAAAACAAQAAAAXAA0AAAACAAQAAAAXAA4AAAACAAQAAAAXAA8AAAACAAQAAAAXABAAAAACAAQAAAAXABEAAAACAAQAAAAXABIAAAACAAQAAAAXABMAAAACAAQAAAAXABQAAAACAAQAAAAXABUAAAACAAQAAAAXABYAAAACAAQAAAAYAAAAAAACAAQAAAAYAAEAAAACAAQAAAAYAAIAAAACAAQAAAAYAAMAAAACAAQAAAAYAAQAAAACAAQAAAAYAAUAAAACAAQAAAAYAAYAAAACAAQAAAAYAAcAAAACAAQAAAAYAAgAAAACAAQAAAAYAAkAAAACAAQAAAAYAAoAAAACAAQAAAAYAAsAAAACAAQAAAAYAAwAAAACAAQAAAAYAA0AAAACAAQAAAAYAA4AAAACAAQAAAAYAA8AAAACAAQAAAAYABAAAAACAAQAAAAYABEAAAACAAQAAAAYABIAAAACAAQAAAAYABMAAAACAAQAAAAYABQAAAACAAQAAAAYABUAAAACAAQAAAAYABYAAAACAAQAAAAZAAAAAAACAAQAAAAZAAEAAAACAAQAAAAZAAIAAAACAAQAAAAZAAMAAAACAAQAAAAZAAQAAAACAAQAAAAZAAUAAAACAAQAAAAZAAYAAAACAAQAAAAZAAcAAAACAAQAAAAZAAgAAAACAAQAAAAZAAkAAAACAAQAAAAZAAoAAAACAAQAAAAZAAsAAAACAAQAAAAZAAwAAAACAAQAAAAZAA0AAAACAAQAAAAZAA4AAAACAAQAAAAZAA8AAAACAAQAAAAZABAAAAACAAQAAAAZABEAAAACAAQAAAAZABIAAAACAAQAAAAZABMAAAACAAQAAAAZABQAAAACAAQAAAAZABUAAAACAAQAAAAZABYAAAACAAQAAAAaAAAAAAACAAQAAAAaAAEAAAACAAQAAAAaAAIAAAACAAQAAAAaAAMAAAACAAQAAAAaAAQAAAACAAQAAAAaAAUAAAACAAQAAAAaAAYAAAACAAQAAAAaAAcAAAACAAQAAAAaAAgAAAACAAQAAAAaAAkAAAACAAQAAAAaAAoAAAACAAQAAAAaAAsAAAACAAQAAAAaAAwAAAACAAQAAAAaAA0AAAACAAQAAAAaAA4AAAACAAQAAAAaAA8AAAACAAQAAAAaABAAAAACAAQAAAAaABEAAAACAAQAAAAaABIAAAACAAQAAAAaABMAAAACAAQAAAAaABQAAAACAAQAAAAaABUAAAACAAQAAAAaABYAAAACAAQAAAAbAAAAAAACAAQAAAAbAAEAAAACAAQAAAAbAAIAAAACAAQAAAAbAAMAAAACAAQAAAAbAAQAAAACAAQAAAAbAAUAAAACAAQAAAAbAAYAAAACAAQAAAAbAAcAAAACAAQAAAAbAAgAAAACAAQAAAAbAAkAAAACAAQAAAAbAAoAAAACAAQAAAAbAAsAAAACAAQAAAAbAAwAAAACAAQAAAAbAA0AAAACAAQAAAAbAA4AAAACAAQAAAAbAA8AAAACAAQAAAAbABAAAAACAAQAAAAbABEAAAACAAQAAAAbABIAAAACAAQAAAAbABMAAAACAAQAAAAbABQAAAACAAQAAAAbABUAAAACAAQAAAAbABYAAAACAAQAAAAcAAAAAAACAAQAAAAcAAEAAAACAAQAAAAcAAIAAAACAAQAAAAcAAMAAAACAAQAAAAcAAQAAAACAAQAAAAcAAUAAAACAAQAAAAcAAYAAAACAAQAAAAcAAcAAAACAAQAAAAcAAgAAAACAAQAAAAcAAkAAAACAAQAAAAcAAoAAAACAAQAAAAcAAsAAAACAAQAAAAcAAwAAAACAAQAAAAcAA0AAAACAAQAAAAcAA4AAAACAAQAAAAcAA8AAAACAAQAAAAcABAAAAACAAQAAAAcABEAAAACAAQAAAAcABIAAAACAAQAAAAcABMAAAACAAQAAAAcABQAAAACAAQAAAAcABUAAAACAAQAAAAcABYAAAACAAQAAAAdAAAAAAACAAQAAAAdAAEAAAACAAQAAAAdAAIAAAACAAQAAAAdAAMAAAACAAQAAAAdAAQAAAACAAQAAAAdAAUAAAACAAQAAAAdAAYAAAACAAQAAAAdAAcAAAACAAQAAAAdAAgAAAACAAQAAAAdAAkAAAACAAQAAAAdAAoAAAACAAQAAAAdAAsAAAACAAQAAAAdAAwAAAACAAQAAAAdAA0AAAACAAQAAAAdAA4AAAACAAQAAAAdAA8AAAACAAQAAAAdABAAAAACAAQAAAAdABEAAAACAAQAAAAdABIAAAACAAQAAAAdABMAAAACAAQAAAAdABQAAAACAAQAAAAdABUAAAACAAQAAAAdABYAAAACAAQAAAAeAAAAAAACAAQAAAAeAAEAAAACAAQAAAAeAAIAAAACAAQAAAAeAAMAAAACAAQAAAAeAAQAAAACAAQAAAAeAAUAAAACAAQAAAAeAAYAAAACAAQAAAAeAAcAAAACAAQAAAAeAAgAAAACAAQAAAAeAAkAAAACAAQAAAAeAAoAAAACAAQAAAAeAAsAAAACAAQAAAAeAAwAAAACAAQAAAAeAA0AAAACAAQAAAAeAA4AAAACAAQAAAAeAA8AAAACAAQAAAAeABAAAAACAAQAAAAeABEAAAACAAQAAAAeABIAAAACAAQAAAAeABMAAAACAAQAAAAeABQAAAACAAQAAAAeABUAAAACAAQAAAAeABYAAAACAAQAAAAfAAAAAAACAAQAAAAfAAEAAAACAAQAAAAfAAIAAAACAAQAAAAfAAMAAAACAAQAAAAfAAQAAAACAAQAAAAfAAUAAAACAAQAAAAfAAYAAAACAAQAAAAfAAcAAAACAAQAAAAfAAgAAAACAAQAAAAfAAkAAAACAAQAAAAfAAoAAAACAAQAAAAfAAsAAAACAAQAAAAfAAwAAAACAAQAAAAfAA0AAAACAAQAAAAfAA4AAAACAAQAAAAfAA8AAAACAAQAAAAfABAAAAACAAQAAAAfABEAAAACAAQAAAAfABIAAAACAAQAAAAfABMAAAACAAQAAAAfABQAAAACAAQAAAAfABUAAAACAAQAAAAfABYAAAACAAQAAAAgAAAAAAACAAQAAAAgAAEAAAACAAQAAAAgAAIAAAACAAQAAAAgAAMAAAACAAQAAAAgAAQAAAACAAQAAAAgAAUAAAACAAQAAAAgAAYAAAACAAQAAAAgAAcAAAACAAQAAAAgAAgAAAACAAQAAAAgAAkAAAACAAQAAAAgAAoAAAACAAQAAAAgAAsAAAACAAQAAAAgAAwAAAACAAQAAAAgAA0AAAACAAQAAAAgAA4AAAACAAQAAAAgAA8AAAACAAQAAAAgABAAAAACAAQAAAAgABEAAAACAAQAAAAgABIAAAACAAQAAAAgABMAAAACAAQAAAAgABQAAAACAAQAAAAgABUAAAACAAQAAAAgABYAAAACAAQAAAAhAAAAAAACAAQAAAAhAAEAAAACAAQAAAAhAAIAAAACAAQAAAAhAAMAAAACAAQAAAAhAAQAAAACAAQAAAAhAAUAAAACAAQAAAAhAAYAAAACAAQAAAAhAAcAAAACAAQAAAAhAAgAAAACAAQAAAAhAAkAAAACAAQAAAAhAAoAAAACAAQAAAAhAAsAAAACAAQAAAAhAAwAAAACAAQAAAAhAA0AAAACAAQAAAAhAA4AAAACAAQAAAAhAA8AAAACAAQAAAAhABAAAAACAAQAAAAhABEAAAACAAQAAAAhABIAAAACAAQAAAAhABMAAAACAAQAAAAhABQAAAACAAQAAAAhABUAAAACAAQAAAAhABYAAAACAAQAAAAiAAAAAAACAAQAAAAiAAEAAAACAAQAAAAiAAIAAAACAAQAAAAiAAMAAAACAAQAAAAiAAQAAAACAAQAAAAiAAUAAAACAAQAAAAiAAYAAAACAAQAAAAiAAcAAAACAAQAAAAiAAgAAAACAAQAAAAiAAkAAAACAAQAAAAiAAoAAAACAAQAAAAiAAsAAAACAAQAAAAiAAwAAAACAAQAAAAiAA0AAAACAAQAAAAiAA4AAAACAAQAAAAiAA8AAAACAAQAAAAiABAAAAACAAQAAAAiABEAAAACAAQAAAAiABIAAAACAAQAAAAiABMAAAACAAQAAAAiABQAAAACAAQAAAAiABUAAAACAAQAAAAiABYAAAACAAQAAAAjAAAAAAACAAQAAAAjAAEAAAACAAQAAAAjAAIAAAACAAQAAAAjAAMAAAACAAQAAAAjAAQAAAACAAQAAAAjAAUAAAACAAQAAAAjAAYAAAACAAQAAAAjAAcAAAACAAQAAAAjAAgAAAACAAQAAAAjAAkAAAACAAQAAAAjAAoAAAACAAQAAAAjAAsAAAACAAQAAAAjAAwAAAACAAQAAAAjAA0AAAACAAQAAAAjAA4AAAACAAQAAAAjAA8AAAACAAQAAAAjABAAAAACAAQAAAAjABEAAAACAAQAAAAjABIAAAACAAQAAAAjABMAAAACAAQAAAAjABQAAAACAAQAAAAjABUAAAACAAQAAAAjABYAAAACAAQAAAAkAAAAAAACAAQAAAAkAAEAAAACAAQAAAAkAAIAAAACAAQAAAAkAAMAAAACAAQAAAAkAAQAAAACAAQAAAAkAAUAAAACAAQAAAAkAAYAAAACAAQAAAAkAAcAAAACAAQAAAAkAAgAAAACAAQAAAAkAAkAAAACAAQAAAAkAAoAAAACAAQAAAAkAAsAAAACAAQAAAAkAAwAAAACAAQAAAAkAA0AAAACAAQAAAAkAA4AAAACAAQAAAAkAA8AAAACAAQAAAAkABAAAAACAAQAAAAkABEAAAACAAQAAAAkABIAAAACAAQAAAAkABMAAAACAAQAAAAkABQAAAACAAQAAAAkABUAAAACAAQAAAAkABYAAAACAAQAAAAlAAAAAAACAAQAAAAlAAEAAAACAAQAAAAlAAIAAAACAAQAAAAlAAMAAAACAAQAAAAlAAQAAAACAAQAAAAlAAUAAAACAAQAAAAlAAYAAAACAAQAAAAlAAcAAAACAAQAAAAlAAgAAAACAAQAAAAlAAkAAAACAAQAAAAlAAoAAAACAAQAAAAlAAsAAAACAAQAAAAlAAwAAAACAAQAAAAlAA0AAAACAAQAAAAlAA4AAAACAAQAAAAlAA8AAAACAAQAAAAlABAAAAACAAQAAAAlABEAAAACAAQAAAAlABIAAAACAAQAAAAlABMAAAACAAQAAAAlABQAAAACAAQAAAAlABUAAAACAAQAAAAlABYAAAACAAQAAAAmAAAAAAACAAQAAAAmAAEAAAACAAQAAAAmAAIAAAACAAQAAAAmAAMAAAACAAQAAAAmAAQAAAACAAQAAAAmAAUAAAACAAQAAAAmAAYAAAACAAQAAAAmAAcAAAACAAQAAAAmAAgAAAACAAQAAAAmAAkAAAACAAQAAAAmAAoAAAACAAQAAAAmAAsAAAACAAQAAAAmAAwAAAACAAQAAAAmAA0AAAACAAQAAAAmAA4AAAACAAQAAAAmAA8AAAACAAQAAAAmABAAAAACAAQAAAAmABEAAAACAAQAAAAmABIAAAACAAQAAAAmABMAAAACAAQAAAAmABQAAAACAAQAAAAmABUAAAACAAQAAAAmABYAAAACAAQAAAAnAAAAAAACAAQAAAAnAAEAAAACAAQAAAAnAAIAAAACAAQAAAAnAAMAAAACAAQAAAAnAAQAAAACAAQAAAAnAAUAAAACAAQAAAAnAAYAAAACAAQAAAAnAAcAAAACAAQAAAAnAAgAAAACAAQAAAAnAAkAAAACAAQAAAAnAAoAAAACAAQAAAAnAAsAAAACAAQAAAAnAAwAAAACAAQAAAAnAA0AAAACAAQAAAAnAA4AAAACAAQAAAAnAA8AAAACAAQAAAAnABAAAAACAAQAAAAnABEAAAACAAQAAAAnABIAAAACAAQAAAAnABMAAAACAAQAAAAnABQAAAACAAQAAAAnABUAAAACAAQAAAAnABYAAAACAAQAAAA=")
 tile_set = SubResource("TileSet_f1t2y")
 
-[node name="Player" type="StaticBody2D" parent="."]
-position = Vector2(320, 311)
-script = ExtResource("3_b2m6o")
+[node name="Player" parent="." instance=ExtResource("4_b2m6o")]
+position = Vector2(336, 311)
 
-[node name="ShipShadowSprite" type="Sprite2D" parent="Player"]
-self_modulate = Color(0, 0, 0, 0.643137)
-position = Vector2(15, 15)
-texture = ExtResource("4_b2m6o")
+[node name="HUDCanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ShipSprite" type="Sprite2D" parent="Player"]
-texture = ExtResource("4_b2m6o")
+[node name="BackgroundPanel" type="Panel" parent="HUDCanvasLayer"]
+offset_right = 129.0
+offset_bottom = 363.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_b2m6o")
 
-[node name="PlayerShipCollisionShape" type="CollisionShape2D" parent="Player"]
+[node name="TextureShadowPanel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = -3.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_f1t2y")
+
+[node name="TexturePanel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 2.0
+offset_right = -3.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_invvc")
+
+[node name="TitleShadowPanel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 17.0
+offset_right = -19.0
+offset_bottom = -304.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qr8l7")
+
+[node name="TitlePanel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/TitleShadowPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -22.0
+offset_right = 45.5
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7u1b4")
+
+[node name="TitleLabel" type="Label" parent="HUDCanvasLayer/BackgroundPanel/TitleShadowPanel/TitlePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "AIRSPACE INVADERS"
+label_settings = SubResource("LabelSettings_7u1b4")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="LifeSectionPanel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 122.0
+offset_right = -7.0
+offset_bottom = -199.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qr8l7")
+
+[node name="LifePanel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/LifeSectionPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.062
+anchor_right = 1.0
+anchor_bottom = 0.975
+offset_top = 0.0220003
+offset_bottom = 0.0250015
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7u1b4")
+
+[node name="LifesBackgroundPanel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/LifeSectionPanel/LifePanel"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 20.582
+offset_right = 37.0
+offset_bottom = 38.582
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1t2y")
+
+[node name="LifesLabel" type="Label" parent="HUDCanvasLayer/BackgroundPanel/LifeSectionPanel/LifePanel/LifesBackgroundPanel"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -19.418
+offset_right = 27.0
+offset_bottom = 2.582
+text = "Lifes"
+label_settings = SubResource("LabelSettings_f1t2y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LifesTextLabel" type="Label" parent="HUDCanvasLayer/BackgroundPanel/LifeSectionPanel/LifePanel/LifesBackgroundPanel/LifesLabel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 16.0
+offset_right = 27.0
+offset_bottom = 39.0
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeBackgroundPanel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/LifeSectionPanel"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 19.0
+offset_right = 101.0
+offset_bottom = 37.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1t2y")
+
+[node name="TimeTextLabel" type="Label" parent="HUDCanvasLayer/BackgroundPanel/LifeSectionPanel/TimeBackgroundPanel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -19.0
+offset_right = 40.0
+offset_bottom = 3.00001
+text = "Time"
+label_settings = SubResource("LabelSettings_f1t2y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalTimeTextLabel" type="Label" parent="HUDCanvasLayer/BackgroundPanel/LifeSectionPanel/TimeBackgroundPanel/TimeTextLabel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -2.0
+offset_top = 16.0
+offset_right = 39.0
+offset_bottom = 39.0
+text = "00:00"
+
+[node name="ScoreSectionPanel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 171.0
+offset_right = -7.0
+offset_bottom = -149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qr8l7")
+
+[node name="ScorePanel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/ScoreSectionPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.062
+anchor_right = 1.0
+anchor_bottom = 0.975
+offset_top = 0.0220003
+offset_bottom = 0.0250015
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7u1b4")
+
+[node name="ScoreBackgroundPanel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/ScoreSectionPanel/ScorePanel"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 19.0
+offset_right = 56.0
+offset_bottom = 37.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1t2y")
+
+[node name="ScoreLabel" type="Label" parent="HUDCanvasLayer/BackgroundPanel/ScoreSectionPanel/ScorePanel/ScoreBackgroundPanel"]
+layout_mode = 0
+offset_top = -19.806
+offset_right = 48.0
+offset_bottom = 2.194
+text = "Score"
+label_settings = SubResource("LabelSettings_b2m6o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreValueLabel" type="Label" parent="HUDCanvasLayer/BackgroundPanel/ScoreSectionPanel/ScorePanel/ScoreBackgroundPanel/ScoreLabel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 7.0
+offset_top = 17.45
+offset_right = 44.0
+offset_bottom = 40.45
+text = "0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComboBackgroundPanel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/ScoreSectionPanel/ScorePanel"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 19.0
+offset_right = 99.0
+offset_bottom = 37.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1t2y")
+
+[node name="ComboLabel" type="Label" parent="HUDCanvasLayer/BackgroundPanel/ScoreSectionPanel/ScorePanel/ComboBackgroundPanel"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -20.0
+offset_right = 44.0
+offset_bottom = 2.0
+text = "Combo"
+label_settings = SubResource("LabelSettings_b2m6o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ComboValueLabel" type="Label" parent="HUDCanvasLayer/BackgroundPanel/ScoreSectionPanel/ScorePanel/ComboBackgroundPanel/ComboLabel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 7.0
+offset_top = 16.644
+offset_right = 44.0
+offset_bottom = 39.644
+text = "000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelSectionPanel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 73.0
+offset_right = -7.0
+offset_bottom = -251.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qr8l7")
+
+[node name="LevelPanel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/LevelSectionPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.062
+anchor_right = 1.0
+anchor_bottom = 0.975
+offset_top = 0.0220003
+offset_bottom = 0.0250015
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7u1b4")
+
+[node name="LevelBackgroundPanel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/LevelSectionPanel/LevelPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 18.396
+offset_right = 45.0
+offset_bottom = 36.396
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1t2y")
+
+[node name="RoundLabel" type="Label" parent="HUDCanvasLayer/BackgroundPanel/LevelSectionPanel/LevelPanel/LevelBackgroundPanel"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = -20.0
+offset_right = 63.0
+offset_bottom = 2.0
+text = "Round"
+label_settings = SubResource("LabelSettings_b2m6o")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActualRoundValueLabel" type="Label" parent="HUDCanvasLayer/BackgroundPanel/LevelSectionPanel/LevelPanel/LevelBackgroundPanel/RoundLabel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -12.0
+offset_top = 17.0
+offset_right = 8.0
+offset_bottom = 40.0
+text = "00"
+
+[node name="TotalRoundsBackgroundPanel2" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/LevelSectionPanel/LevelPanel"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 18.0
+offset_right = 93.0
+offset_bottom = 36.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f1t2y")
+
+[node name="TotalRoundsLabel" type="Label" parent="HUDCanvasLayer/BackgroundPanel/LevelSectionPanel/LevelPanel/TotalRoundsBackgroundPanel2"]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -2.0
+offset_right = -4.0
+offset_bottom = 20.0
+text = "of"
+label_settings = SubResource("LabelSettings_f1t2y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TotalRoundsTextLabel" type="Label" parent="HUDCanvasLayer/BackgroundPanel/LevelSectionPanel/LevelPanel/TotalRoundsBackgroundPanel2/TotalRoundsLabel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 25.0
+offset_top = -0.604004
+offset_right = 44.0
+offset_bottom = 22.396
+text = "00"
+
+[node name="LeftTouchScreenButton" type="TouchScreenButton" parent="HUDCanvasLayer/BackgroundPanel"]
+position = Vector2(32, 301)
 shape = SubResource("RectangleShape2D_f1t2y")
+action = "left"
 
-[node name="GunMarker2D" type="Marker2D" parent="Player"]
+[node name="ColorRect2" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/LeftTouchScreenButton"]
+offset_left = -30.0
+offset_top = -27.0
+offset_right = 30.0
+offset_bottom = 30.0
+
+[node name="ColorRect" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/LeftTouchScreenButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -31.0
+offset_right = 31.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qr8l7")
+
+[node name="RightTouchScreenButton" type="TouchScreenButton" parent="HUDCanvasLayer/BackgroundPanel"]
+position = Vector2(96, 301)
+shape = SubResource("RectangleShape2D_f1t2y")
+action = "right"
+
+[node name="ColorRect3" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/RightTouchScreenButton"]
+offset_left = -30.0
+offset_top = -27.0
+offset_right = 30.0
+offset_bottom = 30.0
+
+[node name="ColorRect4" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/RightTouchScreenButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -31.0
+offset_right = 31.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qr8l7")
+
+[node name="ShotTouchScreenButton" type="TouchScreenButton" parent="HUDCanvasLayer/BackgroundPanel"]
+position = Vector2(577, 303)
+shape = SubResource("CircleShape2D_7u1b4")
+action = "shoot"
+
+[node name="Panel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/ShotTouchScreenButton"]
+offset_left = -61.0
+offset_top = -71.0
+offset_right = 59.0
+offset_bottom = 63.0
+
+[node name="FleetMarker" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -9)
+position = Vector2(335, 55)
 
-[node name="Timer" type="Timer" parent="Player"]
+[node name="SystemTimers" type="Node2D" parent="."]
+
+[node name="StartTimer" type="Timer" parent="SystemTimers"]
 unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
 
-[node name="Fleet" type="Node2D" parent="."]
-position = Vector2(320, 56)
+[node name="IntervalTimer" type="Timer" parent="SystemTimers"]
+unique_name_in_owner = true
+wait_time = 3.0
 
-[node name="Row1" type="Node2D" parent="Fleet"]
+[node name="MainAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_invvc")
+}
 
-[node name="EnemyShip" parent="Fleet/Row1" instance=ExtResource("4_f1t2y")]
-position = Vector2(106, 0)
+[node name="BackPanel" type="ColorRect" parent="MainAnimationPlayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -381.0
+offset_top = -33.0
+offset_right = 317.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0770427
+color = Color(0.555353, 0.555353, 0.555353, 1)
 
-[node name="EnemyShip2" parent="Fleet/Row1" instance=ExtResource("4_f1t2y")]
-position = Vector2(76, 0)
+[node name="ColorRect3" type="ColorRect" parent="MainAnimationPlayer/BackPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -554.0
+offset_top = -41.0
+offset_right = 553.0
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.498039)
 
-[node name="EnemyShip3" parent="Fleet/Row1" instance=ExtResource("4_f1t2y")]
-position = Vector2(46, 0)
+[node name="FrontPanel" type="ColorRect" parent="MainAnimationPlayer/BackPanel/ColorRect3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -556.0
+offset_top = -51.0
+offset_right = 556.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.000859139
+color = Color(0.823529, 0.556863, 0.337255, 1)
 
-[node name="EnemyShip4" parent="Fleet/Row1" instance=ExtResource("4_f1t2y")]
-position = Vector2(16, 0)
+[node name="RoundLabel" type="Label" parent="MainAnimationPlayer/BackPanel/ColorRect3/FrontPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "ROUND"
+label_settings = SubResource("LabelSettings_invvc")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="EnemyShip5" parent="Fleet/Row1" instance=ExtResource("4_f1t2y")]
-position = Vector2(-14, 0)
+[node name="RoundTextLabel" type="Label" parent="MainAnimationPlayer/BackPanel/ColorRect3/FrontPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 108.515
+offset_top = -32.1636
+offset_right = 221.515
+offset_bottom = 98.8364
+grow_horizontal = 2
+grow_vertical = 2
+text = "50
+"
+label_settings = SubResource("LabelSettings_invvc")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="EnemyShip6" parent="Fleet/Row1" instance=ExtResource("4_f1t2y")]
-position = Vector2(-44, 0)
+[node name="YouWinScreenCanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="EnemyShip7" parent="Fleet/Row1" instance=ExtResource("4_f1t2y")]
-position = Vector2(-74, 0)
+[node name="YouWinAnimationPlayer" type="AnimationPlayer" parent="YouWinScreenCanvasLayer"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_rha1p")
+}
 
-[node name="EnemyShip8" parent="Fleet/Row1" instance=ExtResource("4_f1t2y")]
-position = Vector2(-104, 0)
+[node name="BlackBackgroundPanel" type="Panel" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rha1p")
 
-[node name="EnemyShip9" parent="Fleet/Row1" instance=ExtResource("4_f1t2y")]
-position = Vector2(-134, 0)
+[node name="MainPanel" type="Panel" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer/BlackBackgroundPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -161.0
+offset_right = 125.0
+offset_bottom = 161.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_invvc")
 
-[node name="EnemyShip10" parent="Fleet/Row1" instance=ExtResource("4_f1t2y")]
-position = Vector2(136, 0)
+[node name="StatisticShadowPanel" type="Panel" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer/BlackBackgroundPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = -139.0
+offset_right = 109.0
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y6l1q")
 
-[node name="Row2" type="Node2D" parent="Fleet"]
-position = Vector2(0, 31)
+[node name="StatisticsPanel" type="Panel" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer/BlackBackgroundPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -144.0
+offset_right = 105.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8500h")
 
-[node name="EnemyShip" parent="Fleet/Row2" instance=ExtResource("4_f1t2y")]
-position = Vector2(106, 0)
+[node name="YouWinLabel" type="Label" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer/BlackBackgroundPanel/StatisticsPanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -66.0
+offset_top = -26.0
+offset_right = 67.0
+offset_bottom = 16.0
+grow_horizontal = 2
+text = "YOU WIN"
+label_settings = SubResource("LabelSettings_4xuw0")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="EnemyShip2" parent="Fleet/Row2" instance=ExtResource("4_f1t2y")]
-position = Vector2(76, 0)
+[node name="CenterContainer" type="CenterContainer" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer/BlackBackgroundPanel/StatisticsPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="EnemyShip3" parent="Fleet/Row2" instance=ExtResource("4_f1t2y")]
-position = Vector2(46, 0)
+[node name="GridContainer" type="GridContainer" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer/BlackBackgroundPanel/StatisticsPanel/CenterContainer"]
+layout_mode = 2
+columns = 2
 
-[node name="EnemyShip4" parent="Fleet/Row2" instance=ExtResource("4_f1t2y")]
-position = Vector2(16, 0)
+[node name="TimeLabel" type="Label" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer/BlackBackgroundPanel/StatisticsPanel/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "Time:"
+label_settings = SubResource("LabelSettings_qr8l7")
+vertical_alignment = 1
 
-[node name="EnemyShip5" parent="Fleet/Row2" instance=ExtResource("4_f1t2y")]
-position = Vector2(-14, 0)
+[node name="TimeTextLabel" type="Label" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer/BlackBackgroundPanel/StatisticsPanel/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00:00"
+label_settings = SubResource("LabelSettings_qr8l7")
+horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="EnemyShip6" parent="Fleet/Row2" instance=ExtResource("4_f1t2y")]
-position = Vector2(-44, 0)
+[node name="EnemiesKilledLabel" type="Label" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer/BlackBackgroundPanel/StatisticsPanel/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "Enemies killed:"
+label_settings = SubResource("LabelSettings_qr8l7")
 
-[node name="EnemyShip7" parent="Fleet/Row2" instance=ExtResource("4_f1t2y")]
-position = Vector2(-74, 0)
+[node name="EnemiesKilledTextLabel" type="Label" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer/BlackBackgroundPanel/StatisticsPanel/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_qr8l7")
+horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="EnemyShip8" parent="Fleet/Row2" instance=ExtResource("4_f1t2y")]
-position = Vector2(-104, 0)
+[node name="ShotsFiredLabel" type="Label" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer/BlackBackgroundPanel/StatisticsPanel/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "Shots Fired:"
+label_settings = SubResource("LabelSettings_qr8l7")
+vertical_alignment = 1
 
-[node name="EnemyShip9" parent="Fleet/Row2" instance=ExtResource("4_f1t2y")]
-position = Vector2(-134, 0)
+[node name="ShotsFiredTextLabel" type="Label" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer/BlackBackgroundPanel/StatisticsPanel/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "000"
+label_settings = SubResource("LabelSettings_qr8l7")
+horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="EnemyShip10" parent="Fleet/Row2" instance=ExtResource("4_f1t2y")]
-position = Vector2(136, 0)
+[node name="PrecisionLabel" type="Label" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer/BlackBackgroundPanel/StatisticsPanel/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "Precision:"
+label_settings = SubResource("LabelSettings_qr8l7")
+vertical_alignment = 1
 
-[node name="Row3" type="Node2D" parent="Fleet"]
-position = Vector2(0, 61)
+[node name="PrecisionTextLabel" type="Label" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer/BlackBackgroundPanel/StatisticsPanel/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "000%"
+label_settings = SubResource("LabelSettings_qr8l7")
+vertical_alignment = 1
 
-[node name="EnemyShip" parent="Fleet/Row3" instance=ExtResource("4_f1t2y")]
-position = Vector2(106, 0)
+[node name="ScoreLabel" type="Label" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer/BlackBackgroundPanel/StatisticsPanel/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "Score:"
+label_settings = SubResource("LabelSettings_qr8l7")
+vertical_alignment = 1
 
-[node name="EnemyShip2" parent="Fleet/Row3" instance=ExtResource("4_f1t2y")]
-position = Vector2(76, 0)
-
-[node name="EnemyShip3" parent="Fleet/Row3" instance=ExtResource("4_f1t2y")]
-position = Vector2(46, 0)
-
-[node name="EnemyShip4" parent="Fleet/Row3" instance=ExtResource("4_f1t2y")]
-position = Vector2(16, 0)
-
-[node name="EnemyShip5" parent="Fleet/Row3" instance=ExtResource("4_f1t2y")]
-position = Vector2(-14, 0)
-
-[node name="EnemyShip6" parent="Fleet/Row3" instance=ExtResource("4_f1t2y")]
-position = Vector2(-44, 0)
-
-[node name="EnemyShip7" parent="Fleet/Row3" instance=ExtResource("4_f1t2y")]
-position = Vector2(-74, 0)
-
-[node name="EnemyShip8" parent="Fleet/Row3" instance=ExtResource("4_f1t2y")]
-position = Vector2(-104, 0)
-
-[node name="EnemyShip9" parent="Fleet/Row3" instance=ExtResource("4_f1t2y")]
-position = Vector2(-134, 0)
-
-[node name="EnemyShip10" parent="Fleet/Row3" instance=ExtResource("4_f1t2y")]
-position = Vector2(136, 0)
-
-[connection signal="timeout" from="Player/Timer" to="Player" method="_on_timer_timeout"]
+[node name="ScoreTextLabel" type="Label" parent="YouWinScreenCanvasLayer/YouWinAnimationPlayer/BlackBackgroundPanel/StatisticsPanel/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0000"
+label_settings = SubResource("LabelSettings_qr8l7")
+vertical_alignment = 1

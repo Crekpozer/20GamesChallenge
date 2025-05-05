@@ -1,7 +1,11 @@
 class_name Player
-extends StaticBody2D
+extends CharacterBody2D
 
-var movementSpeed : float = 400.0
+# Parametros de movimento
+var maxMovementSpeed : float = 400.0
+var acceleration : float = 600.0
+var deceleration : float = 800.0
+
 
 # Lógica do tiro
 var bulletScene : PackedScene = preload("res://Scenes/Player/bullet.tscn")
@@ -9,44 +13,58 @@ var canShoot : bool = true
 
 func _physics_process(delta: float) -> void:
 	
-	skew = 0 # [EXPERIMENTAL] Reinicia a inclinação quando a nave para de se move para os lados
+	# Detecta entrada do jogador
+	var inputVector = Vector2.ZERO
+	inputVector.x = Input.get_action_strength("right") - Input.get_action_strength("left")
+	inputVector = inputVector.normalized()
 	
-	# Detecta quando o jogador aperta para a esquerda
-	if Input.is_action_pressed("left"):
-		position.x -= movementSpeed * delta # Move a nave negativamente no eixo X
-		skew = deg_to_rad(-15) # [EXPERIMENTAL] Enclina a nave quando vai para o lado usando magia negra ?deg_to_rad()?
+	# Aceleração e desaceleração
+	if inputVector != Vector2.ZERO: # Verifica se o jogador está se movendo
+		velocity = velocity.move_toward(inputVector * maxMovementSpeed, acceleration * delta)
+	else:
+		velocity = velocity.move_toward(Vector2.ZERO, deceleration * delta)
 	
-	# Detecta quando o jogador aperta para a direita
-	if Input.is_action_pressed("right"):
-		position.x += movementSpeed * delta # Move a nave positivamente no eixo X
-		skew = deg_to_rad(15) # [EXPERIMENTAL] Enclina a nave quando vai para o lado usando magia negra ?deg_to_rad()?
+	# Limita a area de movimentação
+	position.x = clamp(position.x, 165.0, 625.0) # Limita a area que o jogador pode se mover no eixo X
 	
-	position.x = clamp(position.x, 10.0, 630.0) # Limita a area que o jogador pode se mover no eixo X
+	# Aplica o movimento
+	move_and_slide()
 
 # Função que detecta e lida com as entradas do jogador
 func _input(event: InputEvent) -> void:
 	var input = event.as_text() # Armazena o input em uma String
 	
-	match input: # Compara a String com as funções de cada botão
-		"Space": # Se o botão pressionado for o espaço
-			if canShoot: # Verifica se a nave pode atirar, e se puder
-				Shoot() # Chama a função que atira
+	if Input.is_action_just_pressed("shoot"):
+		if canShoot:
+			Shoot()
+	
+	#match input: # Compara a String com as funções de cada botão
+		#"Space": # Se o botão pressionado for o espaço
+			#if canShoot: # Verifica se a nave pode atirar, e se puder
+				#Shoot() # Chama a função que atira
 
 # Função que atira
 func Shoot():
 	canShoot = false # Marca que a nave não pode atirar 
-	var bullet = bulletScene.instantiate() # Instancia a bala do tiro
+	var bullet = bulletScene.instantiate() # Instancia a scene do tiro
+	bullet.bulletDestroyed.connect(BulletDestroyed) # Conecta o signal que avisa que a bala foi destruida
 	bullet.position = %GunMarker2D.global_position # Posiciona a bala na marcardo que representa a arma
 	get_parent().add_child(bullet) # Pega o nodo pai e adiciona a bala como filho
-	%Timer.start() # Começa o timer para que a nave possa atirar de novo
+	%ShootTimer.start() # Começa o timer para que a nave possa atirar de novo
+	get_parent().shotsFired += 1 # informa ao sistema de estatisca que um tiro foi disparado
 
 # Sinal recebido quando o tempo do timer termina
 func _on_timer_timeout() -> void:
 	canShoot = true # Sinaliza que a nave pode atirar novamente
+
+# Função que adiciona 5 pontos a pontuação máxima quando uma bala é destruida
+func BulletDestroyed() -> void:
+	get_parent().AddScore(5) # Adiciona 5 pontos a pontuação máxima quando uma bala é destruida
 
 # Função que lida com o dano
 func Damage():
 	# Lógica de dano ao jogador, deve gerenciar:
 	# - A quantidade de vidas do jogador e o processo logico para controlar o game over
 	# - Sistema de particulas para danos no avião
+	get_parent().combo = 0
 	pass

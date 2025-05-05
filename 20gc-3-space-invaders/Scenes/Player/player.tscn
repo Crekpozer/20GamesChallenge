@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://yfxkxod1f2y3"]
+
+[ext_resource type="Script" uid="uid://cy3r6rbgmplx5" path="res://Script/player.gd" id="1_a3d8c"]
+[ext_resource type="Texture2D" uid="uid://by2ivjofc3l5k" path="res://Addons/kenney_pixel-shmup/Ships/ship_0001.png" id="2_xpcdj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1t2y"]
+size = Vector2(22, 20)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_a3d8c")
+
+[node name="ShipShadowSprite" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 0.643137)
+position = Vector2(15, 15)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_xpcdj")
+
+[node name="ShipSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_xpcdj")
+
+[node name="PlayerShipCollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f1t2y")
+
+[node name="GunMarker2D" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -9)
+
+[node name="ShootTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.8
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_timer_timeout"]

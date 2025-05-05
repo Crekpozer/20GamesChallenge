@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqj25sis7hb8m"]
+[gd_scene load_steps=5 format=3 uid="uid://dqj25sis7hb8m"]
 
 [ext_resource type="Script" uid="uid://15y2cysh2bbn" path="res://Script/enemy_bullet.gd" id="1_25amj"]
 [ext_resource type="Texture2D" uid="uid://b54aes57vbd8n" path="res://Addons/kenney_pixel-shmup/Tiles/tile_0000.png" id="1_c6pe7"]
+[ext_resource type="Texture2D" uid="uid://d36rsj080cijo" path="res://Addons/kenney_pixel-shmup/Tiles/tile_0002.png" id="3_nh5x6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_25amj"]
 radius = 3.0
@@ -17,5 +18,32 @@ shape = SubResource("CapsuleShape2D_25amj")
 rotation = 3.14159
 texture = ExtResource("1_c6pe7")
 
+[node name="RemoveTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 5)
+emitting = false
+amount = 2
+texture = ExtResource("3_nh5x6")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 1)
+initial_velocity_min = 209.52
+initial_velocity_max = 447.62
+linear_accel_min = 64.77
+linear_accel_max = 64.77
+radial_accel_min = -30.48
+radial_accel_max = 49.52
+tangential_accel_min = -24.76
+tangential_accel_max = 22.86
+scale_amount_min = 0.3
+scale_amount_max = 0.4
+color = Color(0.965264, 0.785053, 0.63835, 1)
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="RemoveTimer" to="." method="_on_remove_timer_timeout"]

@@ -1,0 +1,549 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5dtqgl3ohw27"]
+
+[ext_resource type="Script" uid="uid://jodqll1kpnev" path="res://Script/Fleet.gd" id="1_pn5xy"]
+[ext_resource type="PackedScene" uid="uid://dksg7xvws4eiu" path="res://Scenes/Enemies/enemy_ship.tscn" id="2_tomqb"]
+
+[sub_resource type="Animation" id="Animation_r1xv8"]
+resource_name = "BattleLoop"
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Row1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Row1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-4, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Row2:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Row2:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(27, -0.25, 0, 0.25, 0, 31, -0.25, 0, 0.25, 0, 41, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Row3:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Row3:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(57, -0.25, 0, 0.25, 0, 61, -0.25, 0, 0.25, 0, 71, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+
+[sub_resource type="Animation" id="Animation_dd1sp"]
+resource_name = "Hit"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Row1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Row1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-4, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Row2:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Row2:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(27, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Row3:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Row3:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(57, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_tomqb"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Row1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Row1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Row2:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Row2:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(31, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Row3:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Row3:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(61, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_pn5xy"]
+resource_name = "Respawn1"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Row1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.986051)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Row1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-180, -0.25, 0, 0.25, 0, -4, -0.633, 20.486, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Row2:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.986051)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Row2:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-149, -0.25, 0, 0.25, 0, 27, -0.633, 20.486, 0.25, 0),
+"times": PackedFloat32Array(0, 1.93333)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Row3:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.986051)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Row3:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-119, -0.25, 0, 0.25, 0, 57, -0.633333, 20.4859, 0.25, 0),
+"times": PackedFloat32Array(0, 1.86667)
+}
+
+[sub_resource type="Animation" id="Animation_57ih5"]
+resource_name = "Respawn2"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Row1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(134, -0.25, 0, 0.25, 0, 0, -2, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Row1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(1, 2),
+"points": PackedFloat32Array(-180, 0, 0, 0, 0, -4, -2, 0, 0, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Row2:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(134, -0.25, 0, 0.25, 0, 0, -2, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Row2:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(1, 2),
+"points": PackedFloat32Array(-149, 0, 0, 0, 0, 29.5, -2, 0, 0, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Row3:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(134, -0.25, 0, 0.25, 0, 0, -2, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Row3:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(1, 2),
+"points": PackedFloat32Array(-119, 0, 0, 0, 0, 58.5, -2, 0, 0, 0),
+"times": PackedFloat32Array(0, 2)
+}
+
+[sub_resource type="Animation" id="Animation_hq5rq"]
+resource_name = "Respawn3"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Row1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-150, -0.25, 0, 0.25, 0, 0, -2, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Row1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(1, 2),
+"points": PackedFloat32Array(-180, 0, 0, 0, 0, -4, -2, 0, 0, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Row2:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-150, -0.25, 0, 0.25, 0, 0, -2, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Row2:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(1, 2),
+"points": PackedFloat32Array(-149, 0, 0, 0, 0, 29.5, -2, 0, 0, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Row3:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-150, -0.25, 0, 0.25, 0, 0, -2, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Row3:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(1, 2),
+"points": PackedFloat32Array(-119, 0, 0, 0, 0, 58.5, -2, 0, 0, 0),
+"times": PackedFloat32Array(0, 2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r1xv8"]
+_data = {
+&"BattleLoop": SubResource("Animation_r1xv8"),
+&"Hit": SubResource("Animation_dd1sp"),
+&"RESET": SubResource("Animation_tomqb"),
+&"Respawn1": SubResource("Animation_pn5xy"),
+&"Respawn2": SubResource("Animation_57ih5"),
+&"Respawn3": SubResource("Animation_hq5rq")
+}
+
+[node name="Fleet" type="Node2D"]
+z_index = 1
+script = ExtResource("1_pn5xy")
+
+[node name="Row1" type="Node2D" parent="."]
+
+[node name="EnemyShip" parent="Row1" instance=ExtResource("2_tomqb")]
+position = Vector2(106, 0)
+
+[node name="EnemyShip2" parent="Row1" instance=ExtResource("2_tomqb")]
+position = Vector2(76, 0)
+
+[node name="EnemyShip3" parent="Row1" instance=ExtResource("2_tomqb")]
+position = Vector2(46, 0)
+
+[node name="EnemyShip4" parent="Row1" instance=ExtResource("2_tomqb")]
+position = Vector2(16, 0)
+
+[node name="EnemyShip5" parent="Row1" instance=ExtResource("2_tomqb")]
+position = Vector2(-14, 0)
+
+[node name="EnemyShip6" parent="Row1" instance=ExtResource("2_tomqb")]
+position = Vector2(-44, 0)
+
+[node name="EnemyShip7" parent="Row1" instance=ExtResource("2_tomqb")]
+position = Vector2(-74, 0)
+
+[node name="EnemyShip8" parent="Row1" instance=ExtResource("2_tomqb")]
+position = Vector2(-104, 0)
+
+[node name="EnemyShip9" parent="Row1" instance=ExtResource("2_tomqb")]
+position = Vector2(-134, 0)
+
+[node name="EnemyShip10" parent="Row1" instance=ExtResource("2_tomqb")]
+position = Vector2(136, 0)
+
+[node name="Row2" type="Node2D" parent="."]
+position = Vector2(0, 31)
+
+[node name="EnemyShip" parent="Row2" instance=ExtResource("2_tomqb")]
+position = Vector2(106, 0)
+
+[node name="EnemyShip2" parent="Row2" instance=ExtResource("2_tomqb")]
+position = Vector2(76, 0)
+
+[node name="EnemyShip3" parent="Row2" instance=ExtResource("2_tomqb")]
+position = Vector2(46, 0)
+
+[node name="EnemyShip4" parent="Row2" instance=ExtResource("2_tomqb")]
+position = Vector2(16, 0)
+
+[node name="EnemyShip5" parent="Row2" instance=ExtResource("2_tomqb")]
+position = Vector2(-14, 0)
+
+[node name="EnemyShip6" parent="Row2" instance=ExtResource("2_tomqb")]
+position = Vector2(-44, 0)
+
+[node name="EnemyShip7" parent="Row2" instance=ExtResource("2_tomqb")]
+position = Vector2(-74, 0)
+
+[node name="EnemyShip8" parent="Row2" instance=ExtResource("2_tomqb")]
+position = Vector2(-104, 0)
+
+[node name="EnemyShip9" parent="Row2" instance=ExtResource("2_tomqb")]
+position = Vector2(-134, 0)
+
+[node name="EnemyShip10" parent="Row2" instance=ExtResource("2_tomqb")]
+position = Vector2(136, 0)
+
+[node name="Row3" type="Node2D" parent="."]
+position = Vector2(0, 61)
+
+[node name="EnemyShip" parent="Row3" instance=ExtResource("2_tomqb")]
+position = Vector2(106, 0)
+
+[node name="EnemyShip2" parent="Row3" instance=ExtResource("2_tomqb")]
+position = Vector2(76, 0)
+
+[node name="EnemyShip3" parent="Row3" instance=ExtResource("2_tomqb")]
+position = Vector2(46, 0)
+
+[node name="EnemyShip4" parent="Row3" instance=ExtResource("2_tomqb")]
+position = Vector2(16, 0)
+
+[node name="EnemyShip5" parent="Row3" instance=ExtResource("2_tomqb")]
+position = Vector2(-14, 0)
+
+[node name="EnemyShip6" parent="Row3" instance=ExtResource("2_tomqb")]
+position = Vector2(-44, 0)
+
+[node name="EnemyShip7" parent="Row3" instance=ExtResource("2_tomqb")]
+position = Vector2(-74, 0)
+
+[node name="EnemyShip8" parent="Row3" instance=ExtResource("2_tomqb")]
+position = Vector2(-104, 0)
+
+[node name="EnemyShip9" parent="Row3" instance=ExtResource("2_tomqb")]
+position = Vector2(-134, 0)
+
+[node name="EnemyShip10" parent="Row3" instance=ExtResource("2_tomqb")]
+position = Vector2(136, 0)
+
+[node name="totalLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -35.0
+offset_top = -49.0
+offset_right = 5.0
+offset_bottom = -26.0
+text = "Total"
+
+[node name="FleetAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_r1xv8")
+}

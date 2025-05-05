@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2jruxoadhssi"]
 
 [ext_resource type="Script" uid="uid://sy1xquqpsuf7" path="res://Script/bullet.gd" id="1_l8742"]
-[ext_resource type="Texture2D" uid="uid://b54aes57vbd8n" path="res://Addons/kenney_pixel-shmup/Tiles/tile_0000.png" id="2_vatw8"]
+[ext_resource type="Texture2D" uid="uid://b54aes57vbd8n" path="res://Addons/kenney_pixel-shmup/Tiles/tile_0000.png" id="2_l8742"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7u1b4"]
 radius = 7.0
@@ -12,7 +12,7 @@ script = ExtResource("1_l8742")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_vatw8")
+texture = ExtResource("2_l8742")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_7u1b4")
