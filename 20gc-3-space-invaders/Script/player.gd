@@ -32,16 +32,11 @@ func _physics_process(delta: float) -> void:
 
 # Função que detecta e lida com as entradas do jogador
 func _input(event: InputEvent) -> void:
-	var input = event.as_text() # Armazena o input em uma String
 	
 	if Input.is_action_just_pressed("shoot"):
 		if canShoot:
 			Shoot()
-	
-	#match input: # Compara a String com as funções de cada botão
-		#"Space": # Se o botão pressionado for o espaço
-			#if canShoot: # Verifica se a nave pode atirar, e se puder
-				#Shoot() # Chama a função que atira
+
 
 # Função que atira
 func Shoot():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://dkye2selbm8hu"]
+[gd_scene load_steps=40 format=4 uid="uid://dkye2selbm8hu"]
 
 [ext_resource type="Script" uid="uid://brsssrfpywkcd" path="res://Script/main_stage.gd" id="1_f1t2y"]
 [ext_resource type="Texture2D" uid="uid://onyukrian14p" path="res://Addons/kenney_pixel-shmup/Tilemap/tiles.png" id="1_g6ddx"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bgx7d2tpa6hwy" path="res://Addons/patter-pack2/PNG/Thick/Default (256px)/pattern_0011.png" id="5_7u1b4"]
 [ext_resource type="PackedScene" uid="uid://c5dtqgl3ohw27" path="res://Scenes/Enemies/Fleet.tscn" id="5_f1t2y"]
 [ext_resource type="Texture2D" uid="uid://do0uudpndji4p" path="res://Addons/pixel-parttern/Tiles (Color)/tile_0030.png" id="6_7u1b4"]
+[ext_resource type="Texture2D" uid="uid://b54aes57vbd8n" path="res://Addons/kenney_pixel-shmup/Tiles/tile_0000.png" id="7_invvc"]
+[ext_resource type="Texture2D" uid="uid://qd0qxthxm66k" path="res://Addons/input-prompt/tile_0794.png" id="7_y6l1q"]
+[ext_resource type="Texture2D" uid="uid://bgeuhv0pbdnbo" path="res://Addons/input-prompt/tile_0792.png" id="8_8500h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b2m6o"]
 texture = ExtResource("1_g6ddx")
@@ -116,8 +119,8 @@ texture_margin_bottom = 2.0
 region_rect = Rect2(0, 0, 16, 16)
 modulate_color = Color(0.566317, 0.726514, 0.375239, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7u1b4"]
-radius = 40.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr8l7"]
+size = Vector2(60, 60)
 
 [sub_resource type="Animation" id="Animation_7u1b4"]
 length = 0.001
@@ -278,6 +281,7 @@ font_weight = 800
 font_stretch = 200
 
 [sub_resource type="LabelSettings" id="LabelSettings_invvc"]
+line_spacing = 0.0
 font = SubResource("SystemFont_f1t2y")
 font_size = 52
 outline_size = 10
@@ -410,7 +414,7 @@ outline_size = 6
 [node name="Main" type="Node2D"]
 script = ExtResource("1_f1t2y")
 fleetTemplate = ExtResource("5_f1t2y")
-totalRound = 2
+totalRound = 3
 metadata/_edit_horizontal_guides_ = [331.0, 270.0]
 metadata/_edit_vertical_guides_ = [336.0]
 
@@ -769,6 +773,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_qr8l7")
 
+[node name="Sprite2D" type="Sprite2D" parent="HUDCanvasLayer/BackgroundPanel/LeftTouchScreenButton"]
+texture = ExtResource("7_y6l1q")
+
 [node name="RightTouchScreenButton" type="TouchScreenButton" parent="HUDCanvasLayer/BackgroundPanel"]
 position = Vector2(96, 301)
 shape = SubResource("RectangleShape2D_f1t2y")
@@ -794,16 +801,37 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_qr8l7")
 
+[node name="Sprite2D" type="Sprite2D" parent="HUDCanvasLayer/BackgroundPanel/RightTouchScreenButton"]
+texture = ExtResource("8_8500h")
+
 [node name="ShotTouchScreenButton" type="TouchScreenButton" parent="HUDCanvasLayer/BackgroundPanel"]
 position = Vector2(577, 303)
-shape = SubResource("CircleShape2D_7u1b4")
+shape = SubResource("RectangleShape2D_qr8l7")
 action = "shoot"
 
-[node name="Panel" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/ShotTouchScreenButton"]
-offset_left = -61.0
-offset_top = -71.0
-offset_right = 59.0
-offset_bottom = 63.0
+[node name="ColorRect3" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/ShotTouchScreenButton"]
+offset_left = -30.0
+offset_top = -27.0
+offset_right = 30.0
+offset_bottom = 30.0
+
+[node name="ColorRect4" type="Panel" parent="HUDCanvasLayer/BackgroundPanel/ShotTouchScreenButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -31.0
+offset_right = 31.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qr8l7")
+
+[node name="Sprite2D" type="Sprite2D" parent="HUDCanvasLayer/BackgroundPanel/ShotTouchScreenButton"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_invvc")
 
 [node name="FleetMarker" type="Marker2D" parent="."]
 unique_name_in_owner = true
@@ -891,20 +919,20 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RoundTextLabel" type="Label" parent="MainAnimationPlayer/BackPanel/ColorRect3/FrontPanel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 108.515
-offset_top = -32.1636
-offset_right = 221.515
-offset_bottom = 98.8364
+offset_left = 134.091
+offset_top = -64.2705
+offset_right = 171.091
+offset_bottom = 63.7295
 grow_horizontal = 2
 grow_vertical = 2
-text = "50
-"
+text = "1"
 label_settings = SubResource("LabelSettings_invvc")
 horizontal_alignment = 1
 vertical_alignment = 1

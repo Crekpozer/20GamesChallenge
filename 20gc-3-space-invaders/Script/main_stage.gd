@@ -31,7 +31,7 @@ extends Node2D
 @export var totalRound : int
 @export var startRound : int = 0
 
-var actualRound : int
+var actualRound : int = 0
 
 enum GameState {STARTGAME, GAMEPLAY, INTERVAL, ENDGAME}
 var actualGameState : GameState
@@ -97,11 +97,13 @@ func AddFleet() -> void:
 	actualFleet.position = %FleetMarker.position
 	actualFleet.fleetDestroyed.connect(PlayInterval)
 	add_child(actualFleet)
-	actualRound += 1
+
 	%ActualRoundValueLabel.text = str(actualRound)
 	actualGameState = GameState.GAMEPLAY
 
 func StartIntroduction() -> void:
+	actualRound += 1
+	%RoundTextLabel.text = str(actualRound)
 	%MainAnimationPlayer.play("RoundIntroduction")
 	await %MainAnimationPlayer.animation_finished
 	AddFleet()
@@ -112,8 +114,10 @@ func StartIntroduction() -> void:
 
 # Função tocada quando a frota é destuida
 func PlayInterval() -> void:
+	actualRound += 1
+	%RoundTextLabel.text = str(actualRound)
 	actualGameState = GameState.INTERVAL
-	if actualRound == totalRound:
+	if actualRound > totalRound:
 		EndGame()
 		return
 	%MainAnimationPlayer.play("RoundIntroduction") # Toca a animação de transição
