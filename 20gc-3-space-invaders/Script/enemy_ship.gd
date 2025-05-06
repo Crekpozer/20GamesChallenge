@@ -1,10 +1,6 @@
 class_name Enemy
 extends StaticBody2D
 
-# Quando essa nave morre, ela manda um sinal para a linha avisando que ele morreu, a linha vai
-# avisar a frota que ele morreu,e quando a linha toda morrer, o jogador ganha 50 pontos, quando todas
-# as linhas morrerem, a frota morre e o script principal irá gerar outra frota.
-
 # Ele emite esse signal quando morre, passando quantos pontos o jogador vai ganhar
 signal enemyDied(points)
 
@@ -46,16 +42,17 @@ var selectedSprite : String # Variavel que irá armazernar o endereço do sprite
 @export var bulletScene : PackedScene = preload("res://Scenes/Enemies/EnemyBullet.tscn") # Referencia do nodo do tiro
 @export var canShoot : bool = false # Sinaliza se pode atirar ou não
 @export var fireChance : float = 0.7 # Chance do inimigo atirar, quanto menor o valor, menos chance de atirar
-# Lógica do interalo dos tiros
+
+# Lógica do intervalo dos tiros
 # Essa lógica existe para que os inimigos parem de atirar ao mesmo tempo 
 @export var minFireInterval : float = 1.8 # Intervalo minimo entre tiros (em seg.)
 @export var maxFireInterval : float = 2.8 # Intervalo máximo entre tiros (em seg.)
 @export var fireInterval : float # Tempo que o inimigo levará para poder atirar de novo
 
 # Particulas
-@onready var smokeParticle : CPUParticles2D = %SmokeParticles2D
+@onready var smokeParticle : CPUParticles2D = %SmokeParticles2D # Sistema de particulas
 
-var deathTween : Tween
+var deathTween : Tween # Tween para transição
 
 #region Essa é uma região
 #endregion
@@ -89,20 +86,17 @@ func _on_shot_timer_timeout() -> void:
 # Função tocada quando o inimigo morre
 func Death():
 	# Essa função vai ser responsavel por lidar com a morte do inimigo
-	# - Desliga a detecção da area do colisão
-	%CollisionShape2D.queue_free()
-	# - Para a contagem para o proximo tiro
-	%ShotTimer.stop()
-	# - Dispara um sinal que atualiza a contagem de inimigos vivos e a pontuação
-	emit_signal("enemyDied", 10)
-	# - Dispara a animação de morte e as paticulas de destroços fogo e fumaça
-	z_index = 0
-	rotation += randf_range(-0.3, 0.3)
+	%CollisionShape2D.queue_free() # Remove o colisor do avião
+	%ShotTimer.stop() # Para a contagem para o proximo tiro
+	emit_signal("enemyDied", 10) # Emite o um sinal para sinalizar que o inimigo morreu
+	z_index = 0 # Desce a nave para uma
+	rotation += randf_range(-0.3, 0.3) # Gira levemente a nave
+	# Seleciona o ponto de partida das particulas
 	var smokePosition : Vector2 = [%SmokePositionMarker.position, %SmokePositionMarker2.position, %SmokePositionMarker3.position].pick_random()
-	%SmokeParticles2D.position = smokePosition
-	%EnemyShipAnimationPlayer.play("hit")
-	await %EnemyShipAnimationPlayer.animation_finished
-	queue_free()
+	%SmokeParticles2D.position = smokePosition # Coloca o position das particulas no ponto selecionado
+	%EnemyShipAnimationPlayer.play("hit") # Toca a animação de quando o inimigo toma dano
+	await %EnemyShipAnimationPlayer.animation_finished # Espera até a animação acabar
+	queue_free() # Limpa da memoria
 
 # Essa função vai inicializar o processo de geração do avião e avisar à frota que a nave está pronta
 # e pode ser registrada como um inimigo válido
@@ -121,6 +115,4 @@ func Initialize() -> void:
 			var shipIndex = randi_range(0, shipSprites.size() - 1) # Escolhe o index de um sprite da lista
 			selectedSprite = shipSprites[shipIndex] # Seleciona o Sprite daquele index
 			%ShipSprite.texture = load(shipSprites[shipIndex]) # Aplica a textura do sprites
-			emit_signal("enemyReady", self)
-	# else:
-		# print("Nave inativa por padrão")
+			emit_signal("enemyReady", self) # Emite um sinal para dizer que o avião está gerado e pronto para ser registrado

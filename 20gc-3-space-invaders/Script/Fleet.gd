@@ -19,24 +19,25 @@ var fleetPoints : int = 50
 
 # Função que toca no inicio 
 func _ready() -> void:
-	for row in get_children():
-		for enemy in row.get_children():
-			if enemy is Enemy:
-				enemy.enemyReady.connect(EnemyReady)
-				enemy.Initialize()
+	for row in get_children(): # Procura por linhas
+		for enemy in row.get_children(): # Procura por inimigos dentro de cada linha
+			if enemy is Enemy: # Se o inimigo for do tipo Enemy
+				enemy.enemyReady.connect(EnemyReady) # Conecta o sinal para receber a confirmação da nave
+				enemy.Initialize() # inicializa o inimigo
 	
+	# Seleciona com qual animação a frota vai entrar
 	%FleetAnimationPlayer.play(["Respawn3", "Respawn2", "Respawn1"].pick_random())
-	await %FleetAnimationPlayer.animation_finished
-	%FleetAnimationPlayer.play("BattleLoop")
+	await %FleetAnimationPlayer.animation_finished # Espera até a animação de introdução acabar
+	%FleetAnimationPlayer.play("BattleLoop") # Toca a animação do looping de batalha
 
 # Função que toca a todo frame
 func _process(delta: float) -> void:
-	# Atualiza o total de inimigos nessa frota e quantos inimigos já foram destruidos 
+	# Atualiza o total de inimigos nessa frota e quantos inimigos já foram destruidos
 	%totalLabel.text = "Total: {0} | Restantes: {1}".format([totalEnemies, enemiesAlive])
 
 # Função chamada quando um inimigo morre
 func EnemyDied(points):
-	print("Inimigo morto. + {0} pontos".format([points]))
+	# print("Inimigo morto. + {0} pontos".format([points]))
 	enemiesAlive -= 1 # Aumenta o valor de inimigos atual mortos em 1
 	get_parent().AddScore(points) # Altera a pontuação no script principal que controla isso
 	if enemiesAlive == 0: # Se o numero de inimigos vivos for menor ou igual a zero...
@@ -46,7 +47,7 @@ func EnemyDied(points):
 
 # Função chamada quando a nave avisa que está pronta
 func EnemyReady(emitter: Node):
-	print("Sinal recebido de: ", emitter)
+	# print("Sinal recebido de: ", emitter)
 	totalEnemies += 1 # Aumenta o numero de naves registradas
 	enemiesAlive += 1 # Aumenta o numero de naves vivas
 	print("Inimigo registrado. Total de inimigos: ", totalEnemies)

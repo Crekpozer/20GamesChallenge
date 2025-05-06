@@ -1,11 +1,6 @@
 extends Node2D
 # Esse script deve gerenciar as informações principais da partida
 #
-# Gameplay Esperado
-# O jogador chega do menu principal, ve a animação das naves e aperta os botões para atirar e se mover,
-# quando o jogador destruir toda a frota de naves inimigas o round acaba, há um curto intervalo para falar ao jogador
-# que um novo round vai começar e uma nova frota aparece.
-#
 # Esse script irá controlar 
 # - Pontuação do jogador
 # - Vidas do jogador
@@ -14,35 +9,23 @@ extends Node2D
 
 @export var fleetTemplate : PackedScene
 
-# Quando o mapa inicia há um apresentação e depois o jogo começa, quando o jogador destroi a frota
-# ha um pequeno intervalo, o sistema verifica se deve construir uma nova frota e uma nova frota é gerada.
-#
-# Se a vida do jogador chegar a 0 ou se a fase for concluida, uma tela de comemoração ou de gameover
-# aparecerá na tela
-
 # O jogo será baseados em rounds, quanto maior o round mais complexo o jogo fica
 # Vamos criar o sistema que gerenciará os numeros, o sistema terá uma estrutura de
 # replicavel caso queira criar novas fases.
-# Os numeros:
-# - Quantidade de rounds total dessa fase (3)
-# - Round Atual
-# - Atualização do valor na tela
+
 @export_category("GameRules")
-@export var totalRound : int
-@export var startRound : int = 0
+@export var totalRound : int # Total de rounds
+@export var startRound : int = 0 # Round inicial
 
-var actualRound : int = 0
+var actualRound : int = 0 # Round atual
 
-enum GameState {STARTGAME, GAMEPLAY, INTERVAL, ENDGAME}
-var actualGameState : GameState
+# Maquina de estados
+enum GameState {STARTGAME, GAMEPLAY, INTERVAL, ENDGAME} # Estados do jogo
+var actualGameState : GameState # Variavel que irá armazenar o estado atual do jogo
 
-var actualFleet
-var playerScore : int = 0
+var actualFleet # Tropa atual
+var playerScore : int = 0 # Pontuação atual 
 
-# Esse é o sistema de estatistica, ele coleta informações
-# durante a partida para mostrar no final.
-#
-# Esse script coleta:
 # - Tempo de jogo
 var gameTime
 # - Inimigos mortos
@@ -62,77 +45,81 @@ var highScore : int
 
 # Tempo
 var timeElapsed : float
+# Tempo formatado em String
 var timeElapsedString
 
+# Função todaca quando o script 
 func _ready() -> void:
-	actualGameState = GameState.STARTGAME
-	StartIntroduction()
+	actualGameState = GameState.STARTGAME # Configura o estado atual do jogo para GAMESTART
+	StartIntroduction() # Chama a função que toca a introdução
 	
 	# Configura o HUD para o contador de rounds
-	%ActualRoundValueLabel.text = str(startRound)
-	%TotalRoundsTextLabel.text = str(totalRound)
+	%ActualRoundValueLabel.text = str(startRound)  # Atualiza o valor do round atual na HUD para 0
+	%TotalRoundsTextLabel.text = str(totalRound) # Atualiza o valor total de rounds
 
+# Função executada a todo frame
 func _process(delta: float) -> void:
 	
+	# Checa se o estado do jogo é GAMEPLAY 
 	if actualGameState == GameState.GAMEPLAY:
-		timeElapsed += delta
-		var timeElapsedInSeconds : int = floor(timeElapsed)
-		var seconds: int = timeElapsedInSeconds % 60
-		var minutes: int = timeElapsedInSeconds / 60
-		timeElapsedString = "%02d:%02d" % [minutes, seconds]
+		timeElapsed += delta # Soma o intervalo entre os frames para uma nova variavel
+		var timeElapsedInSeconds : int = floor(timeElapsed) # Usa dessa varivel para contar os segundos
+		var seconds: int = timeElapsedInSeconds % 60 # Calcula os segundo
+		var minutes: int = timeElapsedInSeconds / 60 # Calcula os minutos
+		timeElapsedString = "%02d:%02d" % [minutes, seconds] # Monta a string para o HUD
 	
-	%ScoreValueLabel.text = str(playerScore)
-	%TotalTimeTextLabel.text = str(timeElapsedString) 
+	%ScoreValueLabel.text = str(playerScore) # Atualiza o valor da pontuação na tela
+	%TotalTimeTextLabel.text = str(timeElapsedString) # Atualiza o tempo na tela
 
+# Função que atualiza o valor da pontuação
 func AddScore(amount) -> void:
-	playerScore += amount * combo
-	combo += 1
-	%ComboValueLabel.text = str(combo)
-	print(combo)
-	
+	playerScore += amount * combo # Adiciona à pontuação o valor recebido multiplicado pelo combo
+	combo += 1 # Aumenta o valor do combo em 1
+	%ComboValueLabel.text = str(combo) # Atualiza o valor do combo na tela
+
+# Função que cria uma nova frota
 func AddFleet() -> void:
-	print("Nova frota")
-	actualFleet = null
-	actualFleet = fleetTemplate.instantiate()
-	actualFleet.position = %FleetMarker.position
-	actualFleet.fleetDestroyed.connect(PlayInterval)
-	add_child(actualFleet)
+	actualFleet = null # Limpa a variavel para receber uma frota nova
+	actualFleet = fleetTemplate.instantiate() # Instancia a nova frota
+	actualFleet.position = %FleetMarker.position # Ajusta a posição da frota baseado num Mark3D
+	actualFleet.fleetDestroyed.connect(PlayInterval) # Conecta a função para tocar o intervalo
+	add_child(actualFleet) # Coloca a nova frota no mapa
+	
+	%ActualRoundValueLabel.text = str(actualRound) # Atualiza o valor do round na tela
+	actualGameState = GameState.GAMEPLAY # Troca o jogo para o estado GAMEPLAY
 
-	%ActualRoundValueLabel.text = str(actualRound)
-	actualGameState = GameState.GAMEPLAY
-
+# Toca a introdução do jogo
 func StartIntroduction() -> void:
-	actualRound += 1
-	%RoundTextLabel.text = str(actualRound)
-	%MainAnimationPlayer.play("RoundIntroduction")
-	await %MainAnimationPlayer.animation_finished
-	AddFleet()
-	actualGameState = GameState.GAMEPLAY
-	# Essa função leva o estado do jogo de STARTGAME para GAMEPLAY
-	# Na introdução aparecerá um texto de introdução, os inimigos apareceram e o estado do jogo
-	# será mudada para GAMEPLAY
+	actualRound += 1 # Aumenta o round de 0 para 1
+	%RoundTextLabel.text = str(actualRound) # Atualiza o valor do round atual no HUD
+	%MainAnimationPlayer.play("RoundIntroduction") # Toca a introdução no AnimationPlayer
+	await %MainAnimationPlayer.animation_finished # Espera o sinal de que a animação acabou
+	AddFleet() # Adiciona uma frota
+	actualGameState = GameState.GAMEPLAY # Leva o estado do jogo de STARTGAME para GAMEPLAY
 
 # Função tocada quando a frota é destuida
 func PlayInterval() -> void:
-	actualRound += 1
-	%RoundTextLabel.text = str(actualRound)
-	actualGameState = GameState.INTERVAL
+	actualRound += 1 # Adiciona + 1 ao valor do round
+	%ActualRoundValueLabel.text = str(actualRound) # Atualiza o valor do round atual na faixa de intervalo
+	%RoundTextLabel.text = str(actualRound) # Atualiza o valor do round atual no HUD
+	actualGameState = GameState.INTERVAL # Troca o estado do jogo atual para INTERVAL
+	# Se o valor do round atual for maior que o total de rounds
 	if actualRound > totalRound:
-		EndGame()
-		return
+		EndGame() # Chama a função que finaliza o jogo
+		return # Finaliza a função
 	%MainAnimationPlayer.play("RoundIntroduction") # Toca a animação de transição
-	%ActualRoundValueLabel.text = str(actualRound)
-	await %MainAnimationPlayer.animation_finished
-	actualFleet.call_deferred("queue_free")
+	await %MainAnimationPlayer.animation_finished # Espera o sinal de que a animação terminou
+	actualFleet.call_deferred("queue_free") # Limpa a frota atual da memoria
 	AddFleet() # Cria a nova frota
 
+# Essa função é chamada quando a partida termina
 func EndGame() -> void:
-	actualGameState = GameState.ENDGAME
-	%YouWinAnimationPlayer.play("YouWin")
-	%TimeTextLabel.text = str(timeElapsedString)
-	%EnemiesKilledTextLabel.text = str(enemiesKilled)
-	var accuracy : float = (float(enemiesKilled) / float(shotsFired)) * 100
-	var accuracyString : String = "%.2f%%" % accuracy
-	%ShotsFiredTextLabel.text = str(shotsFired)
-	%PrecisionTextLabel.text = accuracyString
-	%ScoreTextLabel.text = str(playerScore)
+	actualGameState = GameState.ENDGAME # Troca o estado atual do game de GAMEPLAY para END 
+	%YouWinAnimationPlayer.play("YouWin") # Toca a animação de vitória
+	%TimeTextLabel.text = str(timeElapsedString) # Imprime o tempo da partida no painel de estatistica
+	%EnemiesKilledTextLabel.text = str(enemiesKilled) # Impreme o numero de inimigos derrotados no painel de estatistica
+	var accuracy : float = (float(enemiesKilled) / float(shotsFired)) * 100 # Calcula a porcentagem de acerto
+	var accuracyString : String = "%.2f%%" % accuracy # Cria o valor em string
+	%ShotsFiredTextLabel.text = str(shotsFired) # Imprime quantos tiros foram dados pelo jogador
+	%PrecisionTextLabel.text = accuracyString # Imprime a porcentagem dos acertos no painel de estatistica
+	%ScoreTextLabel.text = str(playerScore) # Imprime a pontuação na painel de estatistica
